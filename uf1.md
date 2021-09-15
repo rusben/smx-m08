@@ -253,3 +253,376 @@ Per últim reiniciem el servidor Apache:
 ```console
 user@school:~$ /etc/init.d/apache2 restart
 ```
+
+## Host
+
+El host és l'adreça IP o nom DNS del servidor.
+
+Configurarem el servidor web per a que mostri dues pàgines diferents en funció del Host que se li indiqui en la petició:
+
+Crearem dues carpetes (```aaa.com``` i ```bbb.com```), i en cadascuna d'elles posarem una web diferent.
+
+```console
+user@school:~$ mkdir /var/www/html/aaa.com
+user@school:~$ mkdir /var/www/html/bbb.com
+user@school:~$ echo "<h1>welcome to aaa.com</h1>" > /var/www/html/aaa.com/index.html
+user@school:~$ echo "<h1>welcome to bbb.com</h1>" > /var/www/html/bbb.com/index.html
+```
+
+Canviem la configuració d'Apache per a que busqui els recursos que se li sol·licitin en una carpeta o l'altra en funció del Host (ServerName) que s'indiqui a la petició http:
+
+```console
+user@school:~$ /etc/apache2/sites-enabled/000-default
+
+<VirtualHost *:80>
+    ServerName aaa.com
+    DocumentRoot /var/www/html/aaa.com
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName bbb.com
+    DocumentRoot /var/www/html/bbb.com
+</VirtualHost>
+```
+Realitzem dues peticions als diferents noms de `host`:
+
+```console
+user@school:~$ printf 'GET /index.html HTTP/1.0\r\nHost aaa.com\r\n\r\n' | nc {IP_CONTENIDOR} 80
+user@school:~$ printf 'GET /index.html HTTP/1.0\r\nHost bbb.com\r\n\r\n' | nc {IP_CONTENIDOR} 80
+```
+
+Observa que segons el `Host` indicat a la petició, es retorna una web o l'altra.
+
+## Port
+
+Configurem Apache per a permetre conexions al port 8080:
+
+```console
+user@school:~$ nano /etc/apache2/ports.conf
+```
+
+```console
+Listen 80
+Listen 8080
+
+# resta de lines
+# ...
+```
+
+Servim dues pàgines diferents en funcio del port de conexió:
+
+```console
+user@school:~$ nano /etc/apache2/sites-enabled/000-default
+```
+
+```console
+<VirtualHost *:80>
+    DocumentRoot /var/www/html/aaa.com
+</VirtualHost>
+
+<VirtualHost *:8080>
+    DocumentRoot /var/www/html/bbb.com
+</VirtualHost>
+```
+
+Accedim a `http://ip_contenidor:80`
+
+Accedim a `http://ip_contenidor:8080`
+
+## Path
+
+Si no s'especifica cap arxiu en el path, per defecte, el servidor apache servirà l'arixu index.html, i si aquest arxiu no existeix, servirà una pàgina que llistarà els arxius del directori:
+
+Anem a crear diversos arxius al directory `/var/www/html`:
+
+```console
+user@school:~$ echo "<h1>Home page</h1>" > /var/www/html/index.html
+user@school:~$ echo "<h1>Pagina xxx </h1>" > /var/www/html/xxx.html
+user@school:~$ echo "<h1>Pagina yyy </h1>" > /var/www/html/yyy.html
+user@school:~$ echo "<h1>Pagina zzz </h1>" > /var/www/html/zzz.html
+```
+
+Comprovem que tenim aquests arxius a `/var/www/html`:
+
+```console
+user@school:~$ ls /var/www/html
+index.html   xxx.html   yyy.html   zzz.html
+```
+
+Si ara fem una petició al servidor sense indicar cap arxiu `http://10.2.4.1` el servidor ens enviarà l'arxiu index.html
+
+Si especifiquem algun arxiu a la petició (e.g. `http://10.2.4.1/xxx.html`) Apache ens servirà aquest arxiu.
+
+Si l'arxiu que posem a la url (e.g. `http://10.2.4.1/opq.html`) no existeix, apache ens servirà una pàgina **"Not Found"**
+
+Per últim, esborrem l'arxiu index.html:
+
+```console
+user@school:~$ rm /var/www/html/index.html
+```
+
+... i comprovem que Apache ens mostra un pàgina amb la llista d'arxius del directori, quan no especifiquem cap arxiu a la url `http://10.2.4.1/` i no hi ha un `index.html`:
+
+![Server file list](img/filelist.png)
+
+Al path de la url també es poden especificar els directoris on es troba l'arxiu que se solicita. Apache buscarà aquest arxius a partir del DocumentRoot.
+
+Per exemple, si el `DocumentRoot` és `/var/www/html`, i fem aquesta petició: `http://10.2.4.1/aaa/bbb/mmm.html`, Apache buscarà aquest arxiu `/var/www/html/aaa/bbb/mmm.html`. Comprovem-ho:
+
+```console
+user@school:~$ mkdir -p /var/www/html/aaa/bbb/
+user@school:~$ echo "<h1>Pagina mmm </h1>" > /var/www/html/aaa/bbb/mmm.html
+```
+
+Comprova que s'accedeix al recurs `mmm.html` amb aquesta URL `http://10.2.4.1/aaa/bbb/mmm.html`.
+
+Ara anem a canviar el `DocumentRoot`, i farem que sigui `/var/www/html/aaa/`:
+
+```console
+user@school:~$ nano /etc/apache2/sites-enabled/000-default
+```
+```
+<VirtualHost *:80>
+    DocumentRoot /var/www/html/aaa
+</VirtualHost>
+```
+
+Reiniciem el servidor:
+
+```console
+user@school:~$ /etc/init.d/apache2 restart
+```
+
+Ara, per a accedir al recurs `mmm.html`, la URL que cal posar és `http://10.2.4.1/bbb/mmm.html`.
+
+## Query
+
+La query serveix per a passar dades extra al recurs que s'està solicitant.
+
+Veiem un exmple:
+
+En aquesta url https://www.google.com/search?q=animals, estem passant al recurs search la dada extra `q=animals`. Aquest recurs ja sabrà que fer amb aquesta dada extra. Si li passem una query que el recurs no sap processar, normalment la ignorarà: https://www.google.com/search?jajaja=jejeje.
+
+Anem a fer al nostre contenidor un recurs que accepti una query amb dades extra i faci alguna cosa amb aquestes dades.
+
+Abans anem a ressetejar la configuració d'Apache, ja que abans l'hem deixat una mica trastocada. Tornarem a posar el DocumentRoot al seu lloc habitual.
+
+```console
+user@school:~$ printf "<VirtualHost *:80>\n\tDocumentRoot /var/www/html\n</VirtualHost>" > /etc/apache2/sites-enabled/000-default.conf
+user@school:~$ /etc/init.d/apache2 restart
+```
+
+Primer hem de comprendre que el recurs no pot ser una pàgina `HTML`, ja que el llenguatge HTML només és per a definir el contingut de la pàgina. És a dir, amb HTML no podem accedir a les dades de la `query`.
+
+Un llenguatge que sí pot obtenir les dades de la query i fer alguna cosa amb aquestes dades es `PHP`. Anem a veure uns exemples simples amb el que es pot fer amb PHP.
+
+Primer l'instal·lem:
+
+```console
+user@school:~$ apt install -y php
+```
+
+Crearem un senzill script php que ens permetrà executar comandes al servidor a través del navegador web.
+
+![Web Bash](img/webash.png)
+
+Anomenarem aquest recurs WEBASH (web + bash):
+
+```console
+user@school:~$ nano /var/www/html/webash.php
+```
+
+Afegim el següent codi a l'arxiu webash.php:
+
+```console
+<?php
+echo "<style> body { font-family: Consolas, monospace; }</style>";
+echo "<span style='font-size: 2em;'>webash/</span>";
+echo "<span>web&bash</span>";
+?>
+```
+
+Si accedim al recurs http://10.2.4.164/webash.php veurem la pàgina generada per l'script `webash.php`:
+
+![Web Bash](img/webash2.png)
+
+Fixa't que el que fa l'script `php` és generar codi HTML amb els `echo`. Apache executa l'script i retorna al navegador tot el que ha mostrar l'script amb els `echo`.
+
+Per a generar codi html posarem `echo`, el codi html entre cometes `""`  i punt-i-coma `;`:
+
+```console
+echo "codi html";
+```
+
+Tot el codi PHP que escrivim ha d'anar dintre de les etiquetes
+`<?php` i `?>`:
+
+```console
+<?php
+
+// codi PHP
+
+?>
+```
+
+De moment, el nostre codi `PHP` sempre mostra el mateix contingut, independentment de la `query` que li passem. És a dir, posis les dades que posis a la query, l'script les ignorarà. Per exemple: `http://10.2.4.164/webash.php?comanda=pstree`, o `http://10.2.4.164/webash.php?hola=quetal`.
+
+Anem a modificar l'script per que agafi una dada de la `query` i faci alguna cosa:
+
+Afegim aquestes línies de codi a l'arxiu `webash.php`:
+
+```console
+user@school:~$ nano /var/www/html/webash.php
+```
+
+```console
+<?php
+echo "<style> body { font-family: Consolas, monospace; }</style>";
+echo "<span style='font-size: 2em;'>webash/</span>";
+echo "<span>web&bash</span>";
+
+echo "<h1>Hola ";
+echo $_GET['usuari'];
+echo "</h1>";
+?>
+```
+
+Ara posem la query usuari=gerard a la url: `http://10.2.4.164/webash.php?usuari=gerard`. L'script php genera aquesta web:
+
+![Web Bash](img/webash3.png)
+
+Amb el codi `$_GET['usuari']` de la línia 7, hem obtingut el valor de la dada `usuari` de la query, i l'hem utilitzat per a generar el contingut de l'etiqueta `<h1>`.
+
+Si fas la query amb un altre valor per a la dada `usuari`, l'script generarà un altre codi html que inclourà aquest valor.
+
+Per contra, si canvies la paraula `usuari` per una altra cosa, l'script ignorarà la dada.
+
+Quan introduïm alguna cosa en el camp de text, per exemple `hola` i li donem al botó `Executar`
+
+Avançarem amb el webash, i ara farem que se li passi una dada anomenada `comanda`. L'script agafarà el valor d'aquesta dada i l'executarà al sistema operatiu.
+
+```console
+user@school:~$ nano /var/www/html/webash.php
+```
+
+```console
+<?php
+echo "<style> body { font-family: Consolas, monospace; }</style>";
+echo "<span style='font-size: 2em;'>webash/</span>";
+echo "<span>web&bash</span>";
+
+system($_GET['comanda']);
+?>
+```
+
+Ara l'script agafarà el valor de la dada anomenada `comanda` i l'executarà. Per exemple podem executar la `pstree` així: `http://10.2.4.164/webash.php?comanda=pstree`:
+
+![Web Bash](img/webash4.png)
+
+La funció `system` executa el que se li posi entre els parèntesi, i el resultat de la comanda, s'inclou a la pàgina generada.
+
+El que està executant aleshores la funció `system` és el valor de la dada `comanda` de la query. Prova a posar aquesta url `http://10.2.4.164/webash.php?comanda=cal` o qualsevol altra comanda a la query.
+
+Seguirem ara donant un mica d'estil a les dades generades per `system`, ja que queden totes seguides i sense format. Posarem tot el que genera el `system` dintre d'un element `<pre>`. Li posarem també una mica d'estil CSS al `<pre>`.
+
+```console
+user@school:~$ nano /var/www/html/webash.php
+```
+
+```console
+<?php
+echo "<style> body { font-family: Consolas, monospace; }</style>";
+echo "<span style='font-size: 2em;'>webash/</span>";
+echo "<span>web&bash</span>";
+
+echo "<pre style='width: 80ch; padding: 2ch; overflow: auto; color: white; background: #300A24;'>";
+system($_GET['comanda']);
+echo "</pre>";
+?>
+```
+
+Provem a veure com queda `http://10.2.4.164/webash.php?comanda=df -h`
+
+![Web Bash](img/webash5.png)
+
+Per últim, afegirem a webash una forma més còmoda de realitzar comandes, que no sigui posant-les a la url. Afegirem un formulari amb un camp de text i un botó:
+
+```console
+user@school:~$ nano /var/www/html/webash.php
+```
+
+```console
+<?php
+echo "<style> body { font-family: Consolas, monospace; }</style>";
+echo "<span style='font-size: 2em;'>webash/</span>";
+echo "<span>web&bash</span>";
+
+echo "<form>";
+echo "<input name='comanda'>";
+echo "<input type='submit' value='Executar'>";
+echo "</form>";
+
+echo "<pre style='width: 80ch; padding: 2ch; overflow: auto; color: white; background: #300A24;'>";
+system($_GET['comanda']);
+echo "</pre>";
+?>
+```
+
+Ara ens serà més còmode executar una comanda:
+
+![Web Bash](img/webash6.png)
+
+Quan es premi el botó Executar, automàticament el navegador web agafarà els camps del `<form>` i els afegirà a la query de la petició. Anomenarà les dades de la query segons l'atribut `name` dels `<input>` i el valor serà el que s'hagi escrit en ells. Prova a executar algunes comandes!
+
+Acabarem fent un algunes de consideracions.
+
+La primera és que si tractes de fer una comanda invàlida, no veuràs cap error, ja que la funció `system`, només mostra les dades de la sortida estàndard (STDOUT). Si volem veure també les dades que es mostren a la sortida d'errors (STDERR), podem redirigir-ho amb `exec 2>&1`. Canvia la línia indicada:
+
+
+```console
+user@school:~$ nano /var/www/html/webash.php
+```
+
+```console
+<?php
+echo "<style> body { font-family: Consolas, monospace; }</style>";
+echo "<span style='font-size: 2em;'>webash/</span>";
+echo "<span>web&bash</span>";
+
+echo "<form>";
+echo "<input name='comanda'>";
+echo "<input type='submit' value='Executar'>";
+echo "</form>";
+
+echo "<pre style='width: 80ch; padding: 2ch; overflow: auto; color: white; background: #300A24;'>";
+system("exec 2>&1 && " . $_GET['comanda']);
+echo "</pre>";
+?>
+```
+
+Ara prova a executar qualsevol comanda que generi errors i sí es mostraran:
+
+![Web Bash](img/webash7.png)
+
+La segona consideració és que les comandes s'executen amb els permisos de l'usuari `www-data`, i això significa que només podran fer allò que l'usuari `www-data` tingui permès fer. Per exemple:
+
+![Web Bash](img/webash8.png)
+
+L'ultima consideració és que el directori de treball és on es troba l'arxiu `webash.php`, així que totes les rutes que hi hagi a les comandes són relatives a aquest directori:
+
+![Web Bash](img/webash9.png)
+
+## Fragment
+
+El `fragment` serveix per a fer que el navegador posicioni la pàgina en una secció determinada. Aquesta part de la url no arriba al servidor, és el navegador el qui ha de saber com gestionar el `fragment`.
+
+Veiem un exmple:
+
+Generem un arxiu html extens amb 5 seccions `(id=sX)` i 30 paràrafs en cada secció:
+
+```console
+user@school:~$ for i in {1..5}; do printf "<h1 id='s$i'>Seccio $i</h1>; for j in {1..30}; do printf "<p>seccio $i, paràgraf $j</p>"; done; done > /var/www/html/llarg.html
+```
+Prova a navegar directament a alguna de les seccions del document.
+
+Per a definir una secció en un document hem d'afegir l'atribut `id` a l'element que desitjem. Per a navegar directament a una secció, només cal afegir un `#` seguit del valor del seu atribut `id`.
