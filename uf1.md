@@ -629,3 +629,132 @@ user@school:~$ for i in {1..5}; do printf "<h1 id='s$i'>Seccio $i</h1>; for j in
 Prova a navegar directament a alguna de les seccions del document.
 
 Per a definir una secció en un document hem d'afegir l'atribut `id` a l'element que desitjem. Per a navegar directament a una secció, només cal afegir un `#` seguit del valor del seu atribut `id`.
+
+
+# Servidor web
+
+El servidor web és un software que respon a les peticions dels clients en la `WWW`. Un servidor web pot tenir un o més llocs web.
+
+Hi ha una àmplia varitat de software que s'utilitza com a servidor web. Els que més quota de mercat tenen actualment són: `Apache (44.3%)` i `nginx (41%)`.
+
+## Respondre a peticions HTTP (servir recursos)
+
+La tasca principal d'un servidor web és respondre a les peticions HTTP amb els recursos solicitats.
+
+Els recursos que entrega el servidor web als clients són freqüentment fitxers amb codi HTML, codi CSS i codi Javascript. També pot enviar altres tipos de recursos com imatges, videos i arxius de tot tipus.
+
+![Resposta del servidor web](img/servidorweb_response.png)
+
+Veiem un exemple. Descarrega aquest [vídeo de Tim Berners-Lee](https://upload.wikimedia.org/wikipedia/commons/7/7b/What_is_the_future_of_the_internet-_-_Tim_Berners_Lee.webm) al directori `/var/www/html` del servidor:
+
+```console
+user@school:~$ wget -O /var/www/html/tim.webm https://upload.wikimedia.org/wikipedia/commons/7/7b/What_is_the_future_of_the_internet-_-_Tim_Berners_Lee.webm
+```
+
+Utilitza el client Firefox per a fer una petició d'aquest recurs al servidor: `http://10.2.4.100/tim.webm`.
+
+## Estàtic vs Dinàmic
+
+Un servidor web pot servir contingut estàtic o dinàmic:
+
+* Estàtic es refereix a que el servidor envia el recurs solicitat tal qual, sense processar-lo.
+
+* Dinàmic es refereix a que el servidor per a respondre a una solicitud executa un script que genera el recurs, de forma que el recurs pot ser diferent en cada execució. Els scripts que generen recursos poden estar escrits en molts llenguatges de programació com PHP, Python, Java, JavaScript, ASP, i un llarg etcètera.
+
+![Estàtic vs. dinàmic](img/servidorwebdinamic.png)
+
+### Veiem un exemple: Serverdate
+
+Crea aquest arxiu al servidor:
+
+```console
+user@school:~$ nano /var/www/html/serverdate.html
+```
+
+```console
+<!DOCTYPE html>
+<p>La data del servidor es: Tue Oct 20 10:13:08 UTC 2020</p>
+```
+
+Navega a `http://10.2.1.24/serverdate.html`
+
+El recurs `serverdate.html` és un recurs estàtic. El servidor web el servirà tal qual, per això encara que recarregis la pàgina, la data/hora no canviarà.
+
+Provem a fer un continugt dinàmic:
+
+Instal·la php al servidor:
+
+```console
+user@school:~$ apt install -y php
+```
+
+Escriu aquest script PHP:
+```console
+user@school:~$ nano /var/www/html/serverdate.php
+```
+```console
+<?php
+echo "<p>La data del servidor es: ";
+system(date);
+echo "</p>";
+?>
+```
+
+Ara, cada vegada que navegues al recurs `http://10.1.2.23/serverdate.php` el servidor web executa l'script i envia al client el recurs resultant. La comanda `system(date)` obté l'hora actual del servidor, per tant cada vegada que recarreguis la pàgina, obtindràs l'hora actual.
+
+
+## Base de dades
+
+La majoria d'aplicacions web utilitzen una base de dades per a emmagatzemar la informació que han de mostrar. Els scripts poden guardar i obtenir la informació d'elles (com per exemple, les publicacions que fan els usuaris a una xarxa social).
+
+![PHP and DataBase](img/phpdb.png)
+
+Farem una aplicació web anomenada TheWall on els visitants podran escriure una firma, i totes les firmes que es vagin posant es mostraran a la pàgina.
+
+Instal·la el gestor de bases de dades MySQL:
+
+```console
+user@school:~$ apt install -y mysql-server
+```
+
+Crearem una base de dades per a la app TheWall:
+
+```console
+mysql -e "CREATE DATABASE thewalldb"
+```
+Ara crearem un usuari per a administrar aquesta base de dades:
+
+```console
+mysql -e "CREATE USER 'thewalldbadmin'@'localhost' IDENTIFIED BY 'password'"
+```
+
+Li donem privilegis a l'usuari thewalldbadmin per a administrar la base de dades thewalldb:
+
+```console
+mysql -e "GRANT ALL PRIVILEGES ON thewalldb.* TO 'thewalldbadmin'@'localhost'; FLUSH PRIVILEGES;"
+```
+
+El més habitual és que les bases de dades emmagatzemin la informació en taules. Per a la nostra app crearem una taula firmes on es s'aniran guardant les firmes dels visitants.
+
+Aquesta taula només tindrà un camp que contindrà una firma.
+
+```console
+mysql -e "CREATE TABLE thewalldb.firmes(firma TEXT)"
+```
+
+Insertarem unes quantes firmes de mostra a la taula firmes:
+
+```console
+mysql -e "INSERT INTO thewalldb.firmes VALUES('hola que tal')"
+mysql -e "INSERT INTO thewalldb.firmes VALUES('pasaba por aqui')"
+mysql -e "INSERT INTO thewalldb.firmes VALUES('jajajaaajaaa')"
+mysql -e "INSERT INTO thewalldb.firmes VALUES('que hay que poner aqui?')"
+```
+
+Podem veure que les firmes s'han introduït a la taula firmes així:
+
+```console
+mysql -e "SELECT * FROM thewalldb.firmes"
+```
+
+![SELECT * FROM firmes](img/select-firmes.png)
