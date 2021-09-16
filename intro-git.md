@@ -1,17 +1,20 @@
 # Introducció
 
-## Registre a gitlab
+## Registre a github
 
-## Creació d'un repositori a gitlab
+## Creació d'un repositori a github
 
 ## Clonar el repositori a la nostra màquina
 
 Exemple de clonació.
- $ git clone https://github.com/rusben/my-first-webpage.git
+```console
+user@school:~$ git clone https://github.com/rusben/my-first-webpage.git
+```
 
 ## Comprovar l'estat del nostre repositori
 
- $ '''git status'''
+```console
+user@school:~$ git status
  En la branca master
  La vostra branca està al dia amb 'origin/master'.
  Fitxers no seguits:
@@ -20,14 +23,20 @@ Exemple de clonació.
      style.css
 
  no hi ha res afegit a cometre però fitxers no seguits estan presents (useu "git add" per a seguir-los)
-
+```
 
 ## Afegir fitxers al nostre repositori
 Per incloure tots els fitxers que tenim en color vermell (no seguits o modificats) farem:
- $ '''git add .'''
+
+```console
+user@school:~$ git add .
+```
 
 Si volem afegir un únic fitxer fariem, git add i el nom del fitxer:
- $ '''git add mypage.css'''
+
+```console
+user@school:~$ git add mypage.css
+```
 
 
 ## Guardar un registre dels canvis
