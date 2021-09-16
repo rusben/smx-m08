@@ -1,5 +1,8 @@
 # UF1 - Ofimàtica i eines web
 
+## Introducció a git
+[Comandes bàsiques amb git](intro-git.md)
+
 ## Introducció
 Una aplicació web és una aplicació a la qual accedim mitjançant protocol HTTP utilitzant un navegador web. Hem vist el protocol HTTP, però no com utilitzar-lo per implementar una aplicació.
 
