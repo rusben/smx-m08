@@ -1,0 +1,40 @@
+# Introdu als contenidors lxc/lxd
+
+LXD és un gestor de contenidors de sistemes de nova generació. Ofereix una experiència d'usuari similar a les màquines virtuals, però utilitza contenidors Linux.
+
+## Creació d'un contenidor
+
+ lxc launch ubuntu:20.04 elmeucontenidor
+
+## Llistar els contenidors del sistema
+
+ lxc list
+
+ +-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
+ |     NAME        |  STATE  |         IPV4         |                     IPV6                      |   TYPE    | SNAPSHOTS |
+ +-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
+ | elmeucontenidor | RUNNING | 10.160.100.98 (eth0) | fd42:5550:ddc5:fbe2:216:3eff:fe81:713d (eth0) | CONTAINER | 0         |
+ +-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
+
+## Executa un contenidor
+
+ lxc exec elmeucontenidor -- /bin/bash
+
+= Atura un contenidor =
+
+ lxc stop elmeucontenidor
+
+ lxc list
+
+ +-----------------+---------+------+------+-----------+-----------+
+ |     NAME        |  STATE  | IPV4 | IPV6 |   TYPE    | SNAPSHOTS |
+ +-----------------+---------+------+------+-----------+-----------+
+ | elmeucontenidor | STOPPED |      |      | CONTAINER | 0         |
+ +-----------------+---------+------+------+-----------+-----------+
+
+= Elimina un contenidor =
+
+ lxc delete elmeucontenidor
+
+= Més informació =
+https://elpuig.xeill.net/Members/vcarceler/articulos/contenedores-con-lxd-lxc/index_html

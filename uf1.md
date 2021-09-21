@@ -3,6 +3,8 @@
 ## Introducció a git
 [Comandes bàsiques amb git](intro-git.md)
 
+[Introducció als contenidors lxc/lxd](introduccio-contenidos-lxc-lxd.md)
+
 ## Introducció
 Una aplicació web és una aplicació a la qual accedim mitjançant protocol HTTP utilitzant un navegador web. Hem vist el protocol HTTP, però no com utilitzar-lo per implementar una aplicació.
 
