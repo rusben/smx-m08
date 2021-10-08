@@ -7,6 +7,9 @@ El client es pot estar executant en un equip portàtil, i el servidor és el pro
 Els dos components d'una aplicació web solen denominar-se frontend i backend. El frontend és executat en un navegador web al costat del client; i el backend s'executa en el costat de servidor.
 
 
+![PHP and DataBase](img/client-servidor.png)
+
+
 ## Aplicacions en el costat del servidor
 
 A la banda de servidor, hem d'aconseguir que el nostre servidor HTTP sigui capaç d'executar programes d'aplicació que recullin els paràmetres de peticions de client, els processin i tornin a el servidor un document que aquest passarà al seu torn a client.
