@@ -7,7 +7,7 @@ El client es pot estar executant en un equip portàtil, i el servidor és el pro
 Els dos components d'una aplicació web solen denominar-se frontend i backend. El frontend és executat en un navegador web al costat del client; i el backend s'executa en el costat de servidor.
 
 
-![Paradigma client/servidor](img/client-servidor.png)
+![Paradigma client/servidor](img/client-servidor.jpg)
 
 
 ## Aplicacions en el costat del servidor
