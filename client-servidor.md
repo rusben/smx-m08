@@ -9,7 +9,6 @@ Els dos components d'una aplicació web solen denominar-se frontend i backend. E
 
 ![Paradigma client/servidor](img/client-servidor.jpg)
 
-
 ## Aplicacions en el costat del servidor
 
 A la banda de servidor, hem d'aconseguir que el nostre servidor HTTP sigui capaç d'executar programes d'aplicació que recullin els paràmetres de peticions de client, els processin i tornin a el servidor un document que aquest passarà al seu torn a client.
