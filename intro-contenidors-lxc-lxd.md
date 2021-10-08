@@ -1,4 +1,4 @@
-# Introdu als contenidors lxc/lxd
+# Introducció als contenidors lxc/lxd
 
 LXD és un gestor de contenidors de sistemes de nova generació. Ofereix una experiència d'usuari similar a les màquines virtuals, però utilitza contenidors Linux.
 
