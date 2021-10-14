@@ -4,6 +4,11 @@
 lxc launch ubuntu:20.04 elmeucontenidor
 ```
 
+## Engegar el contenidor (si està aturat)
+```console
+lxc start elmeucontenidor
+```
+
 ## Executar el contenidor
 ```console
 lxc exec elmeucontenidor bash

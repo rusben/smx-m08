@@ -7,6 +7,11 @@ LXD és un gestor de contenidors de sistemes de nova generació. Ofereix una exp
  lxc launch ubuntu:20.04 elmeucontenidor
 ```
 
+## Obrir un contenidor previament creat i que està parat
+```console
+ lxc start elmeucontenidor
+```
+
 ## Llistar els contenidors del sistema
 ```console
 lxc list
