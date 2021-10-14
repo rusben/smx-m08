@@ -10,3 +10,5 @@ Una aplicació web és una aplicació a la qual accedim mitjançant protocol HTT
 3. [Comandes bàsiques amb git](intro-git.md)
 
 4. [Introducció als contenidors lxc/lxd](intro-contenidors-lxc-lxd.md)
+
+5. [Instal·lació d'aplicacions web](installacio-aplicacions-web.md)
