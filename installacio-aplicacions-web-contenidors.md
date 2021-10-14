@@ -19,7 +19,7 @@ Com exportar i importar un contenidor
 
 https://serverfault.com/questions/759170/copy-lxd-containers-between-hosts
 
-## Instal·lar apache2, mysql i algunes llibreries al contenidor '''root@elmeucontenidor'''
+## Instal·lar apache2, mysql i algunes llibreries al contenidor 
 
 ```console
  apt update
