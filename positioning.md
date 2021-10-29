@@ -32,7 +32,7 @@ Fixa't que he posat un `id` a el segon `div` i l'he anomenat mogut. Li estic int
 
 Mitjançant aquest valor podem posicionar un element respecte a el flux normal de la pàgina. Es podria dir que estem posicionant un element prenent com a referència el flux normal (la posició per defecte) d'aquest element.
 
-Podrem utilitzar `top | left | right | bottom` per posicionar el nostre element prenent com a referència la posició per defecte de l'element. En aquest cas, vaig a aplicar-li la propietat left: 100px de l'exemple anterior i el `div` mogut es desplaçarà 100 píxels a la dreta des de la seva posició per defecte.
+Podrem utilitzar `top | left | right | bottom` per posicionar el nostre element prenent com a referència la posició per defecte de l'element. En aquest cas, vaig a aplicar-li la propietat `left`: 100px de l'exemple anterior i el `div` mogut es desplaçarà 100 píxels a la dreta des de la seva posició per defecte.
 
 ```css
 .vermell {
@@ -48,13 +48,12 @@ Podrem utilitzar `top | left | right | bottom` per posicionar el nostre element 
 }
 ```
 ```html
-<div class = "vermell"> </ div>
-<div id = "mogut" class = "vermell"> </ div>
-<div class = "vermell"> </ div>
+<div class="vermell"> </div>
+<div id="mogut" class="vermell"> </div>
+<div class="vermell"> </div>
 ```
 
 ## position: absolute
-
 
 Aquest valor també acceptarà els valors `top, left, right i bottom`. L'element amb `position: absolute` no estarà dins el flux normal de la pàgina i prendrà com a referència la finestra de el navegador o l'element posicionat (que tingui qualsevol valor de `position` excepte `static`) més proper si és pare de l'element que volem posicionar.
 A continuació et mostro un exemple de cadascun:
@@ -80,9 +79,9 @@ Pots observar que el `div` `mogut`, al no estar dins de l'flux normal de la pàg
 }
 ```
 ```html
-<div class="vermell"> </ div>
-<div id="mogut" class = "vermell"> </ div>
-<div class ="vermell"> </ div>
+<div class="vermell"> </div>
+<div id="mogut" class="vermell"> </div>
+<div class="vermell"> </div>
 ```
 
 ### Exemple prenent com a referència l'element pare amb position: relative més proper
@@ -101,7 +100,7 @@ En aquest cas, he utilitzat el mateix CSS per al `div` amb `id="mogut"` que en l
   position: relative;
 }
 
-#movido {
+#mogut {
   position: absolute;
   top: 40px;
   left: 50px;
@@ -109,8 +108,8 @@ En aquest cas, he utilitzat el mateix CSS per al `div` amb `id="mogut"` que en l
 ```
 ```html
 <div class="vermell"> </div>
-<div id="relatiu" class = "vermell">
-  <div id="mogut" class = "vermell"> </div>
+<div id="relatiu" class="vermell">
+  <div id="mogut" class="vermell"> </div>
 </div>
 ```
 
@@ -130,7 +129,7 @@ Com una imatge val més que mil paraules i prenent com a referència l'últim ex
   border: 2px green solid;
 }
 
-#primerDiv {
+#primer {
   height: 2000px
 }
 
@@ -145,13 +144,13 @@ Com una imatge val més que mil paraules i prenent com a referència l'últim ex
 }
 ```
 ```html
-<div id="primerDiv" class="vermell"> </div>
+<div id="primer" class="vermell"> </div>
 <div id="relatiu" class="vermell">
   <div id="mogut" class="vermell"> </div>
 </div>
 ```
 
-Com pots observar, el `div` `mogut` està posicionat amb `position: fixed` respecte a la finestra de el navegador independentment que estigui contingut en un element amb `position: relative` o que es realitzi un scroll sobre la pàgina.
+Com pots observar, el `div` `mogut` està posicionat amb `position: fixed` respecte a la finestra de el navegador independentment que estigui contingut en un element amb `position: relative` o que es realitzi un `scroll` sobre la pàgina.
 
 ## position: inherit
 
@@ -159,7 +158,7 @@ Realment la propietat `position` amb el valor `inherit` actua de la mateixa mane
 
 ## position: initial
 
-Igual que amb el valor anterior, actua de la mateixa manera que la resta de propietats que poden obtenir aquest valor, en aquest cas fent que la propietat position prengui el seu valor per defecte, de manera que, usant `position: initial`, seria el mateix que indicar `position: static`.
+Igual que amb el valor anterior, actua de la mateixa manera que la resta de propietats que poden obtenir aquest valor, en aquest cas fent que la propietat `position` prengui el seu valor per defecte, de manera que, usant `position: initial`, seria el mateix que indicar `position: static`.
 
 ## position: sticky
 
@@ -187,10 +186,10 @@ Una cosa així:
 + ---------------------------------------------- +
 ```
 
-I volem que quan al fer scroll i el menú ja no càpiga a la pantalla (és a dir, el valor de la propietat top sigui menor que 0), el menú quedi fix a la part superior de la pantalla.
+I volem que quan al fer `scroll` i el menú ja no càpiga a la pantalla (és a dir, el valor de la propietat top sigui menor que 0), el menú quedi fix a la part superior de la pantalla.
 
 Una cosa així:
-
+```console
 + ---------------------------------------------- +
 | MENÚ FIX                                       |
 + ---------------------------------------------- +
@@ -201,6 +200,7 @@ Una cosa així:
 |                                                |
 |                                                |
 + ---------------------------------------------- +
+```
 
 Per a això emprarem el valor `sticky` ja que ens farà la feina sense necessitat d'usar `Javascript`.
 
@@ -235,7 +235,7 @@ En aquest exemple podeu fer scroll cap amunt i cap avall per veure que el `div` 
    top: 0;
    height: 100px;
    width: 100%;
-   background-color: xarxa;
+   background-color: red;
 }
 
 #contenido {
