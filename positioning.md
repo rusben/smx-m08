@@ -55,9 +55,9 @@ Podrem utilitzar `top | left | right | bottom` per posicionar el nostre element 
 
 ## position: absolute
 
-Aquest valor també acceptarà els valors top, left, right i bottom. L'element amb position: absolute no estarà dins el flux normal de la pàgina i prendrà com a referència la finestra de el navegador o l'element posicionat (que tingui qualsevol valor de position excepte static) més proper si és pare de l'element que volem posicionar.
 
-A continuació et mostro un exemple de cada un:
+Aquest valor també acceptarà els valors `top, left, right i bottom`. L'element amb `position: absolute` no estarà dins el flux normal de la pàgina i prendrà com a referència la finestra de el navegador o l'element posicionat (que tingui qualsevol valor de `position` excepte `static`) més proper si és pare de l'element que volem posicionar.
+A continuació et mostro un exemple de cadascun:
 
 ### Exemple prenent com a referència la finestra del navegador
 
@@ -73,7 +73,7 @@ Pots observar que el `div` `mogut`, al no estar dins de l'flux normal de la pàg
   border: 2px green solid;
 }
 
-#movido {
+#mogut {
   position: absolute;
   top: 40px;
   left: 50px;
