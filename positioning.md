@@ -379,7 +379,7 @@ Aquests són alguns exemples típics sobre posicionament (centrat).
   margin: auto;
   height: 100px;
   width: 100px;
-  background-color: xarxa;
+  background-color: red;
 }
 ```
 
