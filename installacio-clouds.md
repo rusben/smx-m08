@@ -75,3 +75,9 @@ systemctl restart mysql
 ## Enllaços a les diferents clouds
 * OwnCloud: http://www.owncloud.org
 * NextCloud: http://www.nextcloud.com
+
+#### Un cop descomprimits els fitxers de la cloud, apliquem els següents permisos al directori `/var/www/html`
+```console
+chmod -R 775 .
+chown -R root:www-data .
+```
