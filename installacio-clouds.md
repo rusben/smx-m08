@@ -13,12 +13,13 @@ apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml p
 
 # Configuració de MySQL
 
-## Creació de la base de dades:
+### Creació de la base de dades:
 ```console
 CREATE DATABASE bbdd;
 ```
 
-Creació de l'usuari, tingueu en compte que s'haurà d'identificar la IP des de la qual s'accedirà a la base de dades.
+### Creació d'un usuari
+Tingueu en compte que s'haurà d'identificar la IP des de la qual s'accedirà a la base de dades, en aquest cas, `localhost`.
 
 ```console
 CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
@@ -30,7 +31,7 @@ Per accedir des d'una altra màquina, hauriem de crear un usuari nou:
 CREATE USER 'usuario'@'192.168.22.100' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 
-## Donem privilegis a l'usuari:
+### Donem privilegis a l'usuari:
 ```console
 GRANT ALL ON bbdd.* to 'usuario'@'localhost';
 ```
@@ -41,18 +42,18 @@ Per accedir des de fora, hauriem de donar-li també privilegis a l'usuari a l'al
 GRANT ALL ON bbdd.* to 'usuario'@'192.168.22.100';
 ```
 
-## Sortim de la base de dades
+### Sortim de la base de dades
 ```console
 exit
 ```
 
-## Connexió a la base de dades
+### Connexió a la base de dades
 
 ```console
 mysql -u usuario -p
 ```
 
-## Permmetre la connecxió externa
+## Permetre la connexió externa
 
 Permetem l'accés des de qualsevol equip a la nostra base de dades.
 
@@ -66,7 +67,7 @@ Hem de canviar bind-address per 0.0.0.0
 bind-address        = 0.0.0.0
 ```
 
-Reiniciem el servidor:
+### Reiniciem el servidor:
 ```console
 systemctl restart mysql
 ```
