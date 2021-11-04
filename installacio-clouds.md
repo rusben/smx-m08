@@ -71,3 +71,7 @@ bind-address        = 0.0.0.0
 ```console
 systemctl restart mysql
 ```
+
+## Enllaços a les diferents clouds
+* OwnCloud: http://www.owncloud.org
+* NextCloud: http://www.nextcloud.com
