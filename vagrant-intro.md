@@ -1,6 +1,6 @@
 # Introducció a Vagrant
 
-`Vagrant` és una eina lliure per a la creació i el treball amb entorns de desenvolupament. Aquests entorns de desenvolupament se sustenten sobre alguna eina de virtualització com `VirtualBox`, `libvirt` o `Docker`, per la qual cosa a la pràctica `Vagrant` ens permetrà definir en un arxiu Vagrantfile la nostra infraestructura.
+`Vagrant` és una eina lliure per a la creació i el treball amb entorns de desenvolupament. Aquests entorns de desenvolupament se sustenten sobre alguna eina de virtualització com `VirtualBox`, `libvirt` o `Docker`, per la qual cosa a la pràctica `Vagrant` ens permetrà definir en un arxiu `Vagrantfile` la nostra infraestructura.
 
 A partir del fitxer `Vagrantfile` l'eina vagrant s'encarregarà de:
 
@@ -15,14 +15,14 @@ D'aquesta manera és molt senzill desplegar infraestructura a partir d'un fitxer
 
 ## Un directori per al projecte
 
-Per a cada projecte vagrant utilitza un directori, com a exemple podem crear el directori `ubuntu-focal` per treballar amb una MV d'`Ubuntu 20.04 Focal Fossa`.
+Per a cada projecte `vagrant` utilitza un directori, com a exemple podem crear el directori `ubuntu-focal` per treballar amb una MV d'`Ubuntu 20.04 Focal Fossa`.
 
 ```console
 [alumne@elpuig ~]$ mkdir ubuntu-focal
 [alumne@elpuig ~]$ cd ubuntu-focal/
 ```
 
-La configuració del projecte s'escriu al fitxer `Vagrantfile` que podem crear directament amb l'ordre `vagrant init <box>`` indicant una de les MVs que es troben a `Vagrant Cloud`. Per exemple, la distribució Ubuntu manté imatges oficials a https://app.vagrantup.com/ubuntu.
+La configuració del projecte s'escriu al fitxer `Vagrantfile` que podem crear directament amb l'ordre `vagrant init <box>` indicant una de les MVs que es troben a `Vagrant Cloud`. Per exemple, la distribució Ubuntu manté imatges oficials a https://app.vagrantup.com/ubuntu.
 
 ```console
 [alumne@elpuig ubuntu-focal]$ vagrant init ubuntu/focal64
@@ -110,7 +110,6 @@ vagrant@ubuntu-focal:~$
 La comanda `vagrant status` ens mostrarà informació sobre l'estat de les nostres MVs i les podrem aturar amb `vagrant halt` o suspendre amb `vagrant suspend`. En qualsevol cas, es podran tornar a encendre amb `vagrant up`.
 
 Quan ja no siguin necessàries les MVs es podran esborrar amb `vagrant destroy`.
-
 
 ## Algunes opcions bàsiques de Vagrantfile
 
