@@ -11,6 +11,11 @@ apt install php libapache2-mod-php
 apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 
+## Reiniciem el servidor apache2
+```console
+systemctl restart apache2
+```
+
 # Configuració de MySQL
 
 ### Creació de la base de dades:
