@@ -1,10 +1,11 @@
+$fn = 128;
+
 // 165.8 x 76.7 x 8.8 mm
 module movil() {
   cube([165,76,8], true);
 }
 
 // 150, 60
-
 // 30, 25
 
 module botella() {
@@ -24,10 +25,14 @@ module botella() {
 }
 
 module forat() {
-    cylinder(600, 5, 5, true);
+    translate([0,0,75 + 4]) {
+        rotate([90,0,0]) {
+            cylinder(600, 5, 5, true);
+        }
+    }
 }
 
-
+// body es la unión del movil y la botella
 module body() {
     movil();
     translate([0,0,75 + 4]) {   
@@ -35,6 +40,9 @@ module body() {
     }
 }
 
-body();
-forat();
+// Restamos al body el forat, la zona de intersección desaparece
+difference() {
+    body();
+    forat();
+}
 
