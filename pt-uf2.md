@@ -27,13 +27,15 @@ Les tasques que s'han de documentar són les següents i han d'estar dividides e
 
 ## Entrega
 S'ha d'entregar una carpeta amb el següent format:
-`NOM-PTUF2.zip`, en el menu cas: `RUBEN-PTUF2.zip`. La carpeta ha de contenir:
+`NOM-PTUF2`, en el meu cas: `RUBEN-PTUF2`. La carpeta ha de contenir:
 
 1. Manual d'instal·lació d'`ownCloud` amb contenidors `lxc/lxd`.
 2. Manual d'instal·lació de `NextCloud` amb virtualització mitjançant `vagrant`.
 3. Manual de configuració d'`ownCloud`.
 4. Manual de configuració de `NextCloud`.
 5. Un fitxer amb tots els fitxers relacionats.
+
+La carpeta s'entrega comprimida amb el següent format `NOM-PTUF2.zip`.
 
 ## Més informació
 Web Based File Manager: https://en.wikipedia.org/wiki/File_manager#Web-based_file_managers
