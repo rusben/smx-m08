@@ -33,7 +33,7 @@ S'ha d'entregar una carpeta amb el següent format:
 2. Manual d'instal·lació de `NextCloud` amb virtualització mitjançant `vagrant`.
 3. Manual de configuració d'`ownCloud`.
 4. Manual de configuració de `NextCloud`.
-5. Un fitxer amb tots els fitxers relacionats.
+5. Un fitxer amb tots els fitxers relacionats `README.md`.
 
 La carpeta s'entrega comprimida amb el següent format `NOM-PTUF2.zip`.
 
