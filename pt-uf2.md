@@ -5,6 +5,9 @@
 * Utilitzar eines d’edició col·laborativa existents.
 * Desenvolupament de la pràctica
 
+## Tasques
+
+
 Una part de la pràctica es realitza de forma individual i una altra part en grup.
 
 Heu d'instal·lar els gestor d’arxius de la llista:
