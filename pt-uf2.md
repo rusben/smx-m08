@@ -36,5 +36,5 @@ S'ha d'entregar una carpeta amb el següent format:
 La carpeta s'entrega comprimida amb el següent format `NOM-PTUF2.zip`.
 
 ## Més informació
-Web Based File Manager: https://en.wikipedia.org/wiki/File_manager#Web-based_file_managers
-Cloud Computing: https://en.wikipedia.org/wiki/Cloud_computing
+* Web Based File Manager: https://en.wikipedia.org/wiki/File_manager#Web-based_file_managers
+* Cloud Computing: https://en.wikipedia.org/wiki/Cloud_computing
