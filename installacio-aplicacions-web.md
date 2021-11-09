@@ -6,23 +6,23 @@ Llavors, si portem la nostra aplicació al directori `/var/www/html` tindrem acc
 
 ## Instal·lació d'apache2, mysql i algunes llibreries al contenidor
 
-Actualització
+Actualització de la màquina.
 ```console
 apt update
 apt upgrade
 ```
 
-Instal·lació del servidor web (apache2)
+Instal·lació del servidor web `apache2`.
 ```console
 apt install -y apache2
 ```
 
-Instal·lació del servidor de bases de dades (mysql-server)
+Instal·lació del servidor de bases de dades `mysql-server`.
 ```console
 apt install -y mysql-server
 ```
 
-Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions
+Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions.
 ```console
 apt install php libapache2-mod-php
 apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
@@ -34,7 +34,6 @@ systemctl restart apache2
 ```
 
 ## Configuració de MySQL
-
 ### Creació de la base de dades:
 ```console
 CREATE DATABASE bbdd;
@@ -70,13 +69,11 @@ exit
 ```
 
 ### Probem la connexió a la base de dades
-
 ```console
 mysql -u usuario -p
 ```
 
 ### Permetre la connexió externa
-
 Permetem l'accés des de qualsevol equip a la nostra base de dades.
 
 ```console
@@ -94,11 +91,12 @@ bind-address        = 0.0.0.0
 systemctl restart mysql
 ```
 
-## Aplicació de permisos a les nostres aplicacions Web
+## Aplicació de permisos a les nostres aplicacions web
 
 Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
 
 ```console
+cd /var/www/html
 chmod -R 775 .
 chown -R root:www-data .
 ```
