@@ -2,3 +2,6 @@
 
 1. [Introducció a vagrant](vagrant-intro.md)
 2. [Instal·lació i configuració de gestors de contingut](installacio-gestors-contingut.md)
+
+## Pràctica
+[Enunciat de la pràctica](pt-uf3.md)
