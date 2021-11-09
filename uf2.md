@@ -3,4 +3,5 @@
 1. [Introducció a vagrant](vagrant-intro.md)
 2. [Instal·lació i configuració de clouds](installacio-clouds.md)
 
-* [Pràctica UF2](pt-uf2.md)
+## Pràctica
+[Enunciat de la pràctica](pt-uf2.md)
