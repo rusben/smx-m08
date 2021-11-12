@@ -91,7 +91,6 @@ bind-address = 0.0.0.0
 systemctl restart mysql
 ```
 
-
 ### Creació d'un usuari per a accedir des d'una màquina remota
 Per accedir des d'una màquina remota, hauriem de crear un usuari nou identificat pel nom d'usuari i la IP de la màquina des de la qual accedirà.
 
@@ -107,7 +106,6 @@ GRANT ALL ON bbdd.* to 'usuario'@'192.168.22.100';
 ```
 
 ## Aplicació de permisos a les nostres aplicacions web
-
 Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
 
 ```console

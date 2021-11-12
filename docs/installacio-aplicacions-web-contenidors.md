@@ -96,7 +96,6 @@ ssh-keygen -f ~/.ssh/elmeucontenidor -N ""
 ```
 
 ### Selecciona la clau pública i copía-la al contenidor
-
 Enganxa-la al fitxer `/root/.ssh/authorized_keys` del contenidor el contingut de la clau pública.
 
 ```console
@@ -117,7 +116,6 @@ ip a
 També pots veure la IP del contenidor fent `lxc list`
 
 ### Sincronitza la carpeta `elmeucontenidor` del host amb la carpeta `/var/www/html` del contenidor
-
 Substitueix la IP de la comanda per la IP que tingui el teu contenidor:
 
 ```console
@@ -139,7 +137,7 @@ unzip aplicacio.zip
 Un cop copiat i descomprimit l'arxiu canviem els permisos de tota la carpeta `/var/www/html`
 
 ```console
-chown -R www-data:www-data /var/www/html
+chown -R root:www-data /var/www/html
 chmod -R 775 /var/www/html
 ```
 

@@ -51,7 +51,6 @@ lxc list
 lxc delete elmeucontenidor
 ```
 
-
 ## Exportar i importar un contenidor
 Com exportar i importar un contenidor
 
