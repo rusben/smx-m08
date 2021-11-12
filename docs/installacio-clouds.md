@@ -6,11 +6,11 @@ En resum:
 
 * Descarregar el codi font.
 * Portar el codi de la cloud al directori arrel del servidor web.
-* Descomprimir el contingut directament al directori arrel.
+* Descomprimir el contingut directament al directori arrel, en el nostre cas `/var/www/html`.
 * Entrar a la web `http://localhost` amb el navegador i seguir les instruccions.
 
 [Manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
 
 ## Enllaços a les diferents clouds
-* OwnCloud: http://www.owncloud.org
-* NextCloud: http://www.nextcloud.com
+* ***OwnCloud***: http://www.owncloud.org
+* ***NextCloud***: http://www.nextcloud.com

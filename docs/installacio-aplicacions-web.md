@@ -6,29 +6,29 @@ Llavors, si portem la nostra aplicació al directori `/var/www/html` tindrem acc
 
 ## Instal·lació d'apache2, mysql i algunes llibreries al contenidor
 
-Actualització de la màquina.
+1. Actualització de la màquina.
 ```console
 apt update
 apt upgrade
 ```
 
-Instal·lació del servidor web `apache2`.
+2. Instal·lació del servidor web `apache2`.
 ```console
 apt install -y apache2
 ```
 
-Instal·lació del servidor de bases de dades `mysql-server`.
+3. Instal·lació del servidor de bases de dades `mysql-server`.
 ```console
 apt install -y mysql-server
 ```
 
-Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions.
+4. Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions.
 ```console
 apt install php libapache2-mod-php
 apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 
-Reiniciem el servidor apache2
+5. Reiniciem el servidor apache2
 ```console
 systemctl restart apache2
 ```
