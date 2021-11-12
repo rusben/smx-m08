@@ -37,7 +37,7 @@ systemctl restart apache2
 ### Accedim a la consola de MySQL
 Des d'un terminal on siguem `root` hem d'executar la següent comanda:
 ```console
-alumne@elpuig:~$ mysql
+root@elpuig:~$ mysql
 ```
 
 ### Creació de la base de dades:
