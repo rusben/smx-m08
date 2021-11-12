@@ -14,7 +14,7 @@ Heu d'instal·lar els gestor d’arxius de la llista:
 
 Les tasques que s'han de documentar són les següents i han d'estar dividides en quatre fitxers `.md` (s'especifica a l'apartat entrega):
 
-* Instal·lació i configuració del sistema de vistualització (`lxc/lxd` i `vagrant`).
+* Instal·lació i configuració del sistema de virtualització (`lxc/lxd` i `vagrant`).
 * Instal·lació del gestor d’arxius assignat.
 * Manual d’instal·lació. Documentació de tasques realitzades.
 * Demostració del funcionament.
