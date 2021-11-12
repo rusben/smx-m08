@@ -64,8 +64,10 @@ exit
 ```
 
 ### Probem la connexió a la base de dades
+Des d'un terminal amb un usuari sense privilegis hem de ser capaços de connectar introduïnt la nostra contrassenya.
+
 ```console
-mysql -u usuario -p
+alumne@elpuig:~$ mysql -u usuario -p
 ```
 
 ## Extra: permetre la connexió des d'una màquina remota
@@ -76,12 +78,12 @@ Permetem l'accés des de qualsevol equip a la nostra base de dades.
 
 ```console
 cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep bind-address
-bind-address        = 127.0.0.1
+bind-address = 127.0.0.1
 ```
 
 Hem de canviar bind-address per 0.0.0.0
 ```console
-bind-address        = 0.0.0.0
+bind-address = 0.0.0.0
 ```
 
 ### Reiniciem el servidor
