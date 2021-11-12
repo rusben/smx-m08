@@ -2,7 +2,7 @@
 ## Objectius generals de la pràctica
 * Comprendre els conceptes bàsics de l’emmagatzematge en línia.
 * Instal·lar i configurar gestors d’arxius web.
-* Utilitzar llenguatges de marques lleugers existens.
+* Utilitzar llenguatges de marques lleugers existents.
 
 ## Desenvolupament de la pràctica
 

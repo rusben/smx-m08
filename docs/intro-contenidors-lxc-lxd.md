@@ -51,9 +51,18 @@ lxc list
 lxc delete elmeucontenidor
 ```
 
+
+## Exportar i importar un contenidor
+Com exportar i importar un contenidor
+
+https://serverfault.com/questions/759170/copy-lxd-containers-between-hosts
+
+
 ## Instal·lació d'aplicacions web en contenidors
 
 Per instal·lar una aplicació web hem de portar el contingut al nostre servidor web (`apache2`), un cop instal·lat al contenidor tindrem que descomprimir el contingut al directori `/var/www/html`.
+
+Una forma senzilla de portar els arxius al contenidor, es anar directament a la carpeta `/var/www/html` del contenidor i fer un `wget` de l'enllaç directe a l'arxiu de la cloud, amb això tindrem l'arxiu de la cloud dins del contenidor.
 
 ## Aplicar els permisos corresponents
 Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`

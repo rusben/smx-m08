@@ -79,20 +79,23 @@ Comprovem que tot ha funcionat bé
 mysql -u elmeuusuari -p
 ```
 
-Un cop ja tenim la base de dades i el nou usuari que utilitzarem ja podem continuar la nostra instal·lació. Primer sincronitzem la carpeta on estarà la web al contenidor `/var/www/html` amb una carpeta a la màquina host, per comoditat.
+Un cop ja tenim la base de dades i el nou usuari que utilitzarem ja podem continuar la nostra instal·lació.
 
-## Crea un parell de claus al host
+## Sincronitzar una carpeta del contenidor amb una carpeta de la màquina host
+Primer sincronitzem la carpeta on estarà la web al contenidor `/var/www/html` amb una carpeta a la màquina host, per comoditat.
+
+### Crea un parell de claus al host
 
 ```console
 ssh-keygen -f ~/.ssh/elmeucontenidor -N ""
 ```
 
-## Mostra la clau-pública generada al host
+### Mostra la clau-pública generada al host
 ```console
  cat ~/.ssh/elmeucontenidor.pub
 ```
 
-## Selecciona la clau pública i copía-la al contenidor
+### Selecciona la clau pública i copía-la al contenidor
 
 Enganxa-la al fitxer `/root/.ssh/authorized_keys` del contenidor el contingut de la clau pública.
 
@@ -100,12 +103,12 @@ Enganxa-la al fitxer `/root/.ssh/authorized_keys` del contenidor el contingut de
 vim /root/.ssh/authorized_keys
 ```
 
-## Crea una carpeta anomenada `elmeucontenidor` al host
+### Crea una carpeta anomenada `elmeucontenidor` al host
 ```console
 mkdir ~/elmeucontenidor
 ```
 
-## Esbrina l'adreça IP del contenidor
+### Esbrina l'adreça IP del contenidor
 
 ```console
 ip a
@@ -113,7 +116,7 @@ ip a
 
 També pots veure la IP del contenidor fent `lxc list`
 
-## Sincronitza la carpeta `elmeucontenidor` del host amb la carpeta `/var/www/html` del contenidor
+### Sincronitza la carpeta `elmeucontenidor` del host amb la carpeta `/var/www/html` del contenidor
 
 Substitueix la IP de la comanda per la IP que tingui el teu contenidor:
 
@@ -123,7 +126,7 @@ sshfs root@10.161.122.237:/var/www/html ~/elmeucontenidor
 
 Dins de la carpeta `elmeucontenidor` hauria d'apareixer l'`index.html` que ha creat `apache2` en la instal·lació.
 
-## Copiem l'aplicació web que volem instal·lar a la nostra carpeta `elmeucontenidor` del host i actualitzem els permisos
+### Copiem l'aplicació web que volem instal·lar a la nostra carpeta `elmeucontenidor` del host i actualitzem els permisos
 
 Baixem l'arxiu comprimit de l'aplicació que hem baixat d'Internet:
 
@@ -140,7 +143,7 @@ chown -R www-data:www-data /var/www/html
 chmod -R 775 /var/www/html
 ```
 
-## Accedim a l'instal·lador de l'aplicació mitjançant el navegador web
+### Accedim a l'instal·lador de l'aplicació mitjançant el navegador web
 Poseu la IP del vostre contenidor al navegador web i comproveu el seu funcionament:
 
 ```console
