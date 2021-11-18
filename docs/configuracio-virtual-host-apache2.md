@@ -97,11 +97,12 @@ El `VirtualHost` ja està definit i preparat per a executar­-se.
 
 Per a poder accedir als nostres hosts mitjançant el nom hem d'indicar-lo al fitxer de hosts coneguts de la nostra màquina.
 
-Hem d'incloure'ls apuntant a la IP del `localhost`, per a que quan el navegador busqui el nom de la nostra web busqui directament en la nostra màquina, Edita el fitxer `/etc/hosts`, és necesessari tenir permisos d'administració per a poder modificar el fitxer. ​ Afegeix les dues últimes línies que defineixen les teves noves webs:
+Hem d'incloure'ls apuntant a la IP del `localhost`, per a que quan el navegador busqui el nom de la nostra web busqui directament en la nostra màquina. Edita el fitxer `/etc/hosts`, és necesessari tenir permisos d'administració per a poder modificar el fitxer. ​
 
 ~~~
 sudo vi /etc/hosts
 ~~~
+Afegeix la següent línia per a que la nostra màquina busqui `www.domini.local` a la nostra web:
 
 ~~~
 127.0.0.1   www.domini.local
@@ -109,8 +110,22 @@ sudo vi /etc/hosts
 
 Guarda i tanca l'arxiu.
 
-### Informació extra
+## En cas d'error comprovem els fitxers d'error d'apache2
+El fitxer d'error de l'`apache2` els tenim configurats a:
 
+~~~
+cat /var/log/apache2/error.log
+~~~
+
+El fitxer de d'accés de l'apache2 el tenim configurat a:
+~~~
+cat /var/log/apache2/access.log
+~~~
+
+
+
+
+### Informació extra
 Enlloc d'utilitzar la IP de `localhost` podeu utilitzar la IP de la vostra màquina.
 
 Com a curiositat, ja que teniu instal·lat un servidor web i esteu en una xarxa interna, potser heu pensat com accedir als dominis dels vostres companys i companyes. Ho podeu fer substituint la IP de `localhost` per la IP del vostre company o companya.
