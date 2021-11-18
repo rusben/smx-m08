@@ -50,7 +50,7 @@ sudo chmod -R 775  /var/www/domini.local
 
 Ara hem de definir els arxius de configuració de l'`apache2` que representen  `VirtualHost` on instal·larem la nostra aplicació web. L'arxiu `domini.local.conf` guardarà la configuració del nostre `VirtualHost`
 
-`sudo nano /etc/apache2/sites-available/domini.conf`
+`sudo nano /etc/apache2/sites-available/domini.local.conf`
 
 Guardem l'arxiu i ja tenim el fitxer de configuració del VirtualHost.
 
