@@ -16,10 +16,6 @@ sudo mkdir /var/www/domini.local
 
 ## Donem els permisos necessaris
 
-Ara tenim els directoris creats, però si fem la comanda ls -la podem veure que el propietari de la carpeta es root i volem que sigui el propi usuari de la sessió.
-
-`ls -la`
-
 L'usuari que executa `apache2` és, per defecte, `www-data` i voldrem que qualsevol instal·lació que fem al nostre servidor no tingui problemes de permisos. Per canviar el propietari a l'usuari loginat en la sessió utilitzarem la següent comanda:
 
 `sudo chown -R $USER:www-data /var/www/domini.local`
@@ -34,7 +30,7 @@ En el meu cas, el meu usuari és `rusben`, llavors és equivalen a fer el següe
 sudo chown -R rusben:www-data /var/www/domini.local
 ```
 
-Si l'executem com a usuari root seria equivalent a fer:
+Si l'executem com a usuari `root` seria equivalent a fer:
 
 ```console
 sudo chown -R root:www-data /var/www/domini.local
@@ -46,13 +42,13 @@ sudo chown -R root:www-data /var/www/domini.local
 sudo chmod -R 775  /var/www/domini.local
 ```
 
-## Definició dels Virtual Hosts
+## Definició del `VirtualHost`
 
 Ara hem de definir els arxius de configuració de l'`apache2` que representen  `VirtualHost` on instal·larem la nostra aplicació web. L'arxiu `domini.local.conf` guardarà la configuració del nostre `VirtualHost`
 
 `sudo nano /etc/apache2/sites-available/domini.local.conf`
 
-Guardem l'arxiu i ja tenim el fitxer de configuració del VirtualHost.
+Guardem l'arxiu i ja tenim el fitxer de configuració del `VirtualHost`.
 
 ```console
 # domini.local.conf
@@ -66,10 +62,11 @@ Guardem l'arxiu i ja tenim el fitxer de configuració del VirtualHost.
 </VirtualHost>
 ```
 
-Guardem l'arxiu i ja els tenim definits tot dos Virtual Hosts.
-## Habilitem els Virtual Hosts
+Guardem l'arxiu i ja els tenim definit el `VirtualHost`.
 
-Un cop definits els hosts els hem d'habilitar. Ho farem mitjançant la directiva ​
+## Habilitem el `VirtualHost`
+
+Un cop definits el `VirtualHost` els hem d'habilitar. Ho farem mitjançant la següent directiva: ​
 
 `a2ensite`
 
