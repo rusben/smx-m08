@@ -73,7 +73,10 @@ Aquesta comanda espera que estiguem al directori:
 /etc/apache2/sites-available
 ~~~
 En cas de no estar en aquest directori ens posicionem:
-`cd /etc/apache2/sites-available`
+
+~~~
+cd /etc/apache2/sites-available
+~~~
 
 ## Habilitem el `VirtualHost`:
 
@@ -101,7 +104,6 @@ sudo vi /etc/hosts
 ~~~
 
 ~~~
-/etc/hosts
 127.0.0.1   www.domini.local
 ~~~
 
