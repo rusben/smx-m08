@@ -46,7 +46,7 @@ sudo chmod -R 775  /var/www/domini.local
 
 Ara hem de definir els arxius de configuració de l'`apache2` que representen  `VirtualHost` on instal·larem la nostra aplicació web. L'arxiu `domini.local.conf` guardarà la configuració del nostre `VirtualHost`
 
-`sudo nano /etc/apache2/sites-available/domini.local.conf`
+`sudo vim /etc/apache2/sites-available/domini.local.conf`
 
 Guardem l'arxiu i ja tenim el fitxer de configuració del `VirtualHost`.
 
@@ -70,7 +70,7 @@ Un cop definits el `VirtualHost` els hem d'habilitar. Ho farem mitjançant la se
 
 `a2ensite`
 
-​ Aquesta comanda es pot llegir com `apache2 enable site`)​
+​Aquesta comanda es pot llegir com `apache2 enable site`)​
 
 Aquesta comanda espera que estiguem al directori:
 
