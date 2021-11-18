@@ -66,28 +66,27 @@ Guardem l'arxiu i ja els tenim definit el `VirtualHost`.
 
 ## Habilitem el `VirtualHost`
 
-Un cop definits el `VirtualHost` els hem d'habilitar. Ho farem mitjançant la següent directiva: ​
-
-`a2ensite`
-
-​Aquesta comanda es pot llegir com `apache2 enable site`)​
+Un cop definits el `VirtualHost` els hem d'habilitar. Ho farem mitjançant la comanda `a2ensite`. ​Aquesta comanda es pot llegir com `apache2 enable site`)​
 
 Aquesta comanda espera que estiguem al directori:
-
-`/etc/apache2/sites-available`
-
+~~~
+/etc/apache2/sites-available
+~~~
 En cas de no estar en aquest directori ens posicionem:
-
 `cd /etc/apache2/sites-available`
 
 ## Habilitem el `VirtualHost`:
 
-`sudo a2ensite domini.local.conf`
+~~~
+sudo a2ensite domini.local.conf
+~~~
 
 ## Reiniciem l'apache
 Després de fer canvis de configuració és necesessari reiniciar l'`apache2`
 
-`sudo service apache2 restart`
+~~~
+sudo service apache2 restart
+~~~
 
 El `VirtualHost` ja està definit i preparat per a executar­-se.
 
@@ -95,27 +94,27 @@ El `VirtualHost` ja està definit i preparat per a executar­-se.
 
 Per a poder accedir als nostres hosts mitjançant el nom hem d'indicar-lo al fitxer de hosts coneguts de la nostra màquina.
 
-Hem d'incloure'ls apuntant a la IP del localhost, per a que quan el navegador busqui el nom de la nostra web busqui directament en la nostra màquina, Edita el fitxer /etc/hosts, és necesessari tenir permisos d'administració per a poder modificar el fitxer. ​ Afegeix les dues últimes línies que defineixen les teves noves webs:
+Hem d'incloure'ls apuntant a la IP del `localhost`, per a que quan el navegador busqui el nom de la nostra web busqui directament en la nostra màquina, Edita el fitxer `/etc/hosts`, és necesessari tenir permisos d'administració per a poder modificar el fitxer. ​ Afegeix les dues últimes línies que defineixen les teves noves webs:
 
-```console
+~~~
 sudo vi /etc/hosts
-```
+~~~
 
-```console
+~~~
 /etc/hosts
 127.0.0.1   www.domini.local
-```
+~~~
 
-Guarda i tanca l'arxiu. Sembla que ja gairebé estem.
+Guarda i tanca l'arxiu.
 
 ### Informació extra
 
-Enlloc d'utilitzar la IP de localhost podeu utilitzar la IP de la vostra màquina.
+Enlloc d'utilitzar la IP de `localhost` podeu utilitzar la IP de la vostra màquina.
 
-Com a curiositat, ja que teniu instal·lat un servidor web i esteu en una xarxa interna, potser heu pensat com accedir als dominis dels vostres companys i companyes. Ho podeu fer substituint la IP de localhost per la IP del vostre company o companya.
+Com a curiositat, ja que teniu instal·lat un servidor web i esteu en una xarxa interna, potser heu pensat com accedir als dominis dels vostres companys i companyes. Ho podeu fer substituint la IP de `localhost` per la IP del vostre company o companya.
 
 ## Comprova que tot funciona
 
-Si proves d'accedir al domini que hem preparat per al nostre domini veuràs que està buit.
+Si proves d'accedir a la web que hem preparat per al nostre domini veuràs que està buit.
 
 http://www.domini.local
