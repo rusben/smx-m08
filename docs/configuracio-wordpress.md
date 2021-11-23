@@ -31,7 +31,7 @@ Assegureu-vos que teniu el fitxer `.htaccess` en el directori principal de la vo
 
 ## Activar el mòdul rewrite de l'apache
 
-Activeu el mòdul rewrite de l'apache.
+Activeu el mòdul `rewrite` de l'`apache2`.
 ~~~
 sudo a2enmod rewrite
 ~~~
@@ -46,7 +46,7 @@ Canvieu la configuració al fitxer `/etc/apache2/apache2.conf` per permetre la r
  </Directory>
 ~~~
 
-Reinicieu l'apache.
+Reinicieu l'`apache2`.
 ~~~
 sudo service apache2 reload
 ~~~
@@ -58,18 +58,18 @@ define('FS_METHOD', 'direct');
 ~~~
 
 ## Canviar el tamany màxim dels fitxers que es poden pujar
-Canviar el tamany màxim dels fitxers que podem pujar a WordPress:
+Canviar el tamany màxim dels fitxers que podem pujar a `WordPress`:
 
 http://www.wpbeginner.com/wp-tutorials/how-to-increase-the-maximum-file-upload-size-in-wordpress/
 
-Hi ha diferents mètodes, hem fet servir el mètode 2 de l'enllaç:
+Hi ha diferents mètodes, hem fet servir el mètode 2 de l'enllaç anterior:
 
 ~~~
 sudo apt install locate
 sudo updatedb
 ~~~
 
-Busquem el fitxer `php.ini`
+1. Busquem el fitxer `php.ini`
 
 ~~~
  usuari@elpuig:~$ locate php.ini
@@ -81,9 +81,9 @@ Busquem el fitxer `php.ini`
  /usr/lib/php/7.4/php.ini-production.cli
 ~~~
 
-Apareixen diferents fitxers `php.ini`, però ens interessa el `php.ini` del servidor `apache2`.
+ Apareixen diferents fitxers `php.ini`, però ens interessa el `php.ini` del servidor `apache2`.
 
-Busquem i modifiquem els següents valors:
+2. Busquem i modifiquem els següents valors:
 ~~~
  upload_max_filesize = 64M
  post_max_size = 64M
@@ -91,4 +91,4 @@ Busquem i modifiquem els següents valors:
 ~~~
 
 ## Plugins multi-lingual
-Més plugins de traducció per a Wordpress: http://wplang.org/translation-plugins-languages/
+Més plugins de traducció per a `WordPress`: http://wplang.org/translation-plugins-languages/
