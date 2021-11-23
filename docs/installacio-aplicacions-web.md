@@ -29,9 +29,9 @@ apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xm
 ~~~
 
 5. Reiniciem el servidor apache2
-~~~
+```console
 systemctl restart apache2
-~~~
+```
 
 ## Configuració de MySQL
 ### Accedim a la consola de MySQL
