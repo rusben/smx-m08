@@ -37,7 +37,7 @@ sudo vim /etc/apache2/sites-available/domini.local.conf
 
 Editem el fitxer modificant `domini` pel nom que haguem escollit.
 
-```console
+```xml
 # domini.local.conf
 <VirtualHost *:80>
     ServerAdmin admin@domini.local
