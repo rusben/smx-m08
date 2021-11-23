@@ -72,7 +72,7 @@ sudo a2ensite domini.local.conf
 ~~~
 
 ## Reiniciar apache2 <a name="reiniciar-apache2"></a>
-Després de fer canvis de configuració és necesessari reiniciar l'`apache2`
+Després de fer canvis de configuració és necessari reiniciar l'`apache2`
 
 ~~~
 sudo service apache2 restart
@@ -90,7 +90,7 @@ Per a poder accedir als nostres hosts mitjançant el nom hem d'indicar-lo al fit
 
 Hem d'incloure'ls apuntant a la IP del `localhost`, per a que quan el navegador busqui el nom de la nostra web busqui directament a la nostra màquina.
 
-Edita el fitxer `/etc/hosts`, és necesessari tenir permisos d'administració per a poder modificar el fitxer. ​
+Edita el fitxer `/etc/hosts`, és necessari tenir permisos d'administració per a poder modificar el fitxer. ​
 
 ~~~
 sudo vi /etc/hosts

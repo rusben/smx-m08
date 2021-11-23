@@ -4,7 +4,7 @@ Files for SMX M08 course
 
 * [UF1 - Ofimàtica i eines web](docs/uf1.md)
 * [UF2 - Gestors d’arxius web](docs/uf2.md)
-* [UF3 - Gestors de continguts](docs/uf3.md)
+* [UF3 - Gestors de contingut](docs/uf3.md)
 * [UF4 - Portals web d’aprenentatge](docs/uf4.md)
 * [UF5 - Fonaments d' HTML i fulls d'estils](docs/uf5.md)
 

@@ -1,4 +1,4 @@
-# UF3 - Gestors de continguts
+# UF3 - Gestors de contingut
 
 1. [Introducció a vagrant](vagrant-intro.md)
 2. [Configuració de VirtualHost amb apache2](configuracio-virtual-host-apache2.md)

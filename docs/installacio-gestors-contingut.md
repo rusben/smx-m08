@@ -8,6 +8,7 @@ En resum:
 * Entrar a la web `http://localhost` amb el navegador i seguir les instruccions.
 
 [Manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
+[Configuració de WordPress](configuracio-wordpress.md)
 
 ## Enllaços a diferents gestors de continguts
 * ***WordPress***: https://www.wordpress.org

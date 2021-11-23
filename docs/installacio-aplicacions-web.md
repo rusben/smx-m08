@@ -24,8 +24,8 @@ apt install -y mysql-server
 
 4. Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions.
 ```console
-apt install php libapache2-mod-php
-apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+apt install -y php libapache2-mod-php
+apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 
 5. Reiniciem el servidor apache2
