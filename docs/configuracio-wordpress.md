@@ -83,7 +83,16 @@ sudo updatedb
 
  Apareixen diferents fitxers `php.ini`, però ens interessa el `php.ini` del servidor `apache2`.
 
+
+
 2. Busquem i modifiquem els següents valors:
+
+Obrim el fitxer:
+~~~
+sudo vim /etc/php/7.4/apache2/php.ini
+~~~
+
+Modifiquem els valors de les variables de configuració:
 ~~~
  upload_max_filesize = 64M
  post_max_size = 64M
