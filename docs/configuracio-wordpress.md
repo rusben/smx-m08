@@ -52,7 +52,7 @@ sudo service apache2 reload
 ~~~
 
 ## Configurar el mètode directe per a no fer servir FTP
-Per instal·lar plugins sense servidor FTP: afegiu a '''wp-config.php''' la següent línia:
+Per instal·lar plugins sense servidor `FTP`: afegiu a `wp-config.php` la següent línia:
 ~~~
 define('FS_METHOD', 'direct');
 ~~~
