@@ -23,21 +23,21 @@ Hem de crear l'estructura de directoris on s'allotjarà la nostra instal·lació
 
 ​Creem el directori de la següent manera:
 
-~~~
+```console
 sudo mkdir /var/www/domini.local
-~~~
+```
 
 ## Definició del `VirtualHost` <a name="definicio-virtual-host"></a>
 
 Ara hem de definir els arxius de configuració de l'`apache2` que representen  `VirtualHost` on instal·larem la nostra aplicació web. L'arxiu `domini.local.conf` guardarà la configuració del nostre `VirtualHost`
 
-~~~
+```console
 sudo vim /etc/apache2/sites-available/domini.local.conf
-~~~
+```
 
 Editem el fitxer modificant `domini` pel nom que haguem escollit.
 
-~~~
+```console
 # domini.local.conf
 <VirtualHost *:80>
     ServerAdmin admin@domini.local
@@ -47,7 +47,7 @@ Editem el fitxer modificant `domini` pel nom que haguem escollit.
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-~~~
+```
 
 Guardem l'arxiu i ja tenim el fitxer de configuració del `VirtualHost`.
 
@@ -56,31 +56,31 @@ Guardem l'arxiu i ja tenim el fitxer de configuració del `VirtualHost`.
 Un cop definits el `VirtualHost` els hem d'habilitar. Ho farem mitjançant la comanda `a2ensite`. ​Aquesta comanda es pot llegir com `apache2 enable site`)​
 
 Aquesta comanda espera que estiguem al directori:
-~~~
+```console
 /etc/apache2/sites-available
-~~~
+```
 En cas de no estar en aquest directori ens posicionem:
 
-~~~
+```console
 cd /etc/apache2/sites-available
-~~~
+```
 
 Finalment per habilitar el `VirtualHost` hem d'escriure la següent comanda:
 
-~~~
+```console
 sudo a2ensite domini.local.conf
-~~~
+```
 
 ## Reiniciar apache2 <a name="reiniciar-apache2"></a>
 Després de fer canvis de configuració és necessari reiniciar l'`apache2`
 
-~~~
+```console
 sudo service apache2 restart
-~~~
+```
 o
-~~~
+```console
 sudo systemctl restart apache2
-~~~
+```
 
 El `VirtualHost` ja està definit i preparat per a executar­-se.
 
@@ -92,24 +92,22 @@ Hem d'incloure'ls apuntant a la IP del `localhost`, per a que quan el navegador 
 
 Edita el fitxer `/etc/hosts`, és necessari tenir permisos d'administració per a poder modificar el fitxer. ​
 
-~~~
+```console
 sudo vi /etc/hosts
-~~~
+```
 
 Afegeix la següent línia per a que la nostra màquina busqui `www.domini.local` a la nostra web:
 
-~~~
+```console
 127.0.0.1   www.domini.local
-~~~
+```
 
 Guarda i tanca l'arxiu.
 
 ## Comprovar el funcionament <a name="comprovar-funcionament"></a>
 Has de poder accedir a la web que hem preparat per al nostre domini. Entra amb el navegador web a l'adreça del nostre domini i comprova que pots veure el contingut de la teva web (si encara no hem portat res al directori hauria d'apareixer el directori buit).
 
-~~~
-http://www.domini.local
-~~~
+`http://www.domini.local`
 
 ## En cas d'error comprovar el registre d'apache2 <a name="comprovar-registre-apache2"></a>
 
@@ -119,24 +117,26 @@ El registre d'errors del servidor, el nom i la ubicació del qual s'especifica a
 És el primer lloc on ha de mirar quan sorgeixi un problema en iniciar el servidor o durant la seva operació normal, perquè sovint hi trobareu informació detallada de què ha anat malament i com solucionar el problema.
 
 El fitxer d'error de l'`apache2` l'hem configurat a:
-~~~
+
+```console
 cat /var/log/apache2/error.log
-~~~
+```
 
 ### Registre d'accés del servidor `CustomLog` <a name="registre-acces-apache2"></a>
 El servidor emmagatzema al registre d'accés informació sobre totes les peticions que processa. La ubicació del fitxer de registre i el contingut que es registra es poden modificar amb la directiva `CustomLog`.
 
 El fitxer d'accés de l'`apache2` l'hem configurat a:
-~~~
+
+```console
 cat /var/log/apache2/access.log
-~~~
+```
 
 ## Assignació de permisos <a name="assignacio-permisos"></a>
 L'usuari que executa `apache2` és, per defecte, `www-data` i voldrem que qualsevol instal·lació que fem al nostre servidor no tingui problemes de permisos. Per canviar el propietari a l'usuari loginat en la sessió utilitzarem la següent comanda:
 
-~~~
+```console
 sudo chown -R $USER:www-data /var/www/domini.local
-~~~
+```
 
 Després d'això els arxius i subdirectoris (el paràmetre `-­R` aplica recursivament l'acció a tots els arxius i subdirectoris) estàn ara sota el propietari de la sessió actual.
 
@@ -144,21 +144,21 @@ La variable `$USER` conté el valor de l'usuari loginat. Llavors en el moment qu
 
 En el meu cas, el meu usuari és `rusben`, llavors és equivalen a fer el següent:
 
-~~~
+```console
 sudo chown -R rusben:www-data /var/www/domini.local
-~~~
+```
 
 Si quan executem la comanda estem loginats amb l'usuari `root` seria equivalent a fer:
 
-~~~
+```console
 sudo chown -R root:www-data /var/www/domini.local
-~~~
+```
 
 ​Encara hem de canviar alguns permisos. Habilitem l'accés de lectura de tot el directori web i els seus subdirectoris, al propietari i al grup, mentre que la resta d'usuaris només podrá llegir i escriure (`rwxrwxr-x`).
 
-~~~
+```console
 sudo chmod -R 775  /var/www/domini.local
-~~~
+```
 
 ## Extra: accedir a l'aplicació web d'un company o companya
 Enlloc d'utilitzar la IP de `localhost` podeu utilitzar la IP de la vostra màquina.
