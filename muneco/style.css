@@ -88,6 +88,36 @@
   bottom: 0;
 }
 
+.narices {
+  position: absolute;
+  height: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  top: 9em;
+
+  background-color: blue;
+  border: thin solid blue;
+
+  z-index: 4;
+}
+
+.nariz {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background-color: yellow;
+  border: thin solid red;
+
+ /* centrar la nariz*/
+  margin: 0 auto;
+
+  left: 3em;
+
+}
+
+
 .pies {
   position: absolute;
   height: 100px;
