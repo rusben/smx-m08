@@ -26,7 +26,24 @@
   border: thin solid green;
   height: 30em;
   width: 30em;
+  animation: cambiar-color-muneco  5s linear 2s infinite alternate, rotar-muneco  5s linear 0s infinite alternate;
+}
 
+@keyframes rotar-muneco {
+  0% { transform: rotate(137.5deg) scale(0.75); }
+  50% { transform: rotate(275deg) scale(0.5); }
+  100% { transform: rotate(412.5deg) scale(0.125); }
+}
+
+@keyframes cambiar-color-muneco {
+  0% { opacity: 100%; }
+  50% { opacity: 75%; }
+  100% { opacity: 50%; }
+}
+
+@keyframes mover-nariz {
+  0% { }
+  100% {   width: 20em; height: 10em; }
 }
 
 .ojos {
@@ -46,8 +63,8 @@
   background-color: white;
   border: thin solid black;
   border-radius: 50%;
-
 }
+
 
 .pupila {
   position: absolute;
@@ -68,6 +85,8 @@
   position: absolute;
   left: 1em;
   top: 0;
+  animation: mover-ojo-left 5s linear 2s infinite alternate;
+
 }
 
 .ojo-lb {
@@ -80,6 +99,7 @@
   position: absolute;
   right: 1em;
   top: 0;
+  animation: mover-ojo-right 5s linear 2s infinite alternate;
 }
 
 .ojo-rb {
@@ -87,6 +107,22 @@
   right: 1em;
   bottom: 0;
 }
+
+
+@keyframes mover-ojo-left {
+  0% { left: 1em;  }
+  50% { left: 4em; }
+  100% { left: 8em; }
+}
+
+@keyframes mover-ojo-right {
+  0% { right: 1em;  }
+  50% { right: 4em; }
+  100% { right: 8em; }
+}
+
+   /* animation: example 5s linear 2s infinite alternate; */
+
 
 .narices {
   position: absolute;
@@ -105,8 +141,8 @@
 
 .nariz {
   position: relative;
-  width: 200px;
-  height: 100px;
+  width: 20em;
+  height: 10em;
   background-color: yellow;
   border: thin solid red;
 
