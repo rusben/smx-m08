@@ -7,11 +7,11 @@ La pràctica consisteix en la instal·lació de diferents botigues virtuals.
 * CubeCart
 * PrestaShop
 * OpenCart
-* WooCommerce
+* WooCommerce (es un plugin de WordPress)
 * osCommerce
 * Zen Cart
 
-Heu d'instal·lar en la vostra màquina local almenys 4 botigues virtuals del llistat.
+Heu d'instal·lar en la vostra màquina local almenys 2 botigues virtuals del llistat.
 
 ## Configuració de les botigues
 Les botigues hauran de tenir almenys:
