@@ -6,5 +6,5 @@
 4. [Exportar una instal·lació de WordPress local a un servidor de Hosting](exportar-wordpress-a-hosting.md)
 
 ## Pràctica
-[Enunciat de la pràctica de Wordpress](pt-uf3.md)
-[Enunciat de la pràctica de botigues virtuals](pt-uf3b.md)
+* [Enunciat de la pràctica de Wordpress](pt-uf3.md)
+* [Enunciat de la pràctica de botigues virtuals](pt-uf3b.md)
