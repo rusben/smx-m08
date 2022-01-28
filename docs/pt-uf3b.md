@@ -19,7 +19,9 @@ Les botigues hauran de tenir almenys:
 * 3 categories de productes.
 * 3 productes a cada categoria.
 * Els productes almenys hauran de tenir un nom de producte, descripció i preu.
+<!--
 * La botiga ha d'oferir la possibilitat de fer el pagament dels productes (paypal development).
+-->
 * Possibilitat de configuració de la divisa de pagament.
 * Possibilitat de pàgina multi-idioma.
 * Possibilitat de fidelització d'usuaris. (Registre, enviament de publicitat)
