@@ -26,12 +26,13 @@ Les botigues hauran de tenir almenys:
 
 ## Extra
 * Instal·lació i configuració de més botigues virtuals.
-* Instal·lació en el servidor local del puig una o més botigues virtuals, utilitzeu les credencials que us han arribat al mail (en cas de no rebre cap credencial consulta al professor).
+<!-- * Instal·lació en el servidor local del puig una o més botigues virtuals, utilitzeu les credencials que us han arribat al mail (en cas de no rebre cap credencial consulta al professor).
+-->
 
 ## Entrega
 * Demostració del funcionament al professor en directe (imprescindible).
 * Explicar què heu implementat i on es pot trobar. I tot allò que consideris que el professor hauria de saber que has implementat.
 
 ## Més informació
-Three-click rule: https://en.wikipedia.org/wiki/Three-click_rule
-Online shopping: https://en.wikipedia.org/wiki/Online_shopping
+* Three-click rule: https://en.wikipedia.org/wiki/Three-click_rule
+* Online shopping: https://en.wikipedia.org/wiki/Online_shopping
