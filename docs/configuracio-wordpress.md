@@ -41,7 +41,7 @@ Canvieu la configuració al fitxer `/etc/apache2/apache2.conf` per permetre la r
 ~~~
  <Directory /var/www/>
     Options Indexes FollowSymLinks
-    AllowOverride <b>All</b>
+    AllowOverride All
     Require all granted
  </Directory>
 ~~~
