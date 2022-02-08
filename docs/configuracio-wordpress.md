@@ -81,9 +81,7 @@ sudo updatedb
  /usr/lib/php/7.4/php.ini-production.cli
 ~~~
 
- Apareixen diferents fitxers `php.ini`, però ens interessa el `php.ini` del servidor `apache2`.
-
-
+Apareixen diferents fitxers `php.ini`, però ens interessa el `php.ini` del servidor `apache2`.
 
 2. Busquem i modifiquem els següents valors:
 

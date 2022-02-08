@@ -7,7 +7,7 @@
 
 Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal haurà d’estar fet en `WordPress`.
 
-* Heu d’instal·lar `WordPress` en la vostra màquina mitjançant `vagrant`. Seguie els pasos que indica el [manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
+* Heu d’instal·lar `WordPress` en la vostra màquina mitjançant `vagrant`. Seguiex els passos que indica el [manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
 
 * Heu de configurar `WordPress` amb els requisits mínims que s'indiquen a continuació:
 
