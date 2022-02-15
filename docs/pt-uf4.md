@@ -1,4 +1,4 @@
-# Pràctica UF4 - Instal·lació i configuració de moodle
+  # Pràctica UF4 - Instal·lació i configuració de moodle
 ## Objectius generals de la pràctica
 * Instal·lar i configurar gestors de continguts, concretament `moodle`.
 * Aprende a utilitzar `moodle` com a administrador.
@@ -54,3 +54,54 @@ c) Comprova que efectivament, el contingut del curs A (afegit per l'administrado
 8. Amb el professor afegeix contingut al curs A. Afegeix diferents tipus d’activitats i recursos. Crea una tasca amb data d’entrega oberta que demani la càrrega d’un fitxer PDF. Documenta tot el que facis amb captures de pantalla i explicacions.
 
 9. Entra amb un alumne i comprova que pots lliurar la tasca. Documenta tot el que facis amb captures de pantalla i explicacions.
+
+## Continguts
+En el curs A crea una UF amb 2 NF dintre. En aquesta UF crea diverses activitats.
+
+Botó Activar Edició (a dalt a la dreta). Una UF es pot crear amb una etiqueta i movent a la dreta el seu contingut. Es pot canviar el Format del curs a “Temes” a
+Administració del Curs > Editar Curs > Format del Curs
+
+Fes servir el moodle del puig com a referència. Han d’haver tant activitats magistrals com evaluables (com a mínim una entrega i un questionari). Clona (importa) el curs sencer al curs B
+Administració del Curs > Importar (desde el curs B)
+
+## Qualificació
+En el curs A fes que un alumne completi totes les tasques evaluables (entrant amb la seva compta). Calificales amb el professor i configura el calificador per a que doni una nota de la UF automàticament.
+Administració del Curs > Configuració de qualificacions
+
+Crea una insignia i atorga-la a aquest alumne.
+Administració del Lloc > Insígnies
+
+## Personalització
+Descarrega i aplica un tema nou al teu LMS.
+
+Edita també tant la capçalera (header) com el peu (footer) i la pàgina principal (Front page) Posa-li un logotip al teu moodle.
+
+## Seguretat
+Baneja una IP i aplica una política de seguretat. Pots posar la que vulguis però l’hauràs de justificar.
+
+
+NOTA: Capturar per a cada pregunta, les imatges que han de mostrar la resposta, i tenir-les a mà, farà que sigui molt més fàcil contestar les preguntes el dia de l’avaluació!
+
+
+## Usuaris
+Crea 10 usuaris alumnes i un usuari professor posant-li dades.
+Administració del Lloc > Usuaris > Crear Usuari (un a un) / Pujar Usuaris (de cop amb un arxiu csv, hi ha un model de csv al final del document).
+
+Assigna al professor a A i B. Matricula els alumnes a A
+Administració del Curs > Usuaris > Usuaris Matriculats
+
+i connectat amb un alumne i matricula’l a B amb la contrassenya.
+
+## Fitxer usuaris.csv
+
+```console
+username,firstname,lastname,email,password
+blobesponja,Blob,Esponja,blobesponja@elpuig.xeill.net,Abc123!
+jsongoku,JSON,Goku,jsongoku@elpuig.xeill.net,Abc123!
+canceligretel,Cancel,Gretel,canceligretel@elpuig.xeill.net,Abc123!
+davidelgnome,David,Gnome,davidelgnome@elpuig.xeill.net,Abc123!
+ritahardware,Rita,Hardware,trritahardwarees@elpuig.xeill.net,Abc123!
+```
+
+## Més informació
+LMS: https://en.wikipedia.org/wiki/Learning_management_system
