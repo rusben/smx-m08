@@ -7,8 +7,10 @@ Una aplicació web és una aplicació a la qual accedim mitjançant protocol HTT
 
 2. [El paradigma client-servidor](client-servidor.md)
 
-3. [Comandes bàsiques amb git](intro-git.md)
+3. [MarkDown](intro-markdown.md)
 
-4. [Introducció als contenidors lxc/lxd](intro-contenidors-lxc-lxd.md)
+4. [Comandes bàsiques amb git](intro-git.md)
 
-5. [Instal·lació d'aplicacions web en contenidors](installacio-aplicacions-web-contenidors.md)
+5. [Introducció als contenidors lxc/lxd](intro-contenidors-lxc-lxd.md)
+
+6. [Instal·lació d'aplicacions web en contenidors](installacio-aplicacions-web-contenidors.md)
