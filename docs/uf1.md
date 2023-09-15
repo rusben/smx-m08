@@ -14,3 +14,8 @@ Una aplicació web és una aplicació a la qual accedim mitjançant protocol HTT
 5. [Introducció als contenidors lxc/lxd](intro-contenidors-lxc-lxd.md)
 
 6. [Instal·lació d'aplicacions web en contenidors](installacio-aplicacions-web-contenidors.md)
+
+
+## Pràctiques
+
+[Creació d'una pàgina personal amb Markdown](uf1-pt1-creacio-pagina-personal-markdown.md)
