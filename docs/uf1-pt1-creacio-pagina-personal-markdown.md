@@ -11,7 +11,7 @@ En aquest exercici, creareu una pàgina personal en format Markdown per presenta
 - Enllaços ([text de l'enllaç](URL)).
 - Imatges (![text alternatiu](URL de la imatge)).
 - Negreta i cursiva (**text en negreta**, *text cursiu*).
-- Escites (> cita).
+- Cites (> cita).
 - Línies horitzontals (--- o ___).
 - Codi en línia (text del codi).
 - Blocs de codi (comilles triples invertides).
