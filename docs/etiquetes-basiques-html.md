@@ -1,13 +1,14 @@
 # Etiquetes bàsiques en HTML
 Segurament t'interessa aprendre com utilitzar les etiquetes bàsiques d'HTML per crear una pàgina web. HTML (Hypertext Markup Language) és el llenguatge de marcatge estàndard utilitzat per a la creació de pàgines web. Aquí tens una introducció a algunes de les etiquetes HTML més bàsiques:
 
-## <!DOCTYPE>
+## `<!DOCTYPE>`
 Aquesta etiqueta s'utilitza per especificar la versió d'HTML que s'està utilitzant. La versió més comuna és HTML5:
 
 ```html
 <!DOCTYPE html>
 ```
-## <html>
+
+## `<html>`
 L'element `<html>` és l'element arrel de tota pàgina web i conté tot el contingut de la pàgina.
 
 ```html
@@ -16,7 +17,7 @@ L'element `<html>` és l'element arrel de tota pàgina web i conté tot el conti
 </html>
 ```
 
-## <head> 
+## `<head>` 
 L'element `<head>` conté metainformació sobre la pàgina web, com ara el títol de la pàgina, vincles a arxius CSS i JavaScript, i metadades.
 
 ```html
