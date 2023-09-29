@@ -36,7 +36,7 @@ L'element `<body>` conté el contingut visible de la pàgina web, com text, imat
 </body>
 ```
 
-## <h1>, <h2>, <h3>
+## `<h1>` `<h2>` `<h3>` `<h4>` `<h5>` `<h6>`
 S'utilitzen per crear títols i subtítols a la pàgina web. `<h1>` és el títol principal, i `<h2>`, `<h3>`, etc., són subtítols de nivells diferents.
 
 ```html
@@ -44,28 +44,28 @@ S'utilitzen per crear títols i subtítols a la pàgina web. `<h1>` és el títo
 <h2>Subtítol</h2>
 ```
 
-## <p>
+## `<p>`
 L'etiqueta `<p>` s'utilitza per a paràgrafs de text.
 
 ```html
 <p>Aquest és un paràgraf de text.</p>
 ```
 
-## <a>
+## `<a>`
 L'etiqueta `<a>` s'utilitza per crear enllaços a altres pàgines web o recursos.
 
 ```html
 <a href="https://www.exemple.com">Visita Exemple.com</a>
 ```
 
-## <img>
+## `<img>`
 L'etiqueta `<img>` s'utilitza per afegir imatges a la pàgina web.
 
 ```html
 <img src="imatge.jpg" alt="Descripció de la imatge">
 ```
 
-## <ul> i <li>
+## `<ul>` `<li>`
 S'utilitzen per crear llistes sense ordre (lliures).
 
 ```html
@@ -75,7 +75,7 @@ S'utilitzen per crear llistes sense ordre (lliures).
 </ul>
 ```
 
-## <ol> i <li>
+## `<ol>` `<li>`
 S'utilitzen per crear llistes ordenades (numerades).
 
 ```html
@@ -85,7 +85,7 @@ S'utilitzen per crear llistes ordenades (numerades).
 </ol>
 ```
 
-## <table>, <tr>, <th>, <td>
+## `<table>` `<tr>` `<th>` `<td>`
 
 Les taules s'utilitzen per organitzar dades en files i columnes. Aquí tens un exemple senzill d'una taula amb capçaleres de columna i dades:
 
