@@ -18,33 +18,28 @@ D'aquesta manera és molt senzill desplegar infraestructura a partir d'un fitxer
 Per a cada projecte `vagrant` utilitza un directori, com a exemple podem crear el directori `ubuntu-focal` per treballar amb una MV d'`Ubuntu 20.04 Focal Fossa`.
 
 ```console
-[alumne@elpuig ~]$ mkdir ubuntu-focal
-[alumne@elpuig ~]$ cd ubuntu-focal/
+[alumne@elpuig ~]$ mkdir example
+[alumne@elpuig ~]$ cd example/
 ```
 
 La configuració del projecte s'escriu al fitxer `Vagrantfile` que podem crear directament amb l'ordre `vagrant init <box>` indicant una de les MVs que es troben a `Vagrant Cloud`. Per exemple, la distribució Ubuntu manté imatges oficials a https://app.vagrantup.com/ubuntu.
 
 ```console
-[alumne@elpuig ubuntu-focal]$ vagrant init ubuntu/focal64
+[alumne@elpuig example]$ vagrant init ubuntu/jammy64
 A `Vagrantfile` has been placed in this directory. You are now
 ready to `vagrant up` your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
-[alumne@elpuig ubuntu-focal]$ ll
+[alumne@elpuig example]$ ll
 total 4
--rw-rw-r--. 1 vcarceler vcarceler 3020 15 jul. 14:23 Vagrantfile
-[alumne@elpuig ubuntu-focal]$
+-rw-rw-r--. 1 alumne alumne 3020 15 jul. 14:23 Vagrantfile
+[alumne@elpuig example]$
 ```
 
 Ara podem aixecar tota la infraestructura (afegint el paràmetre `--provider=virtualbox` perquè en algunes màquines el provider per defecte és `libvirt`) amb `vagrant up`:
 
 ```console
-[alumne@elpuig ubuntu-focal]$ vagrant up --provider=virtualbox
-Bringing machine 'default' up with 'virtualbox' provider...
-==> default: Importing base box 'ubuntu/focal64'...
-==> default: Matching MAC address for NAT networking...
-==> default: Checking if box 'ubuntu/focal64' version '20210709.0.0' is up to date...
-==> default: Setting the name of the VM: ubuntu-focal_default_1626352374768_57256
+[alumne@elpuig example]$ vagrant up --provider=virtualbox
 ==> default: Clearing any previously set network interfaces...
 ==> default: Preparing network interfaces based on configuration...
     default: Adapter 1: nat
@@ -56,24 +51,34 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: SSH address: 127.0.0.1:2222
     default: SSH username: vagrant
     default: SSH auth method: private key
-    default:
+    default: 
     default: Vagrant insecure key detected. Vagrant will automatically replace
     default: this with a newly generated keypair for better security.
-    default:
+    default: 
     default: Inserting generated public key within guest...
     default: Removing insecure key from the guest if it's present...
     default: Key inserted! Disconnecting and reconnecting using new SSH key...
 ==> default: Machine booted and ready!
 ==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 6.0.0 r127566
+    default: VirtualBox Version: 6.1
 ==> default: Mounting shared folders...
-    default: /vagrant => /home/vcarceler/ubuntu-focal
-[alumne@elpuig ubuntu-focal]$
+    default: /vagrant => /home/alumne/example
+
+[alumne@elpuig example]$
 ```
 
 Aquesta comanda descàrrega (les màquines descarregades es guarden a `~/.vagrant.d/`) —si cal— la màquina utilitzada, crea una MV a `VirtualBox`, la configura, l'encén i la prepara amb la clau pública del host per poder iniciar sessió amb `ssh`.
 
 ```console
-[alumne@elpuig ubuntu-focal]$ vagrant ssh
+[alumne@elpuig example]$ vagrant ssh
 Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-77-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -92,13 +97,13 @@ Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-77-generic x86_64)
 To see these additional updates run: apt list --upgradable
 
 
-vagrant@ubuntu-focal:~$
+vagrant@example:~$
 ```
 
-A més, per defecte s'ha compartit el directori del projecte (`~/ubuntu-focal`) entre la màquina física i la màquina virtual. Així resulta molt senzill compartir fitxers ja que el directori del projecte estarà muntat a la MV al directori `/vagrant`:
+A més, per defecte s'ha compartit el directori del projecte (`~/example`) entre la màquina física i la màquina virtual. Així resulta molt senzill compartir fitxers ja que el directori del projecte estarà muntat a la MV al directori `/vagrant`:
 
 ```console
-vagrant@ubuntu-focal:~$ ll /vagrant
+vagrant@example:~$ ll /vagrant
 total 8
 drwxrwxr-x  1 vagrant vagrant   38 Jul 15 12:32 ./
 drwxr-xr-x 20 root    root    4096 Jul 15 12:33 ../
