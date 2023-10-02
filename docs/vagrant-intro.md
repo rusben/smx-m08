@@ -15,7 +15,7 @@ D'aquesta manera és molt senzill desplegar infraestructura a partir d'un fitxer
 
 ## Un directori per al projecte
 
-Per a cada projecte `vagrant` utilitza un directori, com a exemple podem crear el directori `example` per treballar amb una MV d'`Ubuntu 22.04 Jammy Jellfish`.
+Per a cada projecte `vagrant` utilitza un directori, com a exemple podem crear el directori `example` per treballar amb una MV d'`Ubuntu 22.04 Jammy Jellyfish`.
 
 ```console
 [alumne@elpuig ~]$ mkdir example
