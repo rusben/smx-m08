@@ -97,19 +97,19 @@ Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-77-generic x86_64)
 To see these additional updates run: apt list --upgradable
 
 
-vagrant@example:~$
+vagrant@ubuntu-jammy:~$
 ```
 
 A més, per defecte s'ha compartit el directori del projecte (`~/example`) entre la màquina física i la màquina virtual. Així resulta molt senzill compartir fitxers ja que el directori del projecte estarà muntat a la MV al directori `/vagrant`:
 
 ```console
-vagrant@example:~$ ll /vagrant
+vagrant@ubuntu-jammy:~$ ll /vagrant
 total 8
 drwxrwxr-x  1 vagrant vagrant   38 Jul 15 12:32 ./
 drwxr-xr-x 20 root    root    4096 Jul 15 12:33 ../
 drwxrwxr-x  1 vagrant vagrant   32 Jul 15 12:32 .vagrant/
 -rw-rw-r--  1 vagrant vagrant 3020 Jul 15 12:23 Vagrantfile
-vagrant@ubuntu-focal:~$
+vagrant@ubuntu-jammy:~$
 ```
 
 La comanda `vagrant status` ens mostrarà informació sobre l'estat de les nostres MVs i les podrem aturar amb `vagrant halt` o suspendre amb `vagrant suspend`. En qualsevol cas, es podran tornar a encendre amb `vagrant up`.
