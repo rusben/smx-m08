@@ -13,4 +13,4 @@ En resum:
 
 ## Enllaços a les diferents clouds
 * ***OwnCloud***: http://www.owncloud.org
-* ***NextCloud***: http://www.nextcloud.com
+* ***Nextcloud***: http://www.nextcloud.com
