@@ -14,7 +14,7 @@ Heu d'instal·lar els gestor d’arxius de la llista:
 
 Les tasques que s'han de documentar són les següents i han d'estar dividides en quatre fitxers `.md` (s'especifica a l'apartat entrega):
 
-* Instal·lació i configuració del sistema de virtualització (`lxc/lxd` i `vagrant`).
+* Instal·lació i configuració del sistema de virtualització (`vagrant`).
 * Instal·lació del gestor d’arxius assignat.
 * Manual d’instal·lació. Documentació de tasques realitzades.
 * Demostració del funcionament.
@@ -27,7 +27,7 @@ Les tasques que s'han de documentar són les següents i han d'estar dividides e
 S'ha d'entregar una carpeta amb el següent format:
 `NOM-PTUF2`, en el meu cas: `RUBEN-PTUF2`. La carpeta ha de contenir:
 
-1. Manual d'instal·lació d'`ownCloud` amb contenidors `lxc/lxd`.
+1. Manual d'instal·lació d'`ownCloud` amb virtualització mitjançant `vagrant`.
 2. Manual d'instal·lació de `NextCloud` amb virtualització mitjançant `vagrant`.
 3. Manual de configuració d'`ownCloud`.
 4. Manual de configuració de `NextCloud`.
