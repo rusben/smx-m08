@@ -62,7 +62,7 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
 
 **7.** Assigna un professor i matricula alumnes al curs A.
 
-**8.** Amb el professor afegeix contingut al curs A. Afegeix diferents tipus d’activitats i recursos. Crea una tasca amb data d’entrega oberta que demani la càrrega d’un fitxer PDF. Documenta tot el que facis amb captures de pantalla i explicacions.
+**8.** Amb el professor afegeix contingut al curs A. Afegeix diferents tipus d’activitats i recursos. Crea una tasca amb data d’entrega oberta que demani la càrrega d’un fitxer PDF.
 
 **9.** Entra amb un alumne i comprova que pots lliurar la tasca.
 
