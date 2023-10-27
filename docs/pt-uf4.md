@@ -19,24 +19,25 @@ Instal·leu moodle des d’aquí: https://download.moodle.org/download.php/stabl
 
 b) Canvia el nom del teu lloc (tant llarg com curt) i fes que la pàgina principal no mostri res pels usuaris que no estiguin autentificats. Això es pot fer anant a l'opció `Administració del lloc > Primera plana > Paràmetres`
 
-c) Comprova que la franja horària del teu lloc sigui la correcta. Això es pot fer anant a l'opció `Administració del lloc > Ubicació > Paràmetres` ***NOTA:*** Aquesta configuració és important, per exemple, per les hores límit d'entregues d'exercicis
+c) Comprova que la franja horària del teu lloc sigui la correcta. Això es pot fer anant a l'opció `Administració del lloc > Ubicació > Paràmetres`.
+***NOTA:*** Aquesta configuració és important, per exemple, per les hores límit d'entregues d'exercicis
 
+d) Canvia l'idioma del teu lloc. Això es pot fer anant a l'opció `Administració del lloc > Idioma > Paràmetres` i tenint en compte tant el checkbox `Detecció automàtica de l'idioma` com el desplegable `Idioma per defecte`. 
+***NOTA:*** Per disposar d'un determinat idioma, primer cal instal.lar-lo des de `Administració del lloc > Idioma > Paquets d'idioma`
 
-d) Canvia l'idioma del teu lloc. Això es pot fer anant a l'opció `Administració del lloc > Idioma > Paràmetres` i tenint en compte tant el checkbox `Detecció automàtica de l'idioma` com el desplegable `Idioma per defecte`. ***NOTA:*** Per disposar d'un determinat idioma, primer cal instal.lar-lo des de `Administració del lloc > Idioma > Paquets d'idioma`
+e) Canvia la política de contrasenyes de manera que els usuaris que es creiïn tinguin una contrasenya de com a mínim 4 caràcters incloent-hi, majúscules, minúscules i xifres. Això es pot fer anant a l'opció `Administració del lloc > Seguretat >Normatives del lloc`.
 
+2. Crea els següents cursos: un curs anomenat A (sense categoria) que estigui format per 3 temes i un altre anomenat B (també sense categoria) que estigui format per 5 temes. Tot això ho pots fer des de Administració del lloc->Gestiona cursos i categories o també des del quadre `Navegació` anant a `Cursos > Afegeix curs`
 
-e) Canvia la política de contrasenyes de manera que els usuaris que es creiïn tinguin una contrasenya de com a mínim 4 caràcters incloent-hi, majúscules, minúscules i xifres. Això es pot fer anant a l'opció Administració del lloc->Seguretat->Normatives del lloc
+3. Vés a algun dels cursos creats al punt anterior (simplement seleccionant-lo dins del quadre `Navegació`) i fes que contingui en algun del seus temes algun tipus de material (un document PDF, per exemple), canvia el títol d'algun tema i, en general, investiga les possibilitats que et dóna el botó `Activar edició` en un curs.
+***NOTA:*** Aquestes possibilitats no les estudiarem a fons perquè són una tasca més pròpia del professor que no pas de l'administrador del Moodle, però sempre va bé tenir-ne alguna idea.
 
+4.- Creació d’usuaris i alumnes. a) Crea manualment un usuari anomenat `Bob` que ha de fer servir el `mètode d'autenticació manual`. Això es pot fer des de `Administració del lloc > Usuaris > Comptes > Afegeix un usuari`
 
-2. Crea els següents cursos: un curs anomenat A (sense categoria) que estigui format per 3 temes i un altre anomenat B (també sense categoria) que estigui format per 5 temes. Tot això ho pots fer des de Administració del lloc->Gestiona cursos i categories o també des del quadre "Navegació" anant a Cursos->botó Afegeix curs
+b) Genera deu alumnes que ho seran dels dos cursos A i B . Fes servir un arxiu CSV per realitzar aquesta creació en bloc. Vés a `Administració del lloc > Usuaris > Comptes > Carrega usuaris` i segueix els passos que et marca. 
+***NOTA:*** Per saber el contingut que hauria de tenir aquest fitxer, consulteu: https://docs.moodle.org/30/en/Upload_users#File_formats_for_upload_users_file
 
-3. Vés a algun dels cursos creats al punt anterior (simplement seleccionant-lo dins del quadre "Navegació") i fes que contingui en algun del seus temes algun tipus de material (un document PDF, per exemple), canvia el títol d'algun tema i, en general, investiga les possibilitats que et dóna el botó d'"Activar edició" en un curs. NOTA: Aquestes possibilitats no les estudiarem a fons perquè són una tasca més pròpia del professor que no pas de l'administrador del Moodle, però sempre va bé tenir-ne alguna idea.
-
-4.- Creació d’usuaris i alumnes. a) Crea manualment un usuari anomenat "Bob" (que ha de fer servir el "mètode d'autenticació manual"). Això es pot fer des d’Administració del lloc->Usuaris->Comptes->Afegeix un usuari
-
-b) Genera deu alumnes que ho seran dels dos cursos A i B . Fes servir un arxiu CSV per realitzar aquesta creació en bloc. Vés a Administració del lloc->Usuaris->Comptes->Carrega usuaris i segueix els passos que et marca NOTA: Per saber el contingut que hauria de tenir aquest fitxer, consulteu: https://docs.moodle.org/30/en/Upload_users#File_formats_for_upload_users_file
-
-c) Elimina dos dels deu alumnes creats a l'apartat anterior fent servir l'opció Administració del lloc->Usuaris->Accions amb usuaris en bloc
+c) Elimina dos dels deu alumnes creats a l'apartat anterior fent servir l'opció `Administració del lloc > Usuaris > Accions amb usuaris en bloc`
 
 5. Ara matricula aquests usuaris als diferents cursos. a) Fes que al curs A no hi hagi possibilitat d'inscripció (és a dir, que només es permeti l'accés de visitant de manera que el curs sigui totalment públic sense control d'usuaris -ni alumnes ni professors-). D'altra banda, fes que al curs B es necessiti registre manual d'usuaris (és a dir, que sigui l'administrador -tu- qui matriculi cada usuari al curs, ja sigui com a professor o com a alumne). Tot això ho pots fer des de Administració del curs->Ususaris->Mètodes d'inscripció . Si no surt algun mètode d'inscripció disponible, has d'activar-lo a: Administració de lloc->Connectors->Autenticació->Gestió de l'autenticació
 
