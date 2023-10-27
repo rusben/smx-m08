@@ -58,24 +58,20 @@ c) Comprova que efectivament, el contingut del curs A (afegit per l'administrado
 ## Continguts
 En el curs A crea una UF amb 2 NF dintre. En aquesta UF crea diverses activitats.
 
-Botó Activar Edició (a dalt a la dreta). Una UF es pot crear amb una etiqueta i movent a la dreta el seu contingut. Es pot canviar el Format del curs a “Temes” a
-Administració del Curs > Editar Curs > Format del Curs
+Botó Activar Edició (a dalt a la dreta). Una UF es pot crear amb una etiqueta i movent a la dreta el seu contingut. Es pot canviar el Format del curs a `Temes` a `Administració del Curs > Editar Curs > Format del Curs`
 
-Fes servir el moodle del puig com a referència. Han d’haver tant activitats magistrals com evaluables (com a mínim una entrega i un questionari). Clona (importa) el curs sencer al curs B
-Administració del Curs > Importar (desde el curs B)
+Fes servir el moodle del puig com a referència. Han d’haver tant activitats magistrals com evaluables (com a mínim una entrega i un questionari). Clona (importa) el curs sencer al curs B `Administració del Curs > Importar` (des del curs B)
 
 ## Qualificació
-En el curs A fes que un alumne completi totes les tasques evaluables (entrant amb la seva compta). Calificales amb el professor i configura el calificador per a que doni una nota de la UF automàticament.
-Administració del Curs > Configuració de qualificacions
+En el curs A fes que un alumne completi totes les tasques evaluables (entrant amb la seva compta). Calificales amb el professor i configura el calificador per a que doni una nota de la UF automàticament a `Administració del Curs > Configuració de qualificacions`.
 
-Crea una insignia i atorga-la a aquest alumne.
-Administració del Lloc > Insígnies
+Crea una insignia i atorga-la a aquest alumne des de `Administració del Lloc > Insígnies`
 
 ## Qüestionaris
 Crea un qüestionari i afegeix preguntes del banc de preguntes. Crea diferents categories dintre del banc de preguntes i diverses preguntes en cada categoria. A l'hora de crear el qüestionari has de seleccionar les preguntes del banc de preguntes. Respon les preguntes del qüestionari amb un usuari estudiant i mira les qualificacions amb l'usuari professor.
 
 ## Importar i exportar un curs
-Entra a la zona d'Administració > Cursos > Còpies i fes una còpia de seguretat del teu curs. Després envia aquest fitxer a un company i que l'importi al seu moodle. Has d'importar al teu moodle un altre curs d'un company. 
+Entra a la zona `Administració > Cursos > Còpies` i fes una còpia de seguretat del teu curs. Després envia aquest fitxer a un company i que l'importi al seu moodle. Has d'importar al teu moodle un altre curs d'un company. 
 
 ## Personalització
 Descarrega i aplica un tema nou al teu LMS.
@@ -89,12 +85,9 @@ Baneja una IP i aplica una política de seguretat. Pots posar la que vulguis per
 
 ## Usuaris
 Crea 10 usuaris alumnes i un usuari professor posant-li dades.
-Administració del Lloc > Usuaris > Crear Usuari (un a un) / Pujar Usuaris (de cop amb un arxiu csv, hi ha un model de csv al final del document).
+`Administració del Lloc > Usuaris > Crear Usuari / Pujar Usuaris` (de cop amb un arxiu csv, hi ha un model de csv al final del document).
 
-Assigna al professor a A i B. Matricula els alumnes a A
-Administració del Curs > Usuaris > Usuaris Matriculats
-
-i connectat amb un alumne i matricula’l a B amb la contrassenya.
+Assigna al professor a A i B. Matricula els alumnes a A mitjançant `Administració del Curs > Usuaris > Usuaris Matriculats` i connectat amb un alumne i matricula'l a B amb la contrassenya.
 
 ### Fitxer usuaris.csv
 
