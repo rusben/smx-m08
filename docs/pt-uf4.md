@@ -38,9 +38,7 @@ b) Genera deu alumnes que ho seran dels dos cursos A i B . Fes servir un arxiu C
 
 c) Elimina dos dels deu alumnes creats a l'apartat anterior fent servir l'opció Administració del lloc->Usuaris->Accions amb usuaris en bloc
 
-
 5. Ara matricula aquests usuaris als diferents cursos. a) Fes que al curs A no hi hagi possibilitat d'inscripció (és a dir, que només es permeti l'accés de visitant de manera que el curs sigui totalment públic sense control d'usuaris -ni alumnes ni professors-). D'altra banda, fes que al curs B es necessiti registre manual d'usuaris (és a dir, que sigui l'administrador -tu- qui matriculi cada usuari al curs, ja sigui com a professor o com a alumne). Tot això ho pots fer des de Administració del curs->Ususaris->Mètodes d'inscripció . Si no surt algun mètode d'inscripció disponible, has d'activar-lo a: Administració de lloc->Connectors->Autenticació->Gestió de l'autenticació
-
 
 b) Assigna com a professor del curs B l'usuari "Bob" i com a alumnes a tots els que fas afegir des de l'arxiu CSV Tot això ho pots fer anant a Administració del curs->Usuaris inscrits->Inscriure
 
@@ -71,6 +69,12 @@ Administració del Curs > Configuració de qualificacions
 Crea una insignia i atorga-la a aquest alumne.
 Administració del Lloc > Insígnies
 
+## Qüestionaris
+Crea un qüestionari i afegeix preguntes del banc de preguntes. Crea diferents categories dintre del banc de preguntes i diverses preguntes en cada categoria. A l'hora de crear el qüestionari has de seleccionar les preguntes del banc de preguntes. Respon les preguntes del qüestionari amb un usuari estudiant i mira les qualificacions amb l'usuari professor.
+
+## Importar i exportar un curs
+Entra a la zona d'Administració > Cursos > Còpies i fes una còpia de seguretat del teu curs. Després envia aquest fitxer a un company i que l'importi al seu moodle. Has d'importar al teu moodle un altre curs d'un company. 
+
 ## Personalització
 Descarrega i aplica un tema nou al teu LMS.
 
@@ -79,9 +83,7 @@ Edita també tant la capçalera (header) com el peu (footer) i la pàgina princi
 ## Seguretat
 Baneja una IP i aplica una política de seguretat. Pots posar la que vulguis però l’hauràs de justificar.
 
-
-NOTA: Capturar per a cada pregunta, les imatges que han de mostrar la resposta, i tenir-les a mà, farà que sigui molt més fàcil contestar les preguntes el dia de l’avaluació!
-
+***NOTA:*** Capturar per a cada pregunta, les imatges que han de mostrar la resposta, i tenir-les a mà, farà que sigui molt més fàcil contestar les preguntes el dia de l’avaluació!
 
 ## Usuaris
 Crea 10 usuaris alumnes i un usuari professor posant-li dades.
@@ -92,7 +94,7 @@ Administració del Curs > Usuaris > Usuaris Matriculats
 
 i connectat amb un alumne i matricula’l a B amb la contrassenya.
 
-## Fitxer usuaris.csv
+### Fitxer usuaris.csv
 
 ```console
 username,firstname,lastname,email,password
