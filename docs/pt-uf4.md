@@ -91,7 +91,7 @@ Edita també tant la capçalera (header) com el peu (footer) i la pàgina princi
 ## Seguretat
 Baneja una IP i aplica una política de seguretat. Pots posar la que vulguis però l’hauràs de justificar.
 
-***NOTA:*** Capturar per a cada pregunta, les imatges que han de mostrar la resposta, i tenir-les a mà, farà que sigui molt més fàcil contestar les preguntes el dia de l’avaluació!
+**NOTA:** Capturar per a cada pregunta, les imatges que han de mostrar la resposta, i tenir-les a mà, farà que sigui molt més fàcil contestar les preguntes el dia de l’avaluació!
 
 ## Usuaris
 Crea 10 usuaris alumnes i un usuari professor posant-li dades.
