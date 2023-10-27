@@ -1,4 +1,4 @@
-  # Pràctica UF4 - Instal·lació i configuració de moodle
+# Pràctica UF4 - Instal·lació i configuració de moodle
 ## Objectius generals de la pràctica
 * Instal·lar i configurar gestors de continguts, concretament `moodle`.
 * Aprende a utilitzar `moodle` com a administrador.
@@ -9,9 +9,9 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
 
 * Heu d’instal·lar `moodle` en la vostra màquina mitjançant `vagrant`. Seguiex els passos que indica el [manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
 
-* Heu de configurar `moodle` amb els requisits mínims que s'indiquen a continuació:
+* Descarrega la última versió de moodle des de la pàgina oficial https://moodle.org
 
-Instal·leu moodle des d’aquí: https://download.moodle.org/download.php/stable30/moodle-latest-30.tgz
+* Heu de configurar `moodle` amb els requisits mínims que s'indiquen a continuació:
 
 ## Configuració
 
