@@ -46,7 +46,7 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
    
    **b)** Genera deu alumnes que ho seran dels dos cursos A i B . Fes servir un arxiu CSV per realitzar aquesta creació en bloc. Vés a `Administració del lloc > Usuaris > Comptes > Carrega usuaris` i segueix els passos que et marca. 
    
-   **NOTA:** Per saber el contingut que hauria de tenir aquest fitxer, consulteu: https://docs.moodle.org/30/en/Upload_users#File_formats_for_upload_users_file
+   **NOTA:** Per saber el contingut que hauria de tenir aquest fitxer, consulteu més abaix a la secció `Usuaris`.
    
    **c)** Elimina dos dels deu alumnes creats a l'apartat anterior fent servir l'opció `Administració del lloc > Usuaris > Accions amb usuaris en bloc`
 
