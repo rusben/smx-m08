@@ -26,6 +26,8 @@ Els possibles valors que pot adoptar la propietat `position` són: `static | rel
 <div class="vermell"> </div>
 ```
 
+![static](img/static.png)
+
 Fixa't que he posat un `id` a el segon `div` i l'he anomenat mogut. Li estic intentant aplicar la propietat `left` sense resultats.
 
 ## position: relative
@@ -52,6 +54,8 @@ Podrem utilitzar `top | left | right | bottom` per posicionar el nostre element 
 <div id="mogut" class="vermell"> </div>
 <div class="vermell"> </div>
 ```
+
+![relative](img/relative.png)
 
 ## position: absolute
 
@@ -84,6 +88,8 @@ Pots observar que el `div` `mogut`, al no estar dins de l'flux normal de la pàg
 <div class="vermell"> </div>
 ```
 
+![absolute](img/absolute.png)
+
 ### Exemple prenent com a referència l'element pare amb position: relative més proper
 
 En aquest cas, he utilitzat el mateix CSS per al `div` amb `id="mogut"` que en l'exemple anterior perquè es veiés que en aquest cas el `div` mogut pren com a referència l'element pare amb `position: relative` i no la finestra de el navegador (40 píxels cap avall i 50 píxels cap a la dreta respecte de l'element pare).
@@ -112,6 +118,8 @@ En aquest cas, he utilitzat el mateix CSS per al `div` amb `id="mogut"` que en l
   <div id="mogut" class="vermell"> </div>
 </div>
 ```
+
+![absolute amb el relative més proper](img/absolute-relative.png)
 
 ## position: fixed
 
@@ -149,6 +157,8 @@ Com una imatge val més que mil paraules i prenent com a referència l'últim ex
   <div id="mogut" class="vermell"> </div>
 </div>
 ```
+
+![fixed](img/fixed.png)
 
 Com pots observar, el `div` `mogut` està posicionat amb `position: fixed` respecte a la finestra de el navegador independentment que estigui contingut en un element amb `position: relative` o que es realitzi un `scroll` sobre la pàgina.
 
@@ -279,6 +289,8 @@ Aquests són alguns exemples típics sobre posicionament (centrat).
 <div id="centrat"> </div>
 ```
 
+![centrat relative](img/centrat-relative.png)
+
 2. Centrar div horitzontalment a la pàgina (amb `position: absolute`)
 
 ```css
@@ -296,6 +308,9 @@ Aquests són alguns exemples típics sobre posicionament (centrat).
 <div id="centrat"> </div>
 ```
 
+![centrat absolute](img/centrat-absolute.png)
+
+
 3. Centrar div horitzontalment a la pàgina (amb `position: static` , valor per defecte)
 
 
@@ -311,6 +326,8 @@ Aquests són alguns exemples típics sobre posicionament (centrat).
 ```html
 <div id="centrat"> </div>
 ```
+
+![centrat static](img/centrat-static.png)
 
 
 4. Centrar div horitzontalment dins d'un altre div
@@ -340,6 +357,9 @@ Aquests són alguns exemples típics sobre posicionament (centrat).
 </div>
 ```
 
+![centrat horitzontal dins altre div](img/centrat-dins-altre-div.png)
+
+
 5. Centrar div horitzontalment i verticalment a la pàgina
 
 ```css
@@ -359,6 +379,9 @@ Aquests són alguns exemples típics sobre posicionament (centrat).
 ```html
 <div id="centrat"> </div>
 ```
+
+![centrat vertical i horitzontal dins la pàgina](img/centrat-vertical-horitzontal-pagina.png)
+
 
 6. Centrar div verticalment i horitzontalment dins un altre div
 
@@ -388,3 +411,5 @@ Aquests són alguns exemples típics sobre posicionament (centrat).
    <div id="centrat"> </div>
 </div>
 ```
+
+![centrat vertical i horitzontal dins altre div](img/centrat-vertical-horitzontal-dins-altre-div.png)
