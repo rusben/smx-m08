@@ -11,7 +11,7 @@ Llavors, si portem la nostra aplicació al directori `/var/www/html` tindrem acc
 sudo apt update
 ```
 ```console
-sudo apt update
+sudo apt upgrade
 ```
 
 2. Instal·lació del servidor web `apache2`.
