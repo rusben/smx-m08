@@ -118,10 +118,10 @@ GRANT ALL ON bbdd.* to 'usuario'@'192.168.22.100';
 Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web:
 
 ```console
-cd /var/www/html
+cp Baixades/app-web.zip /var/www/html
 ```
 ```console
-cp Baixades/app-web.zip /var/www/html
+cd /var/www/html
 ```
 ```console
 unzip app-web.zip
