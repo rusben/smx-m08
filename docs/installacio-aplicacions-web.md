@@ -8,36 +8,36 @@ Llavors, si portem la nostra aplicació al directori `/var/www/html` tindrem acc
 
 1. Actualització de la màquina.
 ```console
-apt update
-apt upgrade
+sudo apt update
+sudo apt upgrade
 ```
 
 2. Instal·lació del servidor web `apache2`.
 ```console
-apt install -y apache2
+sudo apt install -y apache2
 ```
 
 3. Instal·lació del servidor de bases de dades `mysql-server`.
 ```console
-apt install -y mysql-server
+sudo apt install -y mysql-server
 ```
 
 4. Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions.
 ```console
-apt install -y php libapache2-mod-php
-apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+sudo apt install -y php libapache2-mod-php
+sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 
 5. Reiniciem el servidor apache2
 ```console
-systemctl restart apache2
+sudo systemctl restart apache2
 ```
 
 ## Configuració de MySQL
 ### Accedim a la consola de MySQL
 Des d'un terminal on siguem `root` hem d'executar la següent comanda:
 ```console
-root@elpuig:~$ mysql
+alumne@elpuig:~$ sudo mysql
 ```
 
 ### Creació de la base de dades:
@@ -111,6 +111,6 @@ Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html
 
 ```console
 cd /var/www/html
-chmod -R 775 .
-chown -R root:www-data .
+sudo chmod -R 775 .
+sudo chown -R root:www-data .
 ```
