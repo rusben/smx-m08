@@ -119,6 +119,10 @@ Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html
 
 ```console
 cd /var/www/html
+```
+```console
 sudo chmod -R 775 .
+```
+```console
 sudo chown -R root:www-data .
 ```
