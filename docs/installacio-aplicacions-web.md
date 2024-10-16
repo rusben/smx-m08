@@ -39,7 +39,7 @@ sudo systemctl restart apache2
 ### Accedim a la consola de MySQL
 Des d'un terminal on siguem `root` hem d'executar la següent comanda:
 ```console
-alumne@elpuig:~$ sudo mysql
+sudo mysql
 ```
 
 ### Creació de la base de dades:
@@ -70,7 +70,7 @@ exit
 Des d'un terminal amb un usuari sense privilegis hem de ser capaços de connectar introduïnt la nostra contrassenya.
 
 ```console
-alumne@elpuig:~$ mysql -u usuario -p
+mysql -u usuario -p
 ```
 
 ## Extra: permetre la connexió des d'una màquina remota
