@@ -114,6 +114,25 @@ Per accedir des de fora, hauriem de donar-li també privilegis a l'usuari a l'al
 GRANT ALL ON bbdd.* to 'usuario'@'192.168.22.100';
 ```
 
+## Descarreguem els fitxers de l'aplicació web
+Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web:
+
+```console
+cd /var/www/html
+```
+```console
+cp Baixades/app-web.zip /var/www/html
+```
+```console
+unzip app-web.zip
+```
+```console
+cp -R app-web/. ..
+```
+```console
+rm -rf app-web/
+```
+
 ## Aplicació de permisos a les nostres aplicacions web
 Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
 
