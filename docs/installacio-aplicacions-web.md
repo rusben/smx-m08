@@ -9,7 +9,9 @@ Llavors, si portem la nostra aplicació al directori `/var/www/html` tindrem acc
 1. Actualització de la màquina.
 ```console
 sudo apt update
-sudo apt upgrade
+```
+```console
+sudo apt update
 ```
 
 2. Instal·lació del servidor web `apache2`.
