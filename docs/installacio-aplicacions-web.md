@@ -77,14 +77,18 @@ mysql -u usuario -p
 Per seguretat, MySQL no permet per defecte connexions que no siguin des de localhost. Si volem canviar aquest comportament hem de crear un altre usuari que accedirà des d'una màquina remota i estarà identificat pel nom d'usuari i la seva IP. Així doncs, poden existir diferents usuaris anomenats `usuario` que connecten des de diferents màquines.
 
 ### Canviem l'accés per defecte a la nostra màquina
-Permetem l'accés des de qualsevol equip a la nostra base de dades.
+Permetem l'accés des de qualsevol equip a la nostra base de dades. Editem l'arxiu `/etc/mysql/mysql.conf.d/mysqld.cnf`
 
 ```console
-cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep bind-address
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+Busquem la línia següent:
+```console
 bind-address = 127.0.0.1
 ```
 
-Hem de canviar bind-address per `0.0.0.0`
+Hem de canviar el `bind-address` per `0.0.0.0` i la línia ha de quedar així:
 ```console
 bind-address = 0.0.0.0
 ```
