@@ -143,5 +143,5 @@ cd /var/www/html
 sudo chmod -R 775 .
 ```
 ```console
-sudo chown -R root:www-data .
+sudo chown -R usuario:www-data .
 ```
