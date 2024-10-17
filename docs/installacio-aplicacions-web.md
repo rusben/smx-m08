@@ -114,6 +114,10 @@ Per accedir des de fora, hauriem de donar-li també privilegis a l'usuari a l'al
 GRANT ALL ON bbdd.* to 'usuario'@'192.168.22.100';
 ```
 
+```console
+exit
+```
+
 ## Descarreguem els fitxers de l'aplicació web
 Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web:
 
