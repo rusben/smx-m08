@@ -122,19 +122,19 @@ exit
 Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web:
 
 ```console
-cp Baixades/app-web.zip /var/www/html
+sudo cp Baixades/app-web.zip /var/www/html
 ```
 ```console
-cd /var/www/html
+sudo cd /var/www/html
 ```
 ```console
-unzip app-web.zip
+sudo unzip app-web.zip
 ```
 ```console
-cp -R app-web/. ..
+sudo cp -R app-web/. ..
 ```
 ```console
-rm -rf app-web/
+sudo rm -rf app-web/
 ```
 
 ## Aplicació de permisos a les nostres aplicacions web
