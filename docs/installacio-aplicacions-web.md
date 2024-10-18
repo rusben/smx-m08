@@ -125,7 +125,7 @@ Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicaci
 sudo cp Baixades/app-web.zip /var/www/html
 ```
 ```console
-sudo cd /var/www/html
+cd /var/www/html
 ```
 ```console
 sudo unzip app-web.zip
