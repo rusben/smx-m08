@@ -14,3 +14,6 @@ En resum:
 ## Enllaços a les diferents clouds
 * ***OwnCloud***: http://www.owncloud.org
 * ***Nextcloud***: http://www.nextcloud.com
+
+## Heu de baixar el .zip de Nextcloud Server
+https://download.nextcloud.com/server/releases/latest.zip
