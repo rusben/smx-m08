@@ -119,7 +119,7 @@ exit
 ```
 
 ## Descarreguem els fitxers de l'aplicació web
-Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web:
+Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web, heu de substituir `app-web.zip` per el nom del vostre fitxer que heu descarregat amb l'aplicació web i el nom de la carpeta `app-web` per la carpeta que us ha creat.
 
 ```console
 sudo cp Baixades/app-web.zip /var/www/html
@@ -136,6 +136,12 @@ sudo cp -R app-web/. ..
 ```console
 sudo rm -rf app-web/
 ```
+
+## Eliminem el fitxer `index.html` de l'`apache2`
+```console
+sudo rm -rf /var/www/html/index.html
+```
+
 
 ## Aplicació de permisos a les nostres aplicacions web
 Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
