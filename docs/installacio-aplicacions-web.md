@@ -119,10 +119,10 @@ exit
 ```
 
 ## Descarreguem els fitxers de l'aplicació web
-Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web, heu de substituir `app-web.zip` per el nom del vostre fitxer que heu descarregat amb l'aplicació web i el nom de la carpeta `app-web` per la carpeta que us ha creat.
+Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web, heu de substituir `app-web.zip` per el nom del vostre fitxer que heu descarregat amb l'aplicació web i el nom de la carpeta `app-web` per la carpeta que us ha creat, si la vostra instal·lació de linux està en un idioma diferent al català, no tindreu la carpeta `Baixades`, modifiqueu la comanda per adaptarla a les vostrs necessitats.
 
 ```console
-sudo cp Baixades/app-web.zip /var/www/html
+sudo cp ~/Baixades/app-web.zip /var/www/html
 ```
 Aneu al directori `/var/www/html`
 ```console
@@ -132,11 +132,11 @@ Descomprimiu el fitxer que heu baixat
 ```console
 sudo unzip app-web.zip
 ```
-Copieu els fitxers a la carpeta `/var/www/html`
+Copieu els fitxers a la carpeta `/var/www/html`, modifiqueu `app-web` pel nom del directori on s'ha descomprimit el vostre arxiu.
 ```console
 sudo cp -R app-web/. /var/www/html
 ```
-Eliminem la carpeta creada quan hem fet l'unzip
+Eliminem la carpeta creada quan hem fet l'`unzip`
 ```console
 sudo rm -rf app-web/
 ```
