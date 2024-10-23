@@ -160,3 +160,12 @@ sudo chown -R usuario:www-data .
 ```
 ## Accedim al navegador per veure que tot funciona
 Poseu la direcció http://localhost al navegador web i configureu la cloud.
+
+Si tot ha anat bé i heu seguit el manual us apareixerà l'instal·lador de l'aplicació web que heu baixat i us demanarà crear un usuario admin i la informació de la base de dades.
+
+La informació que heu de posar (si no heu modificat la informació del manual) és la següent:
+
+* **usuari:** usuario
+* **contrasenya:** password
+* **base de dades:** bbdd
+* **domini:** localhost
