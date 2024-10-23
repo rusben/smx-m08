@@ -124,15 +124,19 @@ Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicaci
 ```console
 sudo cp Baixades/app-web.zip /var/www/html
 ```
+Aneu al directori `/var/www/html`
 ```console
 cd /var/www/html
 ```
+Descomprimiu el fitxer que heu baixat
 ```console
 sudo unzip app-web.zip
 ```
+Copieu els fitxers a la carpeta `/var/www/html`
 ```console
-sudo cp -R app-web/. ..
+sudo cp -R app-web/. /var/www/html
 ```
+Eliminem la carpeta creada quan hem fet l'unzip
 ```console
 sudo rm -rf app-web/
 ```
@@ -141,7 +145,6 @@ sudo rm -rf app-web/
 ```console
 sudo rm -rf /var/www/html/index.html
 ```
-
 
 ## Aplicació de permisos a les nostres aplicacions web
 Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
@@ -155,3 +158,5 @@ sudo chmod -R 775 .
 ```console
 sudo chown -R usuario:www-data .
 ```
+## Accedim al navegador per veure que tot funciona
+Poseu la direcció http://localhost al navegador web i configureu la cloud.
