@@ -1,4 +1,4 @@
-# Pràctica UF2: Gestors d'arxius web.
+# Pràctica 2: Gestors d'arxius web.
 ## Objectius generals de la pràctica
 * Comprendre els conceptes bàsics de l’emmagatzematge en línia.
 * Instal·lar i configurar gestors d’arxius web.
@@ -6,17 +6,16 @@
 
 ## Desenvolupament de la pràctica
 
-Una part de la pràctica es realitza de forma individual i una altra part en grup.
+La pràctica es realitza de forma individual.
 
-Heu d'instal·lar els gestor d’arxius de la llista:
-* ownCloud
-* Nextcloud
+Heu d'instal·lar el gestor d’arxius **ownCloud**
+<!-- * Nextcloud -->
 
-Les tasques que s'han de documentar són les següents i han d'estar dividides en quatre fitxers `.md` (s'especifica a l'apartat entrega):
+Les tasques que s'han de documentar són les següents i han d'estar dividides en dos fitxers `.md` (s'especifica a l'apartat entrega):
 
-* Instal·lació i configuració del sistema de virtualització (`vagrant`).
+* Instal·lació i configuració del sistema de virtualització (`IsardVDI`).
 * Instal·lació del gestor d’arxius assignat.
-* Manual d’instal·lació. Documentació de tasques realitzades.
+* Manual d’instal·lació. Documentació de tasques realitzades. **Ha d'incloure captures de pantalla**.
 * Demostració del funcionament.
 * Creació d’usuaris.
 * Assignació de rols i permisos.
@@ -25,15 +24,13 @@ Les tasques que s'han de documentar són les següents i han d'estar dividides e
 
 ## Entrega
 S'ha d'entregar una carpeta amb el següent format:
-`NOM-PTUF2`, en el meu cas: `RUBEN-PTUF2`. La carpeta ha de contenir:
+`NOM-COGNOM-PT2`, en el meu cas: `RUBEN-ARROYO-PT2`. La carpeta ha de contenir:
 
-1. Manual d'instal·lació d'`ownCloud` amb virtualització mitjançant `vagrant`.
-2. Manual d'instal·lació de `NextCloud` amb virtualització mitjançant `vagrant`.
+1. Manual d'instal·lació d'`ownCloud` amb virtualització mitjançant `IsardVDI`.
 3. Manual de configuració d'`ownCloud`.
-4. Manual de configuració de `NextCloud`.
 5. Un fitxer amb tots els fitxers relacionats `README.md`.
 
-La carpeta s'entrega comprimida amb el següent format `NOM-PTUF2.zip`.
+La carpeta s'entrega comprimida amb el següent format `NOM-COGNOM-PT2.zip`.
 
 ## Més informació
 * Web Based File Manager: https://en.wikipedia.org/wiki/File_manager#Web-based_file_managers

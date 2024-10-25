@@ -17,3 +17,6 @@ En resum:
 
 ## Heu de baixar el .zip de Nextcloud Server
 https://download.nextcloud.com/server/releases/latest.zip
+
+## Heu de baixar el .zip de ownCloud Server
+https://download.owncloud.com/server/stable/owncloud-complete-20240724.zip
