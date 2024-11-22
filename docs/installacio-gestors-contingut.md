@@ -15,7 +15,7 @@ En resum:
 * ***WordPress***: https://www.wordpress.org
   * L'última versió de `WordPress` sempre està a https://wordpress.org/latest.zip
 * ***Joomla***: https://www.joomla.org/
-  * L'última versió en el moment d'escriure el tutorial és: https://downloads.joomla.org/cms/joomla4/4-0-4/Joomla_4-0-4-Stable-Full_Package.zip?format=zip
+  * L'última versió en el moment d'escriure el tutorial és: [https://downloads.joomla.org/cms/joomla4/4-0-4/Joomla_4-0-4-Stable-Full_Package.zip?format=zip](https://downloads.joomla.org/cms/joomla5/5-2-1/Joomla_5-2-1-Stable-Full_Package.zip?format=zip)
 * ***Drupal***: https://www.drupal.org/
   * L'última versió de `Drupal` es troba a https://www.drupal.org/download-latest/zip
 * ***MediaWiki***: https://www.mediawiki.org
