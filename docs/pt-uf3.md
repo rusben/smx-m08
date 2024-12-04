@@ -31,7 +31,7 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
 * Ha d’incloure almenys 3 pàgines personalitzades. (Són les que s’inserten des del menú Pages)
 * Instal·lació de l’extensió `Polylang` o similars (per a poder tenir la pàgina en diferents idiomes).
 
-### Extra: Pujar el contingut WordPress a un servidor d’allotjament gratuït. Mitjançant alguna eina d'exportació.
+### Un cop tinguem el portal acabat: Pujar el contingut WordPress a un servidor d’allotjament gratuït. Mitjançant alguna eina d'exportació.
 * Afegir sistema de publicitat a `WordPress` (busqueu plugins relacionats).
 * Extensions de `WordPress` no explicades.
 * Instal·lació de widgets a `WordPress`.
