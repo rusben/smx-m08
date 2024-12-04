@@ -23,11 +23,11 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
 * El portal ha de tenir un tema seleccionat diferent al que ve per defecte.
 
 ### Portal
-* Ha de tenir almenys un menú amb enllaços a les categories del blog.
+* Ha de tenir almenys un menú amb enllaços a les categories del blog i a diferents pàgines estàtiques.
 * Ha de tenir també una portada i una pàgina de contacte amb formulari (plugins contact form).
 * Ha de tenir una extensió o contingut extra del `WordPress` (sigueu creatius).
 * Ha de fer servir un tema del `WordPress`.
-* Ha d’incloure un mapa de google maps.
+* Ha d’incloure un mapa de google maps, OpenStreetMaps o similars.
 * Ha d’incloure almenys 3 pàgines personalitzades. (Són les que s’inserten des del menú Pages)
 * Instal·lació de l’extensió `Polylang` (per a poder tenir la pàgina en diferents idiomes).
 
