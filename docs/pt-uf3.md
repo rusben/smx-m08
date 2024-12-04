@@ -41,7 +41,7 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
 
 ## Entrega
 * Demostració del funcionament al professor en directe (imprescindible).
-* Explicar què heu implementat i on es pot trobar. I tot allò que consideris que el professor hauria de saber que has implementat.
+* Creeu un repositori a GitHub on explequeu què heu implementat i on es pot trobar. I tot allò que consideris que el professor hauria de saber que has implementat.
 
 ## Més informació
 `WordPress`: https://en.wikipedia.org/wiki/WordPress
