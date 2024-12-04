@@ -29,7 +29,7 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
 * Ha de fer servir un tema del `WordPress`.
 * Ha d’incloure un mapa de google maps, OpenStreetMaps o similars.
 * Ha d’incloure almenys 3 pàgines personalitzades. (Són les que s’inserten des del menú Pages)
-* Instal·lació de l’extensió `Polylang` (per a poder tenir la pàgina en diferents idiomes).
+* Instal·lació de l’extensió `Polylang` o similars (per a poder tenir la pàgina en diferents idiomes).
 
 ### Extra: Pujar el contingut WordPress a un servidor d’allotjament gratuït. Mitjançant alguna eina d'exportació.
 * Afegir sistema de publicitat a `WordPress` (busqueu plugins relacionats).
