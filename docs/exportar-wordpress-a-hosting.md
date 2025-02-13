@@ -2,7 +2,7 @@
 
 ## Exportar la base de datos del servidor local
 ```bash
-mysqldump -u usuario -p bbdd > salida.sql
+mysqldump --no-tablespaces -u usuario -p bbdd > salida.sql
 ```
 
 ## Actualitzar las URLs de la base de datos
