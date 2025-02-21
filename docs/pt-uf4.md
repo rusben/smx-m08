@@ -7,7 +7,7 @@
 
 Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal haurà d’estar fet en `moodle`.
 
-* Heu d’instal·lar `moodle` en la vostra màquina mitjançant `vagrant`. Seguiex els passos que indica el [manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
+* Heu d’instal·lar `moodle` en un nou escriptori a `IsardVDI`. Seguiex els passos que indica el [manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
 
 * Descarrega la última versió de moodle des de la pàgina oficial https://moodle.org
 
