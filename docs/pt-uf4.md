@@ -31,7 +31,7 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
    
    **NOTA:** Per disposar d'un determinat idioma, primer cal instal.lar-lo des de `Administració del lloc > Idioma > Paquets d'idioma`
    
-   **e)** Canvia la política de contrasenyes de manera que els usuaris que es creiïn tinguin una contrasenya de com a mínim 4 caràcters incloent-hi, majúscules, minúscules i xifres. Això es pot fer anant a l'opció `Administració del lloc > Seguretat >Normatives del lloc`.
+   **e)** Canvia la política de contrasenyes de manera que els usuaris que es creiïn tinguin una contrasenya de com a mínim 4 caràcters incloent-hi, majúscules, minúscules i xifres. Això es pot fer anant a l'opció `Administració del lloc > Seguretat > Normatives del lloc`.
 
 **2.** Crea els següents cursos: un curs anomenat A (sense categoria) que estigui format per 3 temes i un altre anomenat B (també sense categoria) que estigui format per 5 temes. Tot això ho pots fer des de Administració del lloc->Gestiona cursos i categories o també des del quadre `Navegació` anant a `Cursos > Afegeix curs`
 
