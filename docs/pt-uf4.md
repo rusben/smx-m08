@@ -11,7 +11,7 @@ Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal hau
 
 * Descarrega la última versió de moodle des de la pàgina oficial https://moodle.org
 
-* **IMPORTANT:** Documenta tot el que facis amb captures de pantalla i explicacions. Crea un repositori a github per a guardar el teu manual de configuració amb capttures de pantalla i explicacions dins d'un fitxer MarkDown.
+* **IMPORTANT:** Documenta tot el que facis amb captures de pantalla i explicacions. Crea un repositori a github per a guardar el teu manual de configuració amb captures de pantalla i explicacions dins d'un fitxer MarkDown.
 
 * Heu de configurar `moodle` amb els requisits mínims que s'indiquen a continuació:
 
