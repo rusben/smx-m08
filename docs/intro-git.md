@@ -6,7 +6,7 @@
 
 ## Clonar el repositori a la nostra màquina
 
-Exemple de clonació.
+Exemple de clonació. Cliqueu al botó `CODE` i després seleccioneu la pestanya SSH i feu el següent:
 ```console
 user@school:~$ git clone https://github.com/rusben/my-first-webpage.git
 ```
