@@ -23,6 +23,7 @@ XHTML és una variant d'HTML que utilitza la sintaxi de XML, el llenguatge de ma
 CSS és el llenguatge per descriure la presentació de pàgines web, inclosos els colors, la disposició i els tipus de lletra. Permet adaptar la presentació a diferents tipus de dispositius, com ara pantalles grans, pantalles petites o impressores. CSS és independent de l'HTML i es pot utilitzar amb qualsevol llenguatge de marques basat en XML. La separació d'HTML de CSS facilita el manteniment dels llocs, compartir fulls d'estil entre pàgines i adaptar les pàgines a diferents entorns. Això es coneix com la separació de l'estructura (o: contingut) de la presentació.
 
 1. [Etiquetes bàsiques en HTML](etiquetes-basiques-html.md)
-2. [El model de capsa (Box Model)](box-model.md)
-3. [Elements en línia i elements de bloc](inline-vs-block.md)
-4. [Posicionament de capes](positioning.md)
+2. [Tutorial d'HTML i CSS](intro-html-css.md)
+3. [El model de capsa (Box Model)](box-model.md)
+4. [Elements en línia i elements de bloc](inline-vs-block.md)
+5. [Posicionament de capes](positioning.md)
