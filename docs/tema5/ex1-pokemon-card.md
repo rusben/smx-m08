@@ -10,7 +10,7 @@ Crea una pàgina web senzilla que mostri una tarjeta d'un Pokémon utilitzant HT
 
 ---
 
-### Estructura HTML
+### Estructura `HTML`. (`index.html`)
 
 ```html
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ Crea una pàgina web senzilla que mostri una tarjeta d'un Pokémon utilitzant HT
 ### Creació del repositori a GitHub
 1. **Crea un nou repositori a GitHub amb el nom `pokemon`**
     - Selecciona l'opció de crear el repositori amb un `README.md` i la llicència `GNU General Public License`. 
-    - Ves al terminal del teur ordinador (l'ordinador on els primers dies de classe vam crear la clau de SSH a GitHub) i clona el repositori, assegura't de clonar mitjançant l'enllaç que apareix a la pestanya `SSH`. Utilitza la comanda `git clone el-teu-repo.git`.
+    - Ves al terminal del teur ordinador (l'ordinador on els primers dies de classe vam crear la clau de `SSH` a `GitHub`) i clona el repositori, assegura't de clonar mitjançant l'enllaç que apareix a la pestanya `SSH`. Utilitza la comanda `git clone git@github.com:el_teu_usuari/pokemon.git`.
     - La clonació ha creat una nova carpeta a la teva màquina, obre el `Visual Studio Code` i obre la carpeta creada.
 
 ### Creació de la carpeta d'imatges 
