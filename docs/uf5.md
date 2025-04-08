@@ -27,3 +27,6 @@ CSS és el llenguatge per descriure la presentació de pàgines web, inclosos el
 3. [El model de capsa (Box Model)](box-model.md)
 4. [Elements en línia i elements de bloc](inline-vs-block.md)
 5. [Posicionament de capes](positioning.md)
+
+## Exercicis
+1. [Exercici 1 - Pokémon card](tema5/ex1-pokemon-card.md)
