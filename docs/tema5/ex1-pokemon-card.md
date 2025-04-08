@@ -48,7 +48,7 @@ Crea una pàgina web senzilla que mostri una tarjeta d'un Pokémon utilitzant HT
 ### Creació de la carpeta d'imatges 
 1. **Crea la carpeta (`images`)**
     - Dins del `Visual Studio Code` crea una nova carpeta anomenada `images`.
-    - Descarrega la imatge del bulbasaur a la carpeta. La imatge la pots trobar a: - [bulbasaur.png](../img/bulbasaur.png)
+    - Descarrega la imatge del bulbasaur a la carpeta. La imatge la pots trobar a: [bulbasaur.png](../img/bulbasaur.png).
 
 ### Copia el codi HTML
 1. **Crea un fitxer index anomenat (`index.html`)**:
