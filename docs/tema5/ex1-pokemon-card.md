@@ -102,7 +102,7 @@ En el vostre perfil de `GitHub` aneu fins al repositori del pokemon.
 1. Ves al menú superior per gestionar les `Settings` del repositori.
 2. Un cop a `Settings` aneu a `Pages` al menú de l'esquerra.
 3. Un cop a `Pages` seleccioneu en la secció `Branch` la branca `main`.
-4. Us apareixerà un enllaç on s'ha publicat la vostra web, aneu altre cop a la pàgina principal del repositori, cliqueu a l'engranatge de la dreta, al menú `About` i escriviu aquest enllaç on diu `Website`.
+4. En uns minuts us apareixerà un enllaç on s'ha publicat la vostra web, recarregueu la pàgina `Pages` fins que aparegui l'enllaç, copieu l'enllaç i aneu altre cop a la pàgina principal del repositori, cliqueu a l'engranatge de la dreta a la secció `About` i escriviu aquest enllaç on diu `Website`.
 
 ### Resultat esperat
 El resultat final ha de ser una tarjeta visualment atractiva que mostri la informació del Pokémon de manera clara i organitzada. La tarjeta ha de quedar centrada a la pantalla, amb una combinació harmònica de colors i tipografia.
