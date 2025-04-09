@@ -88,6 +88,22 @@ Crea una pàgina web senzilla que mostri una tarjeta d'un Pokémon utilitzant HT
 
 ---
 
+### Publicació dels canvis a GitHub
+Un cop acabat l'exercici publiqueu els vostres canvis a `GitHub`:
+
+1. Entreu al terminal i aneu fins a la carpeta que conté el repositori.
+2. Feu `git add .` per afegir els canvis.
+3. Feu `git commit -m "Missatge descriptiu dels canvis"` per a guardar els canvis en el registre local.
+4. Finalment feu `git push` per a publicar els canvis.
+
+### Activeu GitHub Pages
+En el vostre perfil de `GitHub` aneu fins al repositori del pokemon.
+
+1. Ves al menú superior per gestionar les `Settings` del repositori.
+2. Un cop a `Settings` aneu a `Pages` al menú de l'esquerra.
+3. Un cop a `Pages` seleccioneu en la secció `Branch` la branca `main`.
+4. Us apareixerà un enllaç on s'ha publicat la vostra web, aneu altre cop a la pàgina principal del repositori, cliqueu a l'engranatge de la dreta, al menú `About` i escriviu aquest enllaç on diu `Website`.
+
 ### Resultat esperat
 El resultat final ha de ser una tarjeta visualment atractiva que mostri la informació del Pokémon de manera clara i organitzada. La tarjeta ha de quedar centrada a la pantalla, amb una combinació harmònica de colors i tipografia.
 
