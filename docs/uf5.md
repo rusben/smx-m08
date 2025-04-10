@@ -30,3 +30,4 @@ CSS és el llenguatge per descriure la presentació de pàgines web, inclosos el
 
 ## Exercicis
 1. [Exercici 1 - Pokémon card](tema5/ex1-pokemon-card.md)
+2. [Exercici 2 - Landing page](tema5/ex2-landing-page.md)
