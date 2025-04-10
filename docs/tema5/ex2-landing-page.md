@@ -38,7 +38,8 @@ Crea una **landing page** senzilla per a un producte utilitzant HTML i CSS. L'es
             <p class="product-subtitle">La millor solució per a les teves necessitats</p>
         </header>
         <section class="hero-section">
-            <img class="hero-image" src="images/product.png" alt="Imatge del Producte">
+            <img class="hero-image" src="images/product.png" alt="Imatge del Producte" />
+            <p class="hero-text"> Descobreix els beneficis d'aquest producte! </p>
         </section>
         <section class="description-section">
             <p class="product-description">
@@ -112,18 +113,24 @@ Crea una **landing page** senzilla per a un producte utilitzant HTML i CSS. L'es
    - Arrodoneix les cantonades de la imatge.
    - Afegeix un marge inferior per separar-la del text.
 
-7. **Estil de la descripció (`.product-description`)**:
+7. **Estil del text de la imatge (`.hero-text`)**:
+   - Posiciona el text sobre la imatge.
+   - Fes que el fons sigui de color negre amb transparència.
+   - Aplica color blanc al text.
+   - Afegeix un marge interior per separar el text de les vores.
+
+8. **Estil de la descripció (`.product-description`)**:
    - Redueix el tamany de la lletra respecte al títol.
    - Aplica un color gris clar per diferenciar-lo del text principal.
    - Afegeix un marge inferior per separar-lo del botó CTA.
 
-8. **Estil del botó de crida a l'acció (`.cta-button`)**:
+9. **Estil del botó de crida a l'acció (`.cta-button`)**:
    - Utilitza un fons de color vibrant (com blau o verd) per destacar el botó.
    - Aplica un color de lletra clar (blanc) per contrastar amb el fons.
    - Arrodoneix les cantonades del botó.
    - Afegeix un efecte de hover per canviar el color del botó quan l'usuari hi passi el ratolí per sobre.
 
-9. **Estil del peu de pàgina (`.main-footer`)**:
+10. **Estil del peu de pàgina (`.main-footer`)**:
    - Estableix un fons de color fosc (com negre o gris fosc).
    - Afegeix un padding vertical i horitzontal per donar espai als elements.
    - Centra el text dels enllaços i del text del copyright.
