@@ -1,107 +1,153 @@
-# Pràctica UF4 - Instal·lació i configuració de moodle
-## Objectius generals de la pràctica
-* Instal·lar i configurar gestors de continguts, concretament `moodle`.
-* Aprende a utilitzar `moodle` com a administrador.
+# **Pràctica Tema 4 - Instal·lació i Configuració de Moodle**
 
-## Desenvolupament de la pràctica
+## **Objectius generals de la pràctica**
+1. **Instal·lar i configurar gestors de continguts**, concretament Moodle.
+2. **Aprendre a utilitzar Moodle com a administrador** per gestionar cursos, usuaris, continguts i qualificacions.
+3. **Entendre les possibilitats d'un LMS (Learning Management System)** i aplicar-les en un entorn educatiu.
 
-Aquesta pràctica consisteix en fer un portal de temàtica lliure. El portal haurà d’estar fet en `moodle`.
+---
 
-* Heu d’instal·lar `moodle` en un nou escriptori a `IsardVDI`. Seguiex els passos que indica el [manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
+## **Desenvolupament de la pràctica**
 
-* Descarrega la última versió de moodle des de la pàgina oficial https://moodle.org
+Aquesta pràctica consisteix en crear un portal Moodle de temàtica lliure, configurant-lo i explorant-ne les funcionalitats com a administrador. A continuació, es detallen els passos que heu de seguir.
 
-* **IMPORTANT:** Documenta tot el que facis amb captures de pantalla i explicacions. Crea un repositori a github per a guardar el teu manual de configuració amb captures de pantalla i explicacions dins d'un fitxer MarkDown.
+**Es obligatori capturar imatges de cada pas per facilitar la documentació i la revisió posterior.**
 
-* Heu de configurar `moodle` amb els requisits mínims que s'indiquen a continuació:
+### **1. Instal·lació de Moodle**
+1. **Preparació de l'entorn:**
+   - Instal·leu Moodle en un nou escriptori virtual mitjançant **IsardVDI**. Seguiu els passos indicats al manual d'instal·lació d'aplicacions web.
+   - Descarregueu la darrera versió de Moodle des de la pàgina oficial: [https://moodle.org](https://moodle.org).
 
-## Configuració
+2. **Documentació:**
+   - Documenteu tot el procés d'instal·lació i configuració amb captures de pantalla i explicacions detallades.
+   - Creeu un repositori a **GitHub** per desar el manual de configuració. Utilitzeu un fitxer `README.md` per incloure totes les captures i explicacions.
 
-**1.** Inicia sessió com a administrador del teu Moodle i realitza les següents tasques prèvies d'administració.
+---
 
-   **a)** Canvia la teva direcció de correu electrònic i també la teva contrasenya per una altra. Afegeix-te a més un avatar. Tot això es pot fer anant al teu perfil (opció que apareix sota el teu nom que es veu a la part superior dreta de la finestra del Moodle) i clicant sobre l'enllaç `Editar` (o també anant a l'opció `Preferències`, situada al mateix lloc).
-   
-   **b)** Canvia el nom del teu lloc (tant llarg com curt) i fes que la pàgina principal no mostri res pels usuaris que no estiguin autentificats. Això es pot fer anant a l'opció `Administració del lloc > Primera plana > Paràmetres`
-   
-   **c)** Comprova que la franja horària del teu lloc sigui la correcta. Això es pot fer anant a l'opció `Administració del lloc > Ubicació > Paràmetres`.
-   
-   **NOTA:** Aquesta configuració és important, per exemple, per les hores límit d'entregues d'exercicis
-   
-   **d)** Canvia l'idioma del teu lloc. Això es pot fer anant a l'opció `Administració del lloc > Idioma > Paràmetres` i tenint en compte tant el checkbox `Detecció automàtica de l'idioma` com el desplegable `Idioma per defecte`.
-   
-   **NOTA:** Per disposar d'un determinat idioma, primer cal instal.lar-lo des de `Administració del lloc > Idioma > Paquets d'idioma`
-   
-   **e)** Canvia la política de contrasenyes de manera que els usuaris que es creiïn tinguin una contrasenya de com a mínim 4 caràcters incloent-hi, majúscules, minúscules i xifres. Això es pot fer anant a l'opció `Administració del lloc > Seguretat > Normatives del lloc`.
+### **2. Configuració inicial de Moodle**
+Inicieu sessió com a administrador i realitzeu les següents tasques:
 
-**2.** Crea els següents cursos: un curs anomenat A que estigui format per 3 temes i un altre anomenat B que estigui format per 5 temes. Tot això ho pots fer des de `Administració del lloc > Gestiona cursos i categories` o també des del quadre `Navegació` anant a `Cursos > Afegeix curs`
+#### **2.1. Administració del perfil d'usuari**
+- Canvieu la vostra direcció de correu electrònic i contrasenya.
+- Afegiu un avatar al vostre perfil:
+  - Accediu a **Perfil > Editar** o bé a **Preferències**.
 
-**3.** Vés a algun dels cursos creats al punt anterior (simplement seleccionant-lo dins del quadre `Navegació`) i fes que contingui en algun del seus temes algun tipus de material (un document PDF, per exemple), canvia el títol d'algun tema i, en general, investiga les possibilitats que et dóna el botó `Activar edició` en un curs.
+#### **2.2. Configuració del lloc**
+- Canvieu el nom del lloc (tant llarg com curt) i feu que la pàgina principal no mostri contingut per als usuaris no autenticats:
+  - Anar a **Administració del lloc > Primera plana > Paràmetres**.
+- Configureu la franja horària correcta:
+  - Anar a **Administració del lloc > Ubicació > Paràmetres**.
+  - **Nota:** Aquesta configuració és crucial per a les entregues d'exercicis amb hores límit.
+- Canvieu l'idioma del lloc:
+  - Anar a **Administració del lloc > Idioma > Paràmetres**.
+  - Instal·leu paquets d'idioma si cal des de **Administració del lloc > Idioma > Paquets d'idioma**.
+- Establiu una política de contrasenyes robusta:
+  - Anar a **Administració del lloc > Seguretat > Normatives del lloc**.
+  - Configureu una longitud mínima de 8 caràcters, incloent majúscules, minúscules i números.
 
-   **NOTA:** Aquestes possibilitats no les estudiarem a fons perquè són una tasca més pròpia del professor que no pas de l'administrador del Moodle, però sempre va bé tenir-ne alguna idea.
+---
 
-**4.** Creació d’usuaris i alumnes. 
-   
-   **a)** Crea manualment un usuari anomenat `Bob` que ha de fer servir el `mètode d'autenticació manual`. Això es pot fer des de `Administració del lloc > Usuaris > Comptes > Afegeix un usuari`
-   
-   **b)** Genera deu alumnes que ho seran dels dos cursos A i B . Fes servir un arxiu CSV per realitzar aquesta creació en bloc. Vés a `Administració del lloc > Usuaris > Comptes > Carrega usuaris` i segueix els passos que et marca. 
-   
-   **NOTA:** Per saber el contingut que hauria de tenir aquest fitxer, consulteu més abaix a la secció `Usuaris`.
-   
-   **c)** Elimina dos dels deu alumnes creats a l'apartat anterior fent servir l'opció `Administració del lloc > Usuaris > Accions amb usuaris en bloc`
+### **3. Creació de cursos**
+1. Creeu els següents cursos:
+   - Un curs anomenat **A** amb 3 temes.
+   - Un curs anomenat **B** amb 5 temes.
+   - Accediu a **Administració del lloc > Gestiona cursos i categories** o bé des del quadre de navegació: **Cursos > Afegeix curs**.
 
-**5.** Ara matricula aquests usuaris als diferents cursos.
+2. Exploreu les opcions de personalització dels cursos:
+   - Activeu el mode edició (`Botó Activar Edició`).
+   - Afegiu material (per exemple, un document PDF) a algun tema.
+   - Canvieu el títol d'algun tema.
 
-   **a)** Fes que al curs A no hi hagi possibilitat d'inscripció (és a dir, que només es permeti l'accés de visitant de manera que el curs sigui totalment públic sense control d'usuaris -ni alumnes ni professors-). D'altra banda, fes que al curs B es necessiti registre manual d'usuaris (és a dir, que sigui l'administrador -tu- qui matriculi cada usuari al curs, ja sigui com a professor o com a alumne). Tot això ho pots fer des de `Administració del curs > Ususaris > Mètodes d'inscripció`. Si no surt algun mètode d'inscripció disponible, has d'activar-lo a: `Administració de lloc > Connectors > Autenticació > Gestió de l'autenticació`
+---
 
-   **b)** Assigna com a professor del curs B l'usuari "Bob" i com a alumnes a tots els que fas afegir des de l'arxiu CSV Tot això ho pots fer anant a `Administració del curs > Usuaris inscrits > Inscriure`.
+### **4. Creació i gestió d'usuaris**
+#### **4.1. Creació manual d'usuaris**
+- Creeu manualment un usuari anomenat **Bob** amb autenticació manual:
+  - Anar a **Administració del lloc > Usuaris > Comptes > Afegeix un usuari**.
 
-   **c)** Comprova que efectivament, el contingut del curs A (afegit per l'administrador del sistema -és a dir, tu- estigui disponible públicament i que per accedir al curs B s'hagi d'iniciar sessió amb un usuari registrat (alumne o professor)
+#### **4.2. Creació massiva d'alumnes**
+- Genereu 10 alumnes utilitzant un arxiu CSV:
+  - Anar a **Administració del lloc > Usuaris > Carrega usuaris**.
+  - Consulteu l'exemple de fitxer CSV a la secció **Usuaris**.
+- Elimineu dos dels alumnes creats mitjançant **Accions amb usuaris en bloc**.
 
-**6.** Canvia l'aparença estètica del teu lloc. Concretament, descarrega't i activa un tema diferent dels que venen per defecte i prova de canviar també la capçalera i el peu de pàgina del lloc. Això ho pots fer primer anant a `Administració del lloc > Connectors > Instal·lar complement` i després a `Administració del lloc > Aparença > Temes > Selector de temes` Sempre pots fer servir l'enllaç `Canvi de rol` del menú de la dreta per observar com es veuria el lloc sent alumne, professor, etc.
+---
 
-**7.** Assigna un professor i matricula alumnes al curs A.
+### **5. Matriculació d'usuaris als cursos**
+#### **5.1. Configuració de mètodes d'inscripció**
+- **Curs A:**
+  - Desactiveu qualsevol mètode d'inscripció per fer-lo públic.
+  - El curs ha de ser accessible sense iniciar sessió.
+- **Curs B:**
+  - Activeu el registre manual d'usuaris.
+  - Matriculeu l'usuari **Bob** com a professor i els alumnes restants com a estudiants.
 
-**8.** Amb el professor afegeix contingut al curs A. Afegeix diferents tipus d’activitats i recursos. Crea una tasca amb data d’entrega oberta que demani la càrrega d’un fitxer PDF.
+#### **5.2. Verificació**
+- Comproveu que:
+  - El contingut del curs A està disponible públicament.
+  - Per accedir al curs B, cal iniciar sessió.
 
-**9.** Entra amb un alumne i comprova que pots lliurar la tasca.
+---
 
-## Continguts
-En el curs A crea una UF amb 2 NF dintre. En aquesta UF crea diverses activitats.
+### **6. Personalització del lloc**
+1. **Canvi d'aspecte:**
+   - Descarregueu i activeu un tema nou:
+     - Anar a **Administració del lloc > Connectors > Instal·lar complement**.
+     - Seleccioneu el tema des de **Administració del lloc > Aparença > Selector de temes**.
+   - Modifiqueu la capçalera (header), el peu de pàgina (footer) i la pàgina principal (Front page).
 
-Botó Activar Edició (a dalt a la dreta). Una UF es pot crear amb una etiqueta i movent a la dreta el seu contingut. Es pot canviar el Format del curs a `Temes` a `Administració del Curs > Editar Curs > Format del Curs`
+2. **Logotip:**
+   - Afegiu un logotip al vostre Moodle.
 
-Fes servir el moodle del puig com a referència. Han d’haver tant activitats magistrals com evaluables (com a mínim una entrega i un questionari). Clona (importa) el curs sencer al curs B `Administració del Curs > Importar` (des del curs B)
+---
 
-## Qualificació
-En el curs A fes que un alumne completi totes les tasques evaluables (entrant amb la seva compta). Calificales amb el professor i configura el calificador per a que doni una nota de la UF automàticament a `Administració del Curs > Configuració de qualificacions`.
+### **7. Creació de continguts i activitats**
+#### **7.1. Curs A**
+- Assigneu un professor i matriculeu alumnes.
+- Afegiu continguts:
+  - Diferents tipus d'activitats i recursos.
+  - Una tasca amb data d'entrega oberta que demani la càrrega d'un fitxer PDF.
 
-Crea una insignia i atorga-la a aquest alumne des de `Administració del Lloc > Insígnies`
+#### **7.2. Curs B**
+- Cloneu el contingut del curs A al curs B:
+  - Anar a **Administració del curs > Importar**.
 
-## Qüestionaris
-Crea un qüestionari i afegeix preguntes del banc de preguntes. Crea diferents categories dintre del banc de preguntes i diverses preguntes en cada categoria. A l'hora de crear el qüestionari has de seleccionar les preguntes del banc de preguntes. Respon les preguntes del qüestionari amb un usuari estudiant i mira les qualificacions amb l'usuari professor.
+---
 
-## Importar i exportar un curs
-Entra a la zona `Administració > Cursos > Còpies` i fes una còpia de seguretat del teu curs. Després envia aquest fitxer a un company i que l'importi al seu moodle. Has d'importar al teu moodle un altre curs d'un company. 
+### **8. Qualificacions i insígnies**
+1. **Qualificacions:**
+   - Completeu totes les tasques evaluables amb un usuari alumne.
+   - Configureu el calificador per obtenir una nota automàtica:
+     - Anar a **Administració del curs > Configuració de qualificacions**.
 
-## Personalització
-Descarrega i aplica un tema nou al teu LMS.
+2. **Insígnies:**
+   - Creeu una insignia i atorgueu-la a un alumne:
+     - Anar a **Administració del lloc > Insígnies**.
 
-Edita també tant la capçalera (header) com el peu (footer) i la pàgina principal (Front page) Posa-li un logotip al teu moodle.
+---
 
-## Seguretat
-Baneja una IP i aplica una política de seguretat. Pots posar la que vulguis però l’hauràs de justificar.
+### **9. Qüestionaris**
+1. Creeu un qüestionari amb preguntes del banc de preguntes:
+   - Organitzeu preguntes en categories diferents.
+2. Respongueu les preguntes amb un usuari estudiant i verifiqueu les qualificacions amb l'usuari professor.
 
-**NOTA:** Capturar per a cada pregunta, les imatges que han de mostrar la resposta, i tenir-les a mà, farà que sigui molt més fàcil contestar les preguntes el dia de l’avaluació!
+---
 
-## Usuaris
-Crea 10 usuaris alumnes i un usuari professor posant-li dades.
-`Administració del Lloc > Usuaris > Crear Usuari / Pujar Usuaris` (de cop amb un arxiu csv, hi ha un model de csv al final del document).
+### **10. Importació i exportació de cursos**
+1. Exporteu una còpia de seguretat del curs:
+   - Anar a **Administració > Cursos > Còpies**.
+2. Envieu el fitxer a un company i importeu un altre curs del seu Moodle.
 
-Assigna al professor a A i B. Matricula els alumnes a A mitjançant `Administració del Curs > Usuaris > Usuaris Matriculats` i connectat amb un alumne i matricula'l a B amb la contrassenya.
+---
 
-### Fitxer usuaris.csv
+### **11. Seguretat**
+1. Bannegeu una IP específica i apliqueu una política de seguretat.
+   - Justifiqueu la vostra decisió.
 
-```console
+---
+
+## **Fitxer usuaris.csv**
+```csv
 username,firstname,lastname,email,password
 blobesponja,Blob,Esponja,blobesponja@elpuig.xeill.net,Abc123!
 jsongoku,JSON,Goku,jsongoku@elpuig.xeill.net,Abc123!
@@ -110,5 +156,11 @@ davidelgnome,David,Gnome,davidelgnome@elpuig.xeill.net,Abc123!
 ritahardware,Rita,Hardware,trritahardwarees@elpuig.xeill.net,Abc123!
 ```
 
-## Més informació
-LMS: https://en.wikipedia.org/wiki/Learning_management_system
+---
+
+## **Més informació**
+- **LMS (Learning Management System):** [https://en.wikipedia.org/wiki/Learning_management_system](https://en.wikipedia.org/wiki/Learning_management_system)
+
+---
+
+**Captureu imatges de cada pas per facilitar la documentació i la revisió posterior.**
