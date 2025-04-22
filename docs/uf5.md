@@ -2,7 +2,7 @@
 #### Introducció a HTML i CSS  
 
 
-1. [Introducció a HTML i CSS](intro-html-css.md)
+1. [Introducció a HTML i CSS](html-css.md)
 2. [Etiquetes bàsiques en HTML](etiquetes-basiques-html.md)
 3. [Tutorial d'HTML i CSS](intro-html-css.md)
 4. [El model de capsa (Box Model)](box-model.md)
