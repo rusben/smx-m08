@@ -69,5 +69,3 @@ La nota de la pràctica es calcularà segons els següents criteris:
 ## **Entrega**
 - **Format:** Document PDF amb la presentació i l'enllaç a l'enquesta.
 - **Nom del fitxer:** `Practica_EinesGoogle_NomCognoms.pdf`
-- **Data límit:** [Indiqueu la data aquí].
-- **Lloc d'entrega:** [Especifiqueu si és per correu electrònic, Classroom, etc.].
