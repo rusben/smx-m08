@@ -17,7 +17,7 @@ En aquest exercici, creareu una **pàgina personal** en format **Markdown** per 
 7. **Cites**: `> cita`.
 8. **Línies horitzontals**: `---` o `___`.
 9. **Codi en línia**: ``text del codi``.
-10. Blocs de codi (comilles triples invertides ``). ``` codi ```
+10. Blocs de codi (comilles triples invertides ```). ``` codi ```
 11. **Llistes de tasques**: `- [ ] tasca pendent`, `- [x] tasca completada`.
 
 ---
