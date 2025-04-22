@@ -1,26 +1,35 @@
-# UF5 - Fonaments d' HTML i fulls d'estils
+### Tema 5 - Fonaments d'HTML i Fulls d'Estils  
+#### Introducció a HTML i CSS  
 
-## Introducció a HTML i CSS
+**Què és HTML?**  
 
-### Què és HTML?
+HTML (HyperText Markup Language) és el llenguatge estàndard utilitzat per descriure l'estructura de les pàgines web. A través d'etiquetes, HTML permet als autors organitzar i estructurar el contingut d'una pàgina, incloent-hi textos, imatges, enllaços, taules, formularis i altres elements interactius.  
 
-HTML és el llenguatge per descriure l'estructura de les pàgines web. HTML ofereix als autors els mitjans per:
+Amb HTML, els creadors poden:  
+- Publicar documents en línia amb encapçalaments, paràgrafs, llistes, taules i imatges.  
+- Crear enllaços d'hipertext que permetin la navegació entre diferents pàgines o recursos en línia.  
+- Dissenyar formularis per realitzar transaccions amb serveis remots, com ara recerques d'informació, reserves en línia o processos de compra.  
+- Integrar continguts multimèdia, com vídeos, àudios i aplicacions, directament en els documents.  
 
-* Publicar documents en línia amb encapçalaments, text, taules, llistes, fotos, etc.
-* Recuperar informació en línia mitjançant enllaços d'hipertext, fent clic en un botó.
-* Dissenyar formularis per a la realització de transaccions amb serveis a distància, per a la recerca d'informació, la realització de reserves, la comanda de productes, etc.
-* Incloure fulls de càlcul, videoclips, clips de so i altres aplicacions directament als seus documents.
+A través de l'etiquetatge, els elements de HTML defineixen la funció de cada bloc de contingut (com ara "paràgraf", "taula" o "llista"), facilitant la seva interpretació tant per als navegadors com per als sistemes de lectura assistida.  
 
-Amb HTML, els autors descriuen l'estructura de les pàgines mitjançant l'etiquetatge. Els elements de l'idioma etiqueten peces de contingut com ara "paràgraf", "llista", "taula", etc.
+**Què és XHTML?**  
 
-### Què és XHTML?
+XHTML (Extensible HyperText Markup Language) és una variant d'HTML que segueix les regles estrictes de la sintaxi XML (eXtensible Markup Language). Tot i mantenir els mateixos elements bàsics que HTML (com ara paràgrafs, llistes o taules), XHTML introdueix una sintaxi més rigorosa i consistent, la qual cosa el fa especialment útil per a projectes que requereixin una integració amb tecnologies XML.  
 
-XHTML és una variant d'HTML que utilitza la sintaxi de XML, el llenguatge de marques extensible. XHTML té tots els mateixos elements (per a paràgrafs, etc.) que la variant HTML, però la sintaxi és lleugerament diferent. Com que XHTML és una aplicació XML, podeu utilitzar-hi altres eines XML (com ara XSLT, un llenguatge per transformar contingut XML).
+Les característiques principals de XHTML inclouen:  
+- Una estructura ben definida i validable mitjançant eines XML.  
+- La possibilitat d'utilitzar tecnologies XML addicionals, com XSLT (per transformar continguts XML) o XPath (per seleccionar dades específiques).  
+- Major compatibilitat amb dispositius i sistemes que requereixin formats estructurats i estandaritzats.  
 
+**Què és CSS?**  
 
-### Què és CSS?
+CSS (Cascading Style Sheets) és el llenguatge utilitzat per controlar la presentació visual de les pàgines web. Amb CSS, es defineixen aspectes com els colors, tipus de lletra, marges, alineacions i disposició dels elements en pantalla. Aquest llenguatge permet adaptar la presentació del contingut a diferents dispositius, des de pantalles grans fins a dispositius mòbils o impressores.  
 
-CSS és el llenguatge per descriure la presentació de pàgines web, inclosos els colors, la disposició i els tipus de lletra. Permet adaptar la presentació a diferents tipus de dispositius, com ara pantalles grans, pantalles petites o impressores. CSS és independent de l'HTML i es pot utilitzar amb qualsevol llenguatge de marques basat en XML. La separació d'HTML de CSS facilita el manteniment dels llocs, compartir fulls d'estil entre pàgines i adaptar les pàgines a diferents entorns. Això es coneix com la separació de l'estructura (o: contingut) de la presentació.
+Els avantatges principals de CSS són:  
+- **Separació d'estructura i presentació:** CSS permet separar el contingut (definit en HTML o altres llenguatges de marques) de la seva aparença visual. Això facilita el manteniment del codi, millora la reutilitzabilitat dels fulls d'estil i simplifica l'adaptació del disseny a diferents entorns.  
+- **Flexibilitat i escalabilitat:** Un sol full d'estil pot aplicar-se a múltiples pàgines, assegurant una aparença consistent en tot el lloc web.  
+- **Compatibilitat multiplataforma:** Gràcies a CSS, és possible optimitzar el disseny per a diferents dispositius sense modificar l'estructura del contingut.  
 
 1. [Etiquetes bàsiques en HTML](etiquetes-basiques-html.md)
 2. [Tutorial d'HTML i CSS](intro-html-css.md)
