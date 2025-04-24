@@ -67,15 +67,15 @@ Les següents tasques han de ser documentades en dos fitxers `.md` separats (veg
 
 ## **Entrega**
 
-La carpeta d’entrega ha de seguir estrictament el format següent:
+L'entrega es realitza mitjançant un repositori a GitHub, que ha de seguir estrictament el format següent:
 
-- **Nom de la carpeta**: `NOM-COGNOM-PT2`
+- **Nom del repositori**: `NOM-COGNOM-PT2`
   - Exemple: `RUBEN-ARROYO-PT2`
 
-- **Contingut de la carpeta**:
+- **Contingut del repositori**:
   1. **Manual d'instal·lació d’ownCloud amb virtualització mitjançant IsardVDI** (`INSTALLATION.md`):
      - Explica tots els passos d’instal·lació i configuració.
-     - Inclou captures de pantalla.
+     - **Imprescindible per a aprovar: Inclou captures de pantalla**.
   2. **Manual de configuració d’ownCloud** (`CONFIGURATION.md`):
      - Detalla la configuració d’usuaris, rols, permisos i administració d’arxius.
   3. **Fitxer README.md**:
@@ -84,7 +84,7 @@ La carpeta d’entrega ha de seguir estrictament el format següent:
      - Observacions o problemes trobats durant la pràctica.
 
 - **Format de lliurament**:
-  - La carpeta s’ha de comprimir en un fitxer ZIP amb el nom: `NOM-COGNOM-PT2.zip`.
+  - Mitjançant un formulari `GoogleForms` que el professor us enviarà.
 
 ---
 
@@ -92,9 +92,9 @@ La carpeta d’entrega ha de seguir estrictament el format següent:
 
 ### **Requisits tècnics**
 - Sistema operatiu: Linux (preferible Ubuntu/Debian).
-- Herramienta de virtualització: IsardVDI.
-- Servidors web compatibles: Apache o Nginx.
-- Base de dades: MySQL o MariaDB.
+- Eina de virtualització: IsardVDI.
+- Servidors web compatibles: Apache.
+- Base de dades: MySQL.
 
 ### **Recursos recomanats**
 1. **Web Based File Manager**:
@@ -106,10 +106,10 @@ La carpeta d’entrega ha de seguir estrictament el format següent:
 
 ### **Criteris d’avaluació**
 1. **Correctesa tècnica**:
-   - Instal·lació i configuració sense errors i amb captures de pantalla.
+   - Instal·lació i configuració sense errors i **amb captures de pantalla**.
 2. **Qualitat de la documentació**:
    - Claritat, organització i completesa dels manuals.
-   - Qualitat de les captures de pantalla.
+   - Qualitat de les **captures de pantalla**.
 3. **Funcionalitat**:
    - Verificació del funcionament de les funcions bàsiques i avançades.
 4. **Participació extra**:
