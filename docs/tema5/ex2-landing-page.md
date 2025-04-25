@@ -90,7 +90,7 @@ Crea una **landing page** senzilla per a un producte utilitzant HTML i CSS. L'es
 2. **Dissenya el menú de navegació (`.navbar`)**:
    - Estableix un fons de color fosca (com negre o gris fosc).
    - Afegeix un padding vertical i horitzontal per donar espai als elements.
-   - Centra el text dels enllaços del menú.
+   - Distribueix els elements del menú en horitzontal, de tal manera que apareixin en una sola línia.
    - Aplica un color clar (blanc) als enllaços per contrastar amb el fons.
    - Afegeix un efecte de hover als enllaços per canviar el color quan l'usuari hi passi el ratolí per sobre.
 
