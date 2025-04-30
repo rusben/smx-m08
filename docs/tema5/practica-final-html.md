@@ -91,14 +91,12 @@ Per millorar la nota final, pots incloure alguna d'aquestes opcions addicionals:
 ---
 
 ## **ENTREGA**  
-Lliura tots els fitxers necessaris per visualitzar correctament la teva web.  
 
-- **Format**: Comprimeix tots els arxius en un sol ZIP.  
+- **Format**: Crea un repositori GitHub amb els teus continguts i activa GitHub Pages.  
   - Arxius HTML.  
   - Arxius CSS.  
-  - Imatges i altres recursos multimèdia.  
-- **Opcional**: Puja la teva web a un servidor extern (per exemple, [Zettahost](http://www.zettahost.com)) i proporciona l'enllaç.  
-- **Memòria**: Inclou una memòria amb les següents seccions:  
+  - Imatges i altres recursos multimèdia.
+- **Memòria**: El teu projecte ha d'incoure un README.md amb les següents seccions:  
   - Descripció del projecte i tema escollit.  
   - Explicació del layout i estructura.  
   - Detalls sobre l'estil CSS i els efectes visuals.  
