@@ -1,7 +1,3 @@
-Per crear una pràctica divertida i curiosa que ajudi a aprendre les propietats `display: grid` i `display: flex` en HTML i CSS, podem dissenyar un joc interactiu basat en la creació d'un "Zoo Interactiu". Aquesta pràctica combina aprenentatge tècnic amb elements visuals interessants i una mica de creativitat.
-
----
-
 ### **Descripció del Projecte: "Zoo Interactiu"**
 
 L'objectiu és crear un zoo virtual on els animals es distribueixin utilitzant `display: grid` i `display: flex`. Els usuaris podran interactuar amb el layout canviant-ne l'organització o explorant detalls sobre cada animal.
