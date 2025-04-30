@@ -32,17 +32,17 @@ Crea una pàgina bàsica amb una llista d'animals. Cada animal tindrà una imatg
   <main>
     <section class="zoo-grid">
       <div class="animal">
-        <img src="leó.jpg" alt="Leó">
+        <img src="images/lion.jpg" alt="Leó">
         <h2>Leó</h2>
         <p>El rei de la jungla.</p>
       </div>
       <div class="animal">
-        <img src="pingüí.jpg" alt="Pingüí">
+        <img src="images/penguin.jpg" alt="Pingüí">
         <h2>Pingüí</h2>
         <p>Viu al fred i neda molt bé.</p>
       </div>
       <div class="animal">
-        <img src="tigre.jpg" alt="Tigre">
+        <img src="images/tiger.jpg" alt="Tigre">
         <h2>Tigre</h2>
         <p>Conegut pel seu bell estrí.</p>
       </div>
