@@ -27,8 +27,8 @@ La pràctica es realitza **de forma individual**, però inclou una part opcional
 
 Les següents tasques han de ser documentades en dos fitxers `.md` separats (vegeu l'apartat "Entrega" per més detalls):
 
-1. **Instal·lació i configuració del sistema de virtualització (IsardVDI)**:
-   - Explicar el procés d’instal·lació d’IsardVDI.
+1. **Configuració del sistema de virtualització (IsardVDI)**:
+   - Explicar el procés de configuració d'IsardVDI (creació de la màquina virtual).
    - Configurar una màquina virtual per allotjar ownCloud.
    - Documentar els passos seguits amb **captures de pantalla**.
 
