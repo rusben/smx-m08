@@ -101,4 +101,20 @@ Per millorar la nota final, pots incloure alguna d'aquestes opcions addicionals:
   - Explicació del layout i estructura.  
   - Detalls sobre l'estil CSS i els efectes visuals.  
   - Decisions de disseny i raonaments.  
-  - Captures de pantalla del resultat final. 
+  - Captures de pantalla del resultat final.
+    
+### Publicació dels canvis a GitHub
+Un cop acabat l'exercici publiqueu els vostres canvis a `GitHub`:
+
+1. Entreu al terminal i aneu fins a la carpeta que conté el repositori.
+2. Feu `git add .` per afegir els canvis.
+3. Feu `git commit -m "Missatge descriptiu dels canvis"` per a guardar els canvis en el registre local.
+4. Finalment feu `git push` per a publicar els canvis.
+
+### Activeu GitHub Pages
+En el vostre perfil de `GitHub` aneu fins al repositori del pokemon.
+
+1. Ves al menú superior per gestionar les `Settings` del repositori.
+2. Un cop a `Settings` aneu a `Pages` al menú de l'esquerra.
+3. Un cop a `Pages` seleccioneu en la secció `Branch` la branca `main`.
+4. En uns minuts us apareixerà un enllaç on s'ha publicat la vostra web, recarregueu la pàgina `Pages` fins que aparegui l'enllaç, copieu l'enllaç i aneu altre cop a la pàgina principal del repositori, cliqueu a l'engranatge de la dreta a la secció `About` i escriviu aquest enllaç on diu `Website`.
