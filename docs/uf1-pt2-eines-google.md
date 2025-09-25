@@ -1,4 +1,4 @@
-# **Pràctica: Eines Google**
+# **Pràctica: Creació d'una presentació amb Google Slides**
 
 ## **Objectius generals de la pràctica**
 1. Conèixer i utilitzar les eines d'edició col·laborativa de Google: **Google Slides** i **Google Forms**.
@@ -67,5 +67,8 @@ La nota de la pràctica es calcularà segons els següents criteris:
 ---
 
 ## **Entrega**
-- **Format:** Document PDF amb la presentació i l'enllaç a l'enquesta.
-- **Nom del fitxer:** `Practica_EinesGoogle_NomCognoms.pdf`
+- **Format:** Creeu un repositori a GitHub (cada integrant del grup ha de crear un repositori). Pujeu al repositori el document PDF amb la presentació i l'enllaç a l'enquesta.
+- **Nom del repositori:** `Practica_EinesGoogle_NomCognomsAlumne1_NomCognomsAlumne2`
+- **Contingut del repositori:** Un README.md amb dos enllaços, un enllaç al PDF (pujat al repositori) i un enllaç al formulari de l'enquesta (que estarà al vostre drive).
+
+
