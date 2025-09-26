@@ -29,12 +29,11 @@
 
 #### **Temes proposats**
 Escolliu un dels temes següents o proposeu-ne un propi (cal que el professor l'aprovi prèviament):
-1. **El llenguatge HTML**: Etiquetes bàsiques i exemples d'ús.
-2. **El llenguatge CSS**: Estils bàsics i exemples d'aplicació.
-3. **Conversió binari-decimal-hexadecimal-octal**: Inclou un exemple pràctic.
-4. **Creació de xarxes virtuals VLANs amb Packet Tracer**: Explica el procés amb un exemple pràctic.
-5. **Configuració de DHCP**: Detalla els passos amb un exemple pràctic.
-6. **Configuració de DNS**: Explica els conceptes bàsics i un exemple pràctic.
+1. **El llenguatge HTML i el llenguatge CSS**: Etiquetes bàsiques i exemples d'ús, estils bàsics i exemples d'aplicació
+2. **Conversió binari-decimal-hexadecimal-octal**: Inclou un exemple pràctic.
+3. **Creació de xarxes virtuals VLANs amb Packet Tracer**: Explica el procés amb un exemple pràctic.
+4. **Configuració de DHCP**: Detalla els passos amb un exemple pràctic.
+5. **Configuració de DNS**: Explica els conceptes bàsics i un exemple pràctic.
 
 > **Nota:** Assegureu-vos que el contingut sigui clar, ben estructurat i adequat per a un públic tècnic però no especialitzat.
 
