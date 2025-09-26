@@ -29,7 +29,7 @@
 
 #### **Temes proposats**
 Escolliu un dels temes següents o proposeu-ne un propi (cal que el professor l'aprovi prèviament):
-1. **El llenguatge HTML i el llenguatge CSS**: Etiquetes bàsiques i exemples d'ús, estils bàsics i exemples d'aplicació
+1. **El llenguatge HTML i el llenguatge CSS**: Etiquetes bàsiques i exemples d'ús, estils bàsics i exemples d'aplicació.
 2. **Conversió binari-decimal-hexadecimal-octal**: Inclou un exemple pràctic.
 3. **Creació de xarxes virtuals VLANs amb GNS3**: Explica el procés amb un exemple pràctic.
 4. **Configuració de DHCP**: Detalla els passos amb un exemple pràctic.
