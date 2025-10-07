@@ -34,6 +34,9 @@ Escolliu un dels temes següents o proposeu-ne un propi (cal que el professor l'
 3. **Creació de xarxes virtuals VLANs amb GNS3**: Explica el procés amb un exemple pràctic.
 4. **Configuració de DHCP**: Detalla els passos amb un exemple pràctic.
 5. **Configuració de DNS**: Explica els conceptes bàsics i un exemple pràctic.
+6. **Scripting bàsic en bash**: Explica els conceptes bàsics i un exemple pràctic.
+7. **Ús de comandes bàsiques amb Linux**: Explica els conceptes bàsics i exemples d'aplicació.
+8. **Gestió de discos i volums amb LVM a Linux**: Creació, ampliació i reducció de volums lògics en entorn Linux.  
 
 > **Nota:** Assegureu-vos que el contingut sigui clar, ben estructurat i adequat per a un públic tècnic però no especialitzat.
 
