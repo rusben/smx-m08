@@ -21,3 +21,5 @@ Una aplicació web és una aplicació a la qual accedim mitjançant protocol HTT
 [Pràctica 1: Creació d'una pàgina personal amb Markdown](uf1-pt1-creacio-pagina-personal-markdown.md)
 
 [Pràctica 2: Creació d'una presentación amb Google Slides](uf1-pt2-eines-google.md)
+
+[Pràctica 3: Creació d'un site amb Google Sites](uf1-pt3-creacio-google-sites.md)
