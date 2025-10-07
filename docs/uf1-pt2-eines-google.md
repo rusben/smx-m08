@@ -24,7 +24,7 @@
 #### **Instruccions**
 - Treballeu en grup per crear una presentació utilitzant una plantilla predeterminada de Google Slides o una altra trobada a Internet.
 - Si trieu una plantilla externa, heu d'incloure l'enllaç on l'heu trobat.
-- La presentació ha de tenir un mínim de **8 diapositives** i un màxim de **15 diapositives**.
+- La presentació ha de tenir un mínim de **8 diapositives** i un màxim de **100 diapositives**.
 - Utilitzeu recursos visuals (imatges, esquemes, diagrames) per complementar el contingut.
 
 #### **Temes proposats**
