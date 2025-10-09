@@ -1,17 +1,7 @@
-Perfecte! Aquí tens la guia actualitzada segons les teves indicacions:
-
-- La instal·lació es fa **dins d’un virtual host ja configurat** a `/var/www/domini.local`.  
-- **No es detalla la configuració del virtual host**, ja que es dóna per feta.  
-- La secció sobre **PHP 7.4** s’ha mogut al **final del document**, com a apèndix opcional (només necessari per a ownCloud).
-
----
-
 # Guia d’instal·lació i configuració de plataformes cloud (Nextcloud / ownCloud)  
 **Dins d’un virtual host preconfigurat (`/var/www/domini.local`)**
 
 Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn on ja tens un **virtual host actiu** apuntant a `/var/www/domini.local` (per exemple, `domini.local`). No cal configurar Apache ni el virtual host, ja que es considera ja operatiu.
-
----
 
 ## 1. Descàrrega i instal·lació de la plataforma cloud
 
@@ -25,9 +15,8 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
   Descàrrega directa (versió estable):  
   [https://download.owncloud.com/server/stable/owncloud-complete-20240724.zip](https://download.owncloud.com/server/stable/owncloud-complete-20240724.zip)
 
-> ⚠️ **Nota**: Nextcloud és compatible amb PHP 8.1+, mentre que **ownCloud encara requereix PHP 7.4** en moltes versions estables. Assegura’t de tenir la versió de PHP adequada abans d’instal·lar.
+> **Nota**: Nextcloud és compatible amb PHP 8.1+, mentre que **ownCloud encara requereix PHP 7.4** en moltes versions estables. Assegura’t de tenir la versió de PHP adequada abans d’instal·lar.
 
----
 
 ### 1.2. Passos d’instal·lació
 
@@ -39,7 +28,7 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
    ```
 
 3. **Neteja el contingut actual** (si cal):
-   > ⚠️ Assegura’t que no hi ha dades importants abans d’executar això.
+   > Assegura’t que no hi ha dades importants abans d’executar això.
    ```bash
    sudo rm -rf *
    ```
@@ -71,19 +60,16 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
    - Configura la base de dades (recomanat: MariaDB/MySQL).
    - Verifica que tots els requisits del sistema es compleixin.
 
----
-
 ## 2. Recomanacions addicionals
 
 - **Directori de dades**: Durant la instal·lació, es recomana **no emmagatzemar les dades dins del directori web** (ex: `/var/www/domini.local/data`). Millor usa una ruta externa com `/var/ncdata` o `/opt/owncloud-data`.
 - **Còpies de seguretat**: Fes *backups* regulars del directori de dades i de la base de dades.
 - **Seguretat**: Desactiva l’accés a fitxers sensibles (`.htaccess`, `config.php`) i considera afegir regles de seguretat addicionals a Apache o Nginx.
 
----
 
 ## Apèndix: Instal·lació de PHP 7.4 a Ubuntu 24.04 (només per a ownCloud)
 
-> ⚠️ **Aquest pas només és necessari si instal·les ownCloud**, ja que moltes versions estables encara no són compatibles amb PHP 8.3 (versió per defecte a Ubuntu 24.04). Nextcloud **no requereix aquest pas**.
+> **Aquest pas només és necessari si instal·les ownCloud**, ja que moltes versions estables encara no són compatibles amb PHP 8.3 (versió per defecte a Ubuntu 24.04). Nextcloud **no requereix aquest pas**.
 
 ### Passos:
 
@@ -142,11 +128,7 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
    sudo systemctl restart apache2
    ```
 
-> 🔎 **Verificació**: Pots comprovar la versió activa de PHP amb:
+> **Verificació**: Pots comprovar la versió activa de PHP amb:
 > ```bash
 > php -v
 > ```
-
----
-
-✅ Amb aquests passos, tindràs **Nextcloud** o **ownCloud** funcionant dins del teu domini virtual ja configurat.
