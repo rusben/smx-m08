@@ -1,9 +1,9 @@
 # Configuració de WordPress
 
 
-1. [Rols](rols-wordpress.md)
-2. [Permalinks](permalinks-wordpress.md)
-3. [Rewrite module](rewrite-apache-wordpress.md)
+1. [Gestió de rols](rols-wordpress.md)
+2. [Configuració de permalinks](permalinks-wordpress.md)
+3. [Configuració del mòdul Rewrite](rewrite-apache-wordpress.md)
 4. [Mètode directe a WordPress per evitar l'ús de FTP](metode-directe-wordpress.md)
 
 
