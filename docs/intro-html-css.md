@@ -1,227 +1,127 @@
-# **Tutorial d'HTML i CSS**
-## **1. Primers passos amb HTML**
+# **Tutorial Complet d’HTML i CSS: Guia Estructurada per a Principiants**
 
-HTML és el llenguatge bàsic per crear pàgines web. És estructurat i fàcil d'entendre.
+## **Introducció**
 
-### Estructura bàsica d'un document HTML:
+HTML (HyperText Markup Language) i CSS (Cascading Style Sheets) són els pilars fonamentals del desenvolupament web.  
+- **HTML** estructura el contingut d’una pàgina web.  
+- **CSS** li dona estil: colors, tipografies, disposició, animacions, etc.
+
+Aquest tutorial t’ensenyarà pas a pas com crear pàgines web des del zero, combinant contingut i disseny.
+
+## **1. Estructura Bàsica d’un Document HTML**
+
+Tot document HTML5 comença amb aquesta estructura:
+
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <title>El meu primer document HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Títol de la pàgina</title>
 </head>
 <body>
-    <h1>Títol principal de la pàgina</h1>
-    <p>Aquest és un paràgraf.</p>
+    <!-- Contingut visible aquí -->
 </body>
 </html>
 ```
 
-- **`<!DOCTYPE html>`**: Declara que el document és HTML5.
-- **`<html>`**: Conté tot el contingut del document.
-- **`<head>`**: Metadades i configuracions generals.
-- **`<body>`**: Conté el contingut visible de la pàgina.
+### **Elements clau:**
+- `<!DOCTYPE html>`: Declara que el document és HTML5.
+- `<html>`: Arrel del document. L’atribut `lang="ca"` indica l’idioma.
+- `<head>`: Conté metadades, títol, enllaços a CSS/JS, etc.
+- `<body>`: Conté tot el contingut visible per l’usuari.
 
----
+## **2. Metadades Essencials**
 
-## **2. Metadades en HTML**
+Les metadades ajuden els navegadors i motors de cerca a entendre la pàgina:
 
-Les metadades són informació sobre la pàgina que no es mostra directament als usuaris, però és crucial per navegadors i motors de cerca.
-
-### Exemple de metadades:
 ```html
 <head>
-    <meta charset="UTF-8"> <!-- Codificació del text -->
-    <meta name="description" content="Descripció del meu lloc web">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descripció curta del lloc">
     <meta name="keywords" content="HTML, CSS, tutorial">
-    <meta name="author" content="Nom de l'autor">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimització per a dispositius mòbils -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Icona de la pestanya -->
+    <meta name="author" content="El teu nom">
+    <link rel="icon" href="favicon.ico">
+    <title>Pàgina d'exemple</title>
 </head>
 ```
 
----
+> **Consell**: La metaetiqueta `viewport` és essencial per a la **responsivitat** en dispositius mòbils.
 
-## **3. Fonaments de text en HTML**
+## **3. Etiquetes Bàsiques de Text**
 
-HTML permet estructurar el text mitjançant etiquetes específiques.
+HTML permet estructurar i donar significat al text:
 
-### Etiquetes comunes per al text:
+| Etiqueta        | Funció                          |
+|-----------------|----------------------------------|
+| `<h1>–<h6>`     | Títols jeràrquics               |
+| `<p>`           | Paràgraf                        |
+| `<strong>`      | Text important (negreta)        |
+| `<em>`          | Èmfasi (cursiva)                |
+| `<br>`          | Salt de línia                   |
+| `<hr>`          | Línia horitzontal               |
+| `<small>`       | Text petit                      |
+| `<mark>`        | Text ressaltat                  |
+| `<del>`         | Text eliminat (ratllat)         |
+| `<ins>`         | Text inserit (subratllat)       |
+
+> **Millor pràctica**: Usa `<h1>` **només un cop** per pàgina (títol principal).
+
+## **4. Llistes**
+
+### **Llista no ordenada (`<ul>`)**
+
 ```html
-<h1>Títol principal</h1>
-<h2>Subtítol</h2>
-<p>Aquest és un paràgraf normal.</p>
-<strong>Text en negreta.</strong>
-<em>Text en cursiva.</em>
-<br> <!-- Salt de línia -->
-<hr> <!-- Línia horitzontal -->
-<small>Text petit.</small>
-<mark>Text ressaltat.</mark>
-<del>Text eliminat (ratllat).</del>
-<ins>Text inserit (subratllat).</ins>
+<ul>
+    <li>Poma</li>
+    <li>Taronja</li>
+</ul>
 ```
 
----
+### **Llista ordenada (`<ol>`)**
 
-## **4. Encapçalaments (Headings)**
-
-Els encapçalaments (`<h1>` a `<h6>`) s'utilitzen per definir títols i subtítols. El número indica la jerarquia.
-
-### Exemple:
 ```html
-<h1>Títol principal</h1>
-<h2>Subtítol 1</h2>
-<h3>Subtítol 2</h3>
-<h4>Subtítol 3</h4>
-<h5>Subtítol 4</h5>
-<h6>Subtítol 5</h6>
+<ol>
+    <li>Primer pas</li>
+    <li>Segon pas</li>
+</ol>
 ```
 
-**Nota:** Utilitza `<h1>` només una vegada per pàgina, ja que representa el títol principal.
+### **Llista de definicions (`<dl>`)**
 
----
-
-## **5. Llistes**
-
-Les llistes són útils per organitzar informació en punts o numeracions.
-
-### Tipus de llistes:
-1. **Llista no ordenada (`<ul>`):**
-   ```html
-   <ul>
-       <li>Element 1</li>
-       <li>Element 2</li>
-       <li>Element 3</li>
-   </ul>
-   ```
-
-2. **Llista ordenada (`<ol>`):**
-   ```html
-   <ol>
-       <li>Primer element</li>
-       <li>Segon element</li>
-       <li>Tercer element</li>
-   </ol>
-   ```
-
-3. **Llista de definicions (`<dl>`):**
-   ```html
-   <dl>
-       <dt>Terme 1</dt>
-       <dd>Definició del terme 1.</dd>
-       <dt>Terme 2</dt>
-       <dd>Definició del terme 2.</dd>
-   </dl>
-   ```
-
----
-
-## **6. Crear hipervincles**
-
-Els hipervincles (`<a>`) permeten navegar entre pàgines o recursos externs.
-
-### Exemple:
 ```html
-<a href="https://www.google.com" target="_blank">Visita Google (obrirà en una nova pestanya)</a>
-<a href="contact.html">Contacte</a> <!-- Enllaç a una pàgina local -->
-<a href="#seccio1">Vés a la secció 1</a> <!-- Enllaç intern -->
+<dl>
+    <dt>HTML</dt>
+    <dd>Llenguatge de marcatge per a pàgines web.</dd>
+</dl>
 ```
 
-- **`target="_blank"`**: Obre l'enllaç en una nova pestanya.
+## **5. Hipervincles (`<a>`)**
 
----
-
-## **7. ¿Què és el CSS?**
-
-CSS (Cascading Style Sheets) és un llenguatge que s'utilitza per donar estil als documents HTML. Permet controlar colors, tipus de lletra, marges, etc.
-
-### Com incloure CSS en HTML:
 ```html
-<head>
-    <style>
-        body {
-            background-color: lightblue;
-        }
-        h1 {
-            color: navy;
-        }
-    </style>
-</head>
+<a href="https://www.google.com" target="_blank" rel="noopener">Visita Google</a>
+<a href="contacte.html">Contacte</a>
+<a href="#seccio1">Anar a la secció 1</a>
 ```
-O bé en un fitxer extern:
+
+- `target="_blank"`: Obre en una nova pestanya.
+- `rel="noopener"`: Millora la seguretat quan s’obre en una nova pestanya.
+
+## **6. Imatges (`<img>`)**
+
 ```html
-<head>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<img src="imatge.jpg" alt="Descripció de la imatge" width="300">
 ```
 
----
+- **`alt`** és obligatori per accessibilitat i SEO.
+- Evita especificar `width`/`height` en línia; millor fer-ho amb CSS.
 
-## **8. Estructuració del CSS**
+## **7. Taules**
 
-El CSS s'organitza mitjançant selectors, propietats i valors.
-
-### Exemple bàsic:
-```css
-/* Selector { propietat: valor; } */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-h1 {
-    color: red;
-    text-align: center;
-}
-```
-
-### Tipus de selectors:
-- **Selector de tipus**: `p { color: blue; }` (aplica a tots els `<p>`).
-- **Selector de classe**: `.nom-classe { color: green; }`.
-- **Selector d'ID**: `#id-unic { font-size: 20px; }`.
-
----
-
-## **9. Estils avançats amb CSS**
-
-### Colors i fons:
-```css
-body {
-    background-color: #f0f0f0; /* Color de fons */
-    color: #333; /* Color del text */
-}
-```
-
-### Marges i posició:
-```css
-div {
-    margin: 20px; /* Marge exterior */
-    padding: 10px; /* Marge interior */
-    border: 1px solid black; /* Vora */
-    box-sizing: border-box; /* Inclou el padding i la vora en l'amplada total */
-}
-```
-
-### Flexbox (per centrar elements):
-```css
-.container {
-    display: flex;
-    justify-content: center; /* Centra horitzontalment */
-    align-items: center; /* Centra verticalment */
-    height: 100vh; /* Alçada completa de la pantalla */
-}
-```
-
----
-
-## **10. Taules**
-
-Les taules s'utilitzen per organitzar dades en files i columnes.
-
-### Exemple bàsic:
 ```html
-<table border="1">
+<table>
     <thead>
         <tr>
             <th>Nom</th>
@@ -233,71 +133,182 @@ Les taules s'utilitzen per organitzar dades en files i columnes.
             <td>Ana</td>
             <td>25</td>
         </tr>
-        <tr>
-            <td>Pere</td>
-            <td>30</td>
-        </tr>
     </tbody>
 </table>
 ```
 
-- **`<table>`**: Defineix la taula.
-- **`<thead>`**: Capçalera de la taula.
-- **`<tbody>`**: Cos de la taula.
-- **`<tr>`**: Fila.
-- **`<th>`**: Capçalera de columna.
-- **`<td>`**: Dades de la cel·la.
+- `<thead>`: Capçalera de la taula.
+- `<tbody>`: Cos de la taula.
+- `<th>`: Cel·la de capçalera (negreta i centrada per defecte).
 
----
+## **8. Formularis**
 
-## **11. Animacions**
+Els formularis recullen dades de l’usuari:
 
-Les animacions en HTML/CSS permeten moure o canviar elements dinàmicament.
-
-### Exemple bàsic amb CSS:
-```css
-@keyframes exemple {
-    0% { background-color: red; }
-    100% { background-color: blue; }
-}
-
-div {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    animation: exemple 2s infinite;
-}
-```
-
----
-
-## **12. Formularis**
-
-Els formularis permeten recollir dades dels usuaris.
-
-### Exemple bàsic:
 ```html
 <form action="/enviar" method="post">
     <label for="nom">Nom:</label>
     <input type="text" id="nom" name="nom"><br><br>
 
-    <label for="email">Correu electrònic:</label>
+    <label for="email">Correu:</label>
     <input type="email" id="email" name="email"><br><br>
 
-    <label for="password">Contrasenya:</label>
-    <input type="password" id="password" name="password"><br><br>
-
     <label for="missatge">Missatge:</label><br>
-    <textarea id="missatge" name="missatge" rows="4" cols="50"></textarea><br><br>
+    <textarea id="missatge" name="missatge"></textarea><br><br>
 
     <input type="submit" value="Enviar">
 </form>
 ```
 
-- **`<input>`**: Camps d'entrada (text, correu, contrasenya, etc.).
-- **`<textarea>`**: Àrea de text ampliat.
-- **`<button>`**: Botó d'enviament.
+- **`<label>`** millora l’accessibilitat.
+- Usa `type="email"` per validació automàtica.
 
----
+## **9. Introducció al CSS**
 
-Amb aquests conceptes ampliats, ja tens una base sòlida per crear pàgines web més complexes. Practica creant documents amb llistes, taules, formularis i estils CSS. Experimenta amb diferents combinacions per millorar les teves habilitats!
+CSS separa el contingut (HTML) de la presentació (estil).
+
+### **Formes d’incloure CSS:**
+
+1. **Intern (dins `<head>`):**
+   ```html
+   <style>
+       body { background-color: #f0f0f0; }
+   </style>
+   ```
+
+2. **Extern (recomanat):**
+   ```html
+   <link rel="stylesheet" href="estils.css">
+   ```
+
+## **10. Sintaxi Bàsica de CSS**
+
+```css
+selector {
+    propietat: valor;
+}
+```
+
+### **Tipus de selectors:**
+
+| Tipus         | Exemple               | Aplica a                     |
+|---------------|-----------------------|------------------------------|
+| Tipus         | `p { color: blue; }`  | Tots els `<p>`               |
+| Classe        | `.destacat { ... }`   | Elements amb `class="destacat"` |
+| ID            | `#capçalera { ... }`  | Element únic amb `id="capçalera"` |
+
+> **Evita abusar dels ID**; les classes són més reutilitzables.
+
+## **11. Propietats CSS Comunes**
+
+### **Colors i tipografia**
+```css
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+```
+
+### **Marges i padding**
+```css
+div {
+    margin: 20px;     /* Exterior */
+    padding: 15px;    /* Interior */
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Inclou padding i border a l'amplada */
+}
+```
+
+### **Flexbox (per centrar elements)**
+```css
+.contenidor {
+    display: flex;
+    justify-content: center; /* Horitzontal */
+    align-items: center;     /* Vertical */
+    height: 100vh;
+}
+```
+
+## **12. Animacions CSS**
+
+```css
+@keyframes canviColor {
+    0%   { background-color: red; }
+    100% { background-color: blue; }
+}
+
+.caixa {
+    width: 100px;
+    height: 100px;
+    animation: canviColor 2s infinite alternate;
+}
+```
+
+## **13. Exemple Complet Integrat**
+
+```html
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple HTML + CSS</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .contenidor {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 { color: navy; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        .caixa {
+            background-color: lightcoral;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenidor">
+        <h1>Benvingut al meu lloc!</h1>
+        <p>Aquesta és una pàgina d'exemple amb <strong>HTML i CSS</strong>.</p>
+
+        <h2>Llista de fruites</h2>
+        <ul>
+            <li>Poma</li>
+            <li>Plàtan</li>
+        </ul>
+
+        <h2>Dades d'usuaris</h2>
+        <table>
+            <thead>
+                <tr><th>Nom</th><th>Edat</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Marc</td><td>28</td></tr>
+            </tbody>
+        </table>
+
+        <div class="caixa">
+            <p>Aquesta caixa té estil CSS!</p>
+        </div>
+
+        <a href="https://www.google.com" target="_blank" rel="noopener">Visita Google</a>
+    </div>
+</body>
+</html>
+```
+
+## **Consells Finals**
+
+- **Valida el teu codi**: Usa el [Validador de HTML del W3C](https://validator.w3.org/).
+- **Practica**: Crea projectes petits (perfil personal, llista de tasques, etc.).
+- **Aprèn JavaScript després**: Per afegir interactivitat.
+- **Usa eines de desenvolupador** del navegador (F12) per provar canvis en temps real.
