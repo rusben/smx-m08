@@ -4,7 +4,7 @@
 1. [Rols](rols-wordpress.md)
 2. [Permalinks](permalinks-wordpress.md)
 3. [Rewrite module](rewrite-apache-wordpress.md)
-4. [Comandes bàsiques amb git](intro-git.md)
+4. [Mètode directe a WordPress per evitar l'ús de FTP](metode-directe-wordpress.md)
 
 
 ## Activar el mòdul rewrite de l'apache
