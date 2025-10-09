@@ -3,7 +3,7 @@
 
 1. [Rols](rols-wordpress.md)
 2. [Permalinks](permalinks-wordpress.md)
-3. [Rewrite wodule](rewrite-apache-wordpress.md)
+3. [Rewrite module](rewrite-apache-wordpress.md)
 4. [Comandes bàsiques amb git](intro-git.md)
 
 
