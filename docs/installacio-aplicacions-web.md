@@ -1,171 +1,174 @@
-# Instal·lació i configuració d'aplicacions web
+# Instal·lació i configuració d’una aplicació web en un entorn LAMP amb VirtualHost
 
-Per instal·lar una aplicació web hem de baixar el seu codi font i portar-lo al directori arrel del nostre servidor d'aplicacions, en el nostre cas, `apache2`. Quan instal·lem `apache2` es crea una carpeta a `/var/www/html` on, per defecte, el servidor web utilitza com a directori arrel.
+> **Nota:** Aquesta guia assumeix que ja tens configurat un virtual host d’Apache apuntant al directori `/var/www/domini.local`. Per tant, **tota la instal·lació de l’aplicació es farà dins d’aquest directori**, i l’accés es farà mitjançant `http://domini.local`.
 
-Llavors, si portem la nostra aplicació al directori `/var/www/html` tindrem accés a la nostra aplicació mitjaçant l'adreça `http://localhost`.
+## 1. Actualització del sistema
 
-## Instal·lació d'apache2, mysql i algunes llibreries al contenidor
+Abans de començar, actualitza el sistema:
 
-1. Actualització de la màquina.
-```console
-sudo apt update
-```
-```console
-sudo apt upgrade
+```bash
+sudo apt update && sudo apt upgrade -y
 ```
 
-2. Instal·lació del servidor web `apache2`.
-```console
+## 2. Instal·lació de la pila LAMP
+
+### Servidor web (Apache)
+```bash
 sudo apt install -y apache2
 ```
 
-3. Instal·lació del servidor de bases de dades `mysql-server`.
-```console
+### Base de dades (MySQL)
+```bash
 sudo apt install -y mysql-server
 ```
 
-4. Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions.
-```console
-sudo apt install -y php libapache2-mod-php
-```
-```console
-sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+### PHP i extensions necessàries
+```bash
+sudo apt install -y php libapache2-mod-php php-fpm php-common php-mbstring \
+php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap \
+php-zip php-curl
 ```
 
-5. Reiniciem el servidor apache2
-```console
+### Reinicia Apache per aplicar els canvis
+```bash
 sudo systemctl restart apache2
 ```
 
-## Configuració de MySQL
-### Accedim a la consola de MySQL
-Des d'un terminal on siguem `root` hem d'executar la següent comanda:
-```console
+## 3. Configuració de MySQL
+
+### Accés a la consola de MySQL
+```bash
 sudo mysql
 ```
 
-### Creació de la base de dades:
-Un cop dins la consola de MySQL executem les comandes per a crear la base de dades. En aquest cas estem creant una base de dades amb el nom `bbdd`.
-
-```console
+### Creació de la base de dades
+```sql
 CREATE DATABASE bbdd;
 ```
 
-### Creació d'un usuari
-Tingueu en compte que s'haurà d'identificar la IP des de la qual s'accedirà a la base de dades, en aquest cas, `localhost`.
-
-```console
+### Creació de l’usuari local
+```sql
 CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL PRIVILEGES ON bbdd.* TO 'usuario'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
 ```
 
-### Donem privilegis a l'usuari:
-```console
-GRANT ALL ON bbdd.* to 'usuario'@'localhost';
+> **Nota:** Aquest usuari només pot connectar-se des del servidor local (`localhost`), cosa que és suficient si l’aplicació web i la base de dades estan al mateix servidor.
+
+## 4. Desplegament de l’aplicació web
+
+> **Important:** El nom del fitxer comprimit (per exemple, `app-web.zip`) **varia segons l’aplicació que hagis descarregat**. Has de substituir `app-web.zip` i el nom de la carpeta descomprimida (`app-web`) pels que corresponguin al teu cas concret (ex: `wordpress.zip`, `moodle.zip`, `myapp.tar.gz`, etc.).
+
+### Pas 1: Copia del fitxer de l’aplicació al directori del virtual host
+
+Suposant que el fitxer de l’aplicació es troba a la carpeta de baixades de l’usuari:
+
+```bash
+# Exemple genèric – adapta "nom-del-fitxer.zip" al teu fitxer real
+sudo cp ~/Baixades/nom-del-fitxer.zip /var/www/domini.local/
 ```
 
-### Sortim de la base de dades
-```console
-exit
+### Pas 2: Descomprimir i preparar els fitxers
+
+```bash
+cd /var/www/domini.local
+
+# Descomprimeix (adapta l’extensió si és .tar.gz, .tar.bz2, etc.)
+sudo unzip nom-del-fitxer.zip
+# o, si és un arxiu tar:
+# sudo tar -xzf nom-del-fitxer.tar.gz
+
+# Si la descompressió crea una subcarpeta (ex: "nom-del-fitxer"), copia el seu contingut a l’arrel
+sudo cp -R nom-del-fitxer/. ./
+
+# Elimina la carpeta temporal i l’arxiu comprimit
+sudo rm -rf nom-del-fitxer/ nom-del-fitxer.zip
 ```
 
-### Probem la connexió a la base de dades
-Des d'un terminal amb un usuari sense privilegis hem de ser capaços de connectar introduïnt la nostra contrassenya.
+> **Consell:** Si no estàs segur del nom de la carpeta generada, fes `ls` després de descomprimir per veure l’estructura.
 
-```console
-mysql -u usuario -p
+### Pas 3: Elimina contingut per defecte (si cal)
+
+Si hi ha un fitxer `index.html` o similar creat per Apache:
+
+```bash
+sudo rm -f index.html
 ```
 
-## Extra: permetre la connexió des d'una màquina remota
-Per seguretat, MySQL no permet per defecte connexions que no siguin des de localhost. Si volem canviar aquest comportament hem de crear un altre usuari que accedirà des d'una màquina remota i estarà identificat pel nom d'usuari i la seva IP. Així doncs, poden existir diferents usuaris anomenats `usuario` que connecten des de diferents màquines.
+## 5. Configuració de permisos
 
-### Canviem l'accés per defecte a la nostra màquina
-Permetem l'accés des de qualsevol equip a la nostra base de dades. Editem l'arxiu `/etc/mysql/mysql.conf.d/mysqld.cnf`
+Per garantir que Apache pugui llegir i, si cal, escriure fitxers:
 
-```console
-vim /etc/mysql/mysql.conf.d/mysqld.cnf
+```bash
+cd /var/www/domini.local
+sudo chown -R www-data:www-data .
+sudo chmod -R 755 .
+
+# Si l’aplicació requereix escriptura en carpetes concretes (ex: uploads, cache, logs):
+# sudo chmod -R 775 uploads
+# sudo chmod -R 775 wp-content  # (exemple per a WordPress)
 ```
 
-Busquem la línia següent:
-```console
+> **Recomanació:** Evita `chmod 777`. Utilitza permisos mínims necessaris per a cada carpeta.
+
+## 6. Verificació de la instal·lació
+
+Obre un navegador i accedeix a:
+
+```
+http://domini.local
+```
+
+Hauries de veure l’instal·lador de l’aplicació web.
+
+### Dades de connexió a la base de dades (valors per defecte segons aquesta guia):
+
+- **Servidor de base de dades:** `localhost`
+- **Nom de la base de dades:** `bbdd`
+- **Usuari:** `usuario`
+- **Contrasenya:** `password`
+
+Completa la configuració segons les instruccions de l’instal·lador.
+
+## (Opcional) Accés remot a MySQL
+
+> **Només si és estrictament necessari.** Per defecte, MySQL només escolta a `127.0.0.1` per raons de seguretat.
+
+### 1. Modifica el fitxer de configuració de MySQL:
+```bash
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+Cerca la línia:
+```ini
 bind-address = 127.0.0.1
 ```
 
-Hem de canviar el `bind-address` per `0.0.0.0` i la línia ha de quedar així:
-```console
+I canvia-la per:
+```ini
 bind-address = 0.0.0.0
 ```
 
-### Reiniciem el servidor
-```console
-systemctl restart mysql
+### 2. Reinicia MySQL:
+```bash
+sudo systemctl restart mysql
 ```
 
-### Creació d'un usuari per a accedir des d'una màquina remota
-Per accedir des d'una màquina remota, hauriem de crear un usuari nou identificat pel nom d'usuari i la IP de la màquina des de la qual accedirà.
-
-```console
+### 3. Crea un usuari per a l’IP remota (ex: `192.168.22.100`):
+```sql
 CREATE USER 'usuario'@'192.168.22.100' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL PRIVILEGES ON bbdd.* TO 'usuario'@'192.168.22.100';
+FLUSH PRIVILEGES;
+EXIT;
 ```
 
-Hem de donar privilegis a l'usuari que accedirà des de la màquina remota.
-Per accedir des de fora, hauriem de donar-li també privilegis a l'usuari a l'altra màquina:
+> **Advertència:** Habilitar l’accés remot incrementa els riscos de seguretat. Assegura’t de tenir un tallafocs actiu i d’utilitzar contrasenyes robustes.
 
-```console
-GRANT ALL ON bbdd.* to 'usuario'@'192.168.22.100';
-```
+## Resum final
 
-```console
-exit
-```
-
-## Descarreguem els fitxers de l'aplicació web
-Anem al directori `/var/www/html` i descomprimim allà els fitxers de l'aplicació web, heu de substituir `app-web.zip` per el nom del vostre fitxer que heu descarregat amb l'aplicació web i el nom de la carpeta `app-web` per la carpeta que us ha creat, si la vostra instal·lació de linux està en un idioma diferent al català, no tindreu la carpeta `Baixades`, modifiqueu la comanda per adaptarla a les vostrs necessitats.
-
-```console
-sudo cp ~/Baixades/app-web.zip /var/www/html
-```
-Aneu al directori `/var/www/html`
-```console
-cd /var/www/html
-```
-Descomprimiu el fitxer que heu baixat
-```console
-sudo unzip app-web.zip
-```
-Copieu els fitxers a la carpeta `/var/www/html`, modifiqueu `app-web` pel nom del directori on s'ha descomprimit el vostre arxiu.
-```console
-sudo cp -R app-web/. /var/www/html
-```
-Eliminem la carpeta creada quan hem fet l'`unzip`
-```console
-sudo rm -rf app-web/
-```
-
-## Eliminem el fitxer `index.html` de l'`apache2`
-```console
-sudo rm -rf /var/www/html/index.html
-```
-
-## Aplicació de permisos a les nostres aplicacions web
-Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
-
-```console
-cd /var/www/html
-```
-```console
-sudo chmod -R 775 .
-```
-```console
-sudo chown -R usuario:www-data .
-```
-## Accedim al navegador per veure que tot funciona
-Poseu la direcció http://localhost al navegador web i configureu la cloud.
-
-Si tot ha anat bé i heu seguit el manual us apareixerà l'instal·lador de l'aplicació web que heu baixat i us demanarà crear un usuario admin i la informació de la base de dades.
-
-La informació que heu de posar (si no heu modificat la informació del manual) és la següent:
-
-* **usuari:** usuario
-* **contrasenya:** password
-* **base de dades:** bbdd
-* **domini:** localhost
+- L’aplicació es desplega a `/var/www/domini.local`.
+- El virtual host ja està configurat (no es toca Apache més enllà del reinici inicial).
+- MySQL i PHP estan preparats per a funcionar amb l’aplicació.
+- Els permisos s’han ajustat per a un funcionament segur.
+- L’accés es fa via `http://domini.local`.
