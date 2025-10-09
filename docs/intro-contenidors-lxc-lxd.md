@@ -1,74 +1,171 @@
-# Introducció als contenidors lxc/lxd
+# Introducció als contenidors amb LXD/LXC
 
-LXD és un gestor de contenidors de sistemes de nova generació. Ofereix una experiència d'usuari similar a les màquines virtuals, però utilitza contenidors Linux.
+**LXD** és un gestor de contenidors de sistemes Linux de nova generació, desenvolupat per Canonical. Proporciona una experiència d’usuari similar a les màquines virtuals (amb comandaments simples i gestió de xarxa, emmagatzematge i recursos), però basada en **contenidors del nucli Linux** (LXC). Això permet un ús més eficient dels recursos del sistema, ja que no hi ha virtualització de maquinari ni múltiples nuclis en execució.
 
-## Creació d'un contenidor
-```console
- lxc launch ubuntu:20.04 elmeucontenidor
+Els contenidors LXD són ideals per a allotjar **aplicacions web**, ja que permeten aïllar entorns complets (amb el seu propi sistema de fitxers, xarxa i serveis) sense la sobrecàrrega de les VMs tradicionals.
+
+## 1. Instal·lació i configuració inicial (Ubuntu 24.04)
+
+En Ubuntu 24.04, LXD es pot instal·lar des dels repositoris oficials:
+
+```bash
+sudo snap install lxd
 ```
 
-## Obrir un contenidor previament creat i que està parat
-```console
- lxc start elmeucontenidor
+> **Nota:** Canonical recomana usar la versió de LXD distribuïda via **Snap** per a tenir sempre l’última versió estable i actualitzacions automàtiques.
+
+Un cop instal·lat, inicialitza LXD:
+
+```bash
+sudo lxd init
 ```
 
-## Llistar els contenidors del sistema
-```console
+Segueix les instruccions (pots acceptar les opcions per defecte per a ús bàsic). Aquest pas configura:
+
+- El *storage backend* (ZFS, dir, etc.)
+- La xarxa (`lxdbr0` per defecte)
+- Permisos d’usuari
+
+Afegeix el teu usuari al grup `lxd` (si cal):
+
+```bash
+sudo usermod -aG lxd $USER
+newgrp lxd
+```
+
+## 2. Gestió bàsica de contenidors
+
+### Crear un contenidor amb Ubuntu 24.04
+
+```bash
+lxc launch ubuntu:24.04 elmeucontenidor
+```
+
+### Llistar contenidors
+
+```bash
 lxc list
-
- +-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
- |     NAME        |  STATE  |         IPV4         |                     IPV6                      |   TYPE    | SNAPSHOTS |
- +-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
- | elmeucontenidor | RUNNING | 10.160.100.98 (eth0) | fd42:5550:ddc5:fbe2:216:3eff:fe81:713d (eth0) | CONTAINER | 0         |
- +-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
 ```
 
-## Executa un contenidor
+Exemple de sortida:
 
-```console
+```
++-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
+|      NAME       |  STATE  |         IPV4         |                     IPV6                      |   TYPE    | SNAPSHOTS |
++-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
+| elmeucontenidor | RUNNING | 10.160.100.98 (eth0) | fd42:5550:ddc5:fbe2:216:3eff:fe81:713d (eth0) | CONTAINER | 0         |
++-----------------+---------+----------------------+-----------------------------------------------+-----------+-----------+
+```
+
+### Accedir al contenidor
+
+```bash
 lxc exec elmeucontenidor -- /bin/bash
 ```
 
-## Atura un contenidor
+### Aturar i iniciar un contenidor
 
-```console
+```bash
 lxc stop elmeucontenidor
+lxc start elmeucontenidor
 ```
 
-```console
-lxc list
+### Eliminar un contenidor
 
- +-----------------+---------+------+------+-----------+-----------+
- |     NAME        |  STATE  | IPV4 | IPV6 |   TYPE    | SNAPSHOTS |
- +-----------------+---------+------+------+-----------+-----------+
- | elmeucontenidor | STOPPED |      |      | CONTAINER | 0         |
- +-----------------+---------+------+------+-----------+-----------+
-```
-
-## Elimina un contenidor
-
-```console
+```bash
 lxc delete elmeucontenidor
 ```
 
-## Exportar i importar un contenidor
-Com exportar i importar un contenidor
+## 3. Instal·lació d’una aplicació web dins d’un contenidor
 
-https://serverfault.com/questions/759170/copy-lxd-containers-between-hosts
+### Pas 1: Accedeix al contenidor
 
-
-## Instal·lació d'aplicacions web en contenidors
-
-Per instal·lar una aplicació web hem de portar el contingut al nostre servidor web (`apache2`), un cop instal·lat al contenidor tindrem que descomprimir el contingut al directori `/var/www/html`.
-
-Una forma senzilla de portar els arxius al contenidor, es anar directament a la carpeta `/var/www/html` del contenidor i fer un `wget` de l'enllaç directe a l'arxiu de la cloud, amb això tindrem l'arxiu de la cloud dins del contenidor.
-
-## Aplicar els permisos corresponents
-Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
-```console
-chmod -R 775 .
-chown -R root:www-data .
+```bash
+lxc exec elmeucontenidor -- /bin/bash
 ```
 
+### Pas 2: Instal·la el servidor web (Apache)
+
+```bash
+apt update && apt install -y apache2
+systemctl enable apache2
+```
+
+### Pas 3: Porta el codi de l’aplicació web al contenidor
+
+Hi ha diverses maneres. Una opció senzilla és descarregar directament dins del contenidor:
+
+```bash
+cd /var/www/html
+wget https://exemple.com/aplicacio-web.tar.gz
+tar -xzf aplicacio-web.tar.gz --strip-components=1
+rm aplicacio-web.tar.gz
+```
+
+> **Alternativa**: copiar fitxers des de l’amfitrió amb `lxc file push`:
+>
+> ```bash
+> lxc file push -r ./aplicacio-web elmeucontenidor/var/www/html/
+> ```
+
+### Pas 4: Aplica els permisos correctes
+
+```bash
+chown -R root:www-data /var/www/html
+chmod -R 775 /var/www/html
+```
+
+> Aquests permisos permeten que Apache (grup `www-data`) pugui llegir i, si cal, escriure fitxers (per exemple, en aplicacions com WordPress).
+
+### Pas 5: Verifica que funciona
+
+Des de l’amfitrió, obre un navegador o usa `curl`:
+
+```bash
+curl http://<IP_DEL_CONTENIDOR>
+```
+
+Troba la IP amb `lxc list`.
+
+## 4. Exportar i importar contenidors
+
+Per fer còpies de seguretat o migrar contenidors entre màquines:
+
+### Exportar
+
+```bash
+lxc stop elmeucontenidor
+lxc publish elmeucontenidor --alias meva-app-web
+lxc image export meva-app-web meva-app-web
+```
+
+Això genera fitxers `.tar.gz` que pots moure a un altre host.
+
+### Importar
+
+```bash
+lxc image import meva-app-web.tar.gz --alias meva-app-web
+lxc launch meva-app-web nou-contenidor
+```
+
+Més detalls: [Copy LXD containers between hosts](https://serverfault.com/questions/759170/copy-lxd-containers-between-hosts)
+
+## 5. Recomanacions addicionals
+
+- **Limita recursos** si executes múltiples contenidors:
+  ```bash
+  lxc config set elmeucontenidor limits.memory 512MB
+  lxc config set elmeucontenidor limits.cpu 2
+  ```
+
+- **Crea perfils personalitzats** per a aplicacions web (amb ports, discos addicionals, etc.).
+
+- **Utilitza snapshots** per fer còpies ràpides abans d’actualitzacions:
+  ```bash
+  lxc snapshot elmeucontenidor pre-actualitzacio
+  ```
+
 ## Més informació
-https://elpuig.xeill.net/Members/vcarceler/articulos/contenedores-con-lxd-lxc/index_html
+
+- [Contenidors amb LXD/LXC – El Puig](https://elpuig.xeill.net/Members/vcarceler/articulos/contenedores-con-lxd-lxc/index_html)
+- [Documentació oficial de LXD](https://documentation.ubuntu.com/lxd/)
