@@ -89,7 +89,7 @@ Heu de crear un **repositori públic a GitHub** on documentareu tot el treball r
 
 El `README.md` ha de contenir, com a mínim, la següent informació:
 
-- **Llistat de les botigues virtuals instal·lades** (indicant versió i entorn d’execució, ex: PrestaShop 8.1 sobre XAMPP).
+- **Llistat de les botigues virtuals instal·lades** (indicant versió i entorn d’execució, ex: PrestaShop 8.1 sobre LAMP).
 - **Captures de pantalla clau** que demostren el compliment dels requisits:
   - Canvi d’aparença (tema actiu)
   - Categories i productes (3 categories amb 3 productes cadascuna)
