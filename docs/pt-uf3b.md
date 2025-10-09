@@ -83,11 +83,28 @@ La pràctica s’ha d’entregar de la manera següent:
 - Explicar **què s’ha implementat**, **on es troba cada funcionalitat** i **com s’ha resolt**.
 - Destacar qualsevol **dificultat tècnica** i com s’ha superat.
 
-### **5.2. Documentació breu (opcional però recomanable)**
-- Un document PDF o text pla amb:
-  - Llistat de botigues instal·lades  
-  - Captures de pantalla clau (ex: categories, productes, canvi d’idioma, registre d’usuari)  
-  - Breu reflexió sobre quina plataforma us ha semblat més intuïtiva i per què  
+### **5.2. Documentació obligatòria en GitHub**
+
+Heu de crear un **repositori públic a GitHub** on documentareu tot el treball realitzat durant la pràctica. Aquesta documentació es farà **exclusivament al fitxer `README.md`** del repositori (no s’acceptaran PDFs ni documents externs).
+
+El `README.md` ha de contenir, com a mínim, la següent informació:
+
+- **Llistat de les botigues virtuals instal·lades** (indicant versió i entorn d’execució, ex: PrestaShop 8.1 sobre XAMPP).
+- **Captures de pantalla clau** que demostren el compliment dels requisits:
+  - Canvi d’aparença (tema actiu)
+  - Categories i productes (3 categories amb 3 productes cadascuna)
+  - Configuració de divisa
+  - Suport multi-idioma (pantalla en almenys dos idiomes)
+  - Registre d’usuari i subscripció a butlletí
+- **Breu reflexió comparativa** (mínim 150 paraules) sobre:
+  - Quina plataforma us ha semblat més intuïtiva i per què.
+  - Dificultats tècniques trobades i com les heu resolt.
+  - Compliment (o no) de la *Three-Click Rule* en les vostres botigues.
+
+> **Important**:  
+> - El repositori ha d’estar **públic** i accessible pel professor en el moment de la demostració.  
+> - El `README.md` ha d’estar ben format (amb títols, llistes i imatges inserides correctament amb Markdown).  
+> - No cal pujar el codi complet de les botigues, només la documentació.  
 
 ## **6. Recursos de suport**
 
