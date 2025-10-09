@@ -1,210 +1,251 @@
-# Introducció a Vagrant
+# Introducció a Vagrant amb Ubuntu 24.04 LTS
 
-`Vagrant` és una eina lliure per a la creació i el treball amb entorns de desenvolupament. Aquests entorns de desenvolupament se sustenten sobre alguna eina de virtualització com `VirtualBox`, `libvirt` o `Docker`, per la qual cosa a la pràctica `Vagrant` ens permetrà definir en un arxiu `Vagrantfile` la nostra infraestructura.
+## Instal·lació de Vagrant a Ubuntu 24.04 LTS
 
-A partir del fitxer `Vagrantfile` l'eina vagrant s'encarregarà de:
+Abans de començar a treballar amb Vagrant, cal instal·lar-lo al sistema. A Ubuntu 24.04 LTS, la manera més senzilla i recomanada d’obtenir una versió recent i ben mantinguda de Vagrant és mitjançant **Snap**:
 
-* Descarregar les imatges
-* Construir les MVs amb la configuració especificada
-* Executar les tasques necessàries per instal·lar programari al seu interior, crear usuaris, ...
-* La gestió (creació, encès, desament, detenció i destrucció) de les MVs
-* Compartir el directori del projecte amb les MVs
-* Gestioneu l'accés amb ssh
-
-D'aquesta manera és molt senzill desplegar infraestructura a partir d'un fitxer i, quan ja no calgui, esborrar el directori del projecte i deixar la màquina neta.
-
-## Un directori per al projecte
-
-Per a cada projecte `vagrant` utilitza un directori, com a exemple podem crear el directori `example` per treballar amb una MV d'`Ubuntu 22.04 Jammy Jellyfish`.
-
-```console
-[alumne@elpuig ~]$ mkdir example
-[alumne@elpuig ~]$ cd example/
+```bash
+sudo snap install vagrant --classic
 ```
 
-La configuració del projecte s'escriu al fitxer `Vagrantfile` que podem crear directament amb l'ordre `vagrant init <box>` indicant una de les MVs que es troben a `Vagrant Cloud`. Per exemple, la distribució Ubuntu manté imatges oficials a https://app.vagrantup.com/ubuntu.
+> L’opció `--classic` és necessària perquè Vagrant requereix accés complet al sistema (per interactuar amb VirtualBox, libvirt, fitxers, etc.).
 
-```console
-[alumne@elpuig example]$ vagrant init ubuntu/jammy64
-A `Vagrantfile` has been placed in this directory. You are now
-ready to `vagrant up` your first virtual environment! Please read
-the comments in the Vagrantfile as well as documentation on
-`vagrantup.com` for more information on using Vagrant.
-[alumne@elpuig example]$ ll
-total 4
--rw-rw-r--. 1 alumne alumne 3020 15 jul. 14:23 Vagrantfile
-[alumne@elpuig example]$
+Un cop instal·lat, pots verificar la versió amb:
+
+```bash
+vagrant --version
 ```
 
-Ara podem aixecar tota la infraestructura (afegint el paràmetre `--provider=virtualbox` perquè en algunes màquines el provider per defecte és `libvirt`) amb `vagrant up`:
+### Requisits addicionals
 
-```console
-[alumne@elpuig example]$ vagrant up --provider=virtualbox
-==> default: Clearing any previously set network interfaces...
-==> default: Preparing network interfaces based on configuration...
-    default: Adapter 1: nat
-==> default: Forwarding ports...
-    default: 22 (guest) => 2222 (host) (adapter 1)
-==> default: Running 'pre-boot' VM customizations...
-==> default: Booting VM...
-==> default: Waiting for machine to boot. This may take a few minutes...
-    default: SSH address: 127.0.0.1:2222
-    default: SSH username: vagrant
-    default: SSH auth method: private key
-    default: 
-    default: Vagrant insecure key detected. Vagrant will automatically replace
-    default: this with a newly generated keypair for better security.
-    default: 
-    default: Inserting generated public key within guest...
-    default: Removing insecure key from the guest if it's present...
-    default: Key inserted! Disconnecting and reconnecting using new SSH key...
-==> default: Machine booted and ready!
-==> default: Checking for guest additions in VM...
-    default: The guest additions on this VM do not match the installed version of
-    default: VirtualBox! In most cases this is fine, but in rare cases it can
-    default: prevent things such as shared folders from working properly. If you see
-    default: shared folder errors, please make sure the guest additions within the
-    default: virtual machine match the version of VirtualBox you have installed on
-    default: your host and reload your VM.
-    default: 
-    default: Guest Additions Version: 6.0.0 r127566
-    default: VirtualBox Version: 6.1
-==> default: Mounting shared folders...
-    default: /vagrant => /home/alumne/example
+Vagrant necessita un **proveïdor de virtualització**. Els més comuns són:
 
-[alumne@elpuig example]$
+- **VirtualBox** (ideal per a entorns d’escriptori):
+  ```bash
+  sudo apt update
+  sudo apt install virtualbox
+  ```
+
+- **libvirt/KVM** (recomanat per a servidors o entorns Linux avançats):
+  ```bash
+  sudo apt install libvirt-daemon-system libvirt-clients qemu-kvm
+  sudo usermod -aG libvirt $USER
+  # Cal tancar i tornar a obrir la sessió perquè el canvi de grup tingui efecte
+  ```
+
+> **Nota**: Si utilitzes VirtualBox, assegura’t que la versió de les **Guest Additions** sigui compatible amb la versió instal·lada. En cas de problemes amb carpetes compartides, pots instal·lar el plugin `vagrant-vbguest`:
+> ```bash
+> vagrant plugin install vagrant-vbguest
+> ```
+
+## Què és Vagrant?
+
+**Vagrant** és una eina de codi obert que permet definir, crear i gestionar entorns de desenvolupament reproduïbles i portables. Aquests entorns es basen en plataformes de virtualització com **VirtualBox**, **libvirt (KVM)** o **Docker**, i es configuren mitjançant un únic fitxer: el **`Vagrantfile`**.
+
+Amb Vagrant, pots automatitzar tot el cicle de vida d’una màquina virtual (MV): des de la seva creació fins a la seva destrucció, passant per la instal·lació de programari, configuració de xarxa, compartició de fitxers i accés SSH.
+
+### Funcionalitats principals
+
+A partir d’un `Vagrantfile`, Vagrant pot:
+
+- Descarregar automàticament la imatge base (*box*) des de [Vagrant Cloud](https://app.vagrantup.com).
+- Crear i configurar MVs segons les especificacions definides.
+- Executar tasques de provisionament (instal·lació de paquets, creació d’usuaris, etc.).
+- Gestionar l’estat de les MVs: iniciar (`up`), aturar (`halt`), suspèndre (`suspend`), reprendre (`resume`) o eliminar (`destroy`).
+- Compartir automàticament el directori del projecte amb la MV (muntat a `/vagrant`).
+- Facilitar l’accés SSH sense necessitat de contrasenyes.
+
+Això permet **desplegar infraestructura complexa amb una sola comanda** i, quan ja no calgui, eliminar-la completament simplement esborrant el directori del projecte.
+
+## Configuració d’un projecte amb Ubuntu 24.04 LTS
+
+### 1. Creació del directori del projecte
+
+Cada projecte Vagrant es gestiona dins d’un directori. Per exemple:
+
+```bash
+mkdir ubuntu-2404-example
+cd ubuntu-2404-example
 ```
 
-Aquesta comanda descàrrega (les màquines descarregades es guarden a `~/.vagrant.d/`) —si cal— la màquina utilitzada, crea una MV a `VirtualBox`, la configura, l'encén i la prepara amb la clau pública del host per poder iniciar sessió amb `ssh`.
+### 2. Inicialització del `Vagrantfile`
 
-```console
-[alumne@elpuig example]$ vagrant ssh
-Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-77-generic x86_64)
+Les imatges oficials d’Ubuntu es mantenen a [Vagrant Cloud](https://app.vagrantup.com/ubuntu). Per Ubuntu 24.04 LTS (Noble Numbat), la box oficial és `ubuntu/noble64`.
+
+```bash
+vagrant init ubuntu/noble64
+```
+
+Aquesta comanda genera un fitxer `Vagrantfile` amb una configuració bàsica i comentaris explicatius.
+
+### 3. Inici de la màquina virtual
+
+Per iniciar la MV (forçant l’ús de VirtualBox si cal):
+
+```bash
+vagrant up --provider=virtualbox
+```
+
+Vagrant:
+- Descarrega la box (si no està localment, a `~/.vagrant.d/boxes/`).
+- Crea la MV a VirtualBox.
+- Configura la xarxa, les claus SSH i els directoris compartits.
+- Inicia la màquina i aplica els ajustos de seguretat (com la substitució de la clau SSH insegura).
+
+### 4. Accés a la màquina
+
+Un cop iniciada, pots connectar-te amb:
+
+```bash
+vagrant ssh
+```
+
+Dins de la MV, veuràs un sistema Ubuntu 24.04 LTS net, amb l’usuari `vagrant` i accés complet via `sudo`.
+
+```text
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-xx-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
-
-  System information as of Thu Jul 15 12:38:47 UTC 2021
-
-  System load:  0.0               Processes:               110
-  Usage of /:   3.2% of 38.71GB   Users logged in:         0
-  Memory usage: 19%               IPv4 address for enp0s3: 10.0.2.15
-  Swap usage:   0%
-
-
-1 update can be applied immediately.
-To see these additional updates run: apt list --upgradable
-
-
-vagrant@ubuntu-jammy:~$
 ```
 
-A més, per defecte s'ha compartit el directori del projecte (`~/example`) entre la màquina física i la màquina virtual. Així resulta molt senzill compartir fitxers ja que el directori del projecte estarà muntat a la MV al directori `/vagrant`:
+El directori del projecte (`~/ubuntu-2404-example`) està muntat automàticament a `/vagrant` dins de la MV.
 
-```console
-vagrant@ubuntu-jammy:~$ ll /vagrant
-total 8
-drwxrwxr-x  1 vagrant vagrant   38 Jul 15 12:32 ./
-drwxr-xr-x 20 root    root    4096 Jul 15 12:33 ../
-drwxrwxr-x  1 vagrant vagrant   32 Jul 15 12:32 .vagrant/
--rw-rw-r--  1 vagrant vagrant 3020 Jul 15 12:23 Vagrantfile
-vagrant@ubuntu-jammy:~$
+```bash
+vagrant@ubuntu-noble:~$ ls /vagrant
+Vagrantfile  .vagrant/
 ```
 
-La comanda `vagrant status` ens mostrarà informació sobre l'estat de les nostres MVs i les podrem aturar amb `vagrant halt` o suspendre amb `vagrant suspend`. En qualsevol cas, es podran tornar a encendre amb `vagrant up`.
+### 5. Gestió de l’estat
 
-Quan ja no siguin necessàries les MVs es podran esborrar amb `vagrant destroy`.
+- **Veure l’estat**: `vagrant status`
+- **Aturar**: `vagrant halt`
+- **Suspèndre**: `vagrant suspend`
+- **Reprendre**: `vagrant resume`
+- **Eliminar completament**: `vagrant destroy`
 
-## Algunes opcions bàsiques de Vagrantfile
+## Personalització del `Vagrantfile`
 
-L'entorn que prepara `vagrant` està definit al fitxer `Vagrantfile` del projecte. Podeu consultar la documentació sobre els fitxers `Vagrantfile` a https://www.vagrantup.com/docs/vagrantfile.
+El fitxer `Vagrantfile` és un script en Ruby que defineix la configuració de l’entorn. A continuació, algunes opcions útils:
 
-El fitxer `Vagrantfile` creat de manera automàtica al pas anterior té moltes línies comentades que mostren com realitzar algunes operacions senzilles.
+### Assignació de memòria
 
-### Memòria assignada a la MV
+Per defecte, la MV disposa de 1 GB de RAM. Pots augmentar-la editant:
 
-La configuració per defecte del nostre `Vagrantfile` no especifica la quantitat de memòria per a la nostra màquina virtual així que s'utilitza `1GB`.
-
-Però podem descomentar les línies següents del nostre fitxer `Vagrantfile` i canviar especificar el valor de memòria per a la nostra màquina.
-
-```console
+```ruby
 config.vm.provider "virtualbox" do |vb|
-  # Display the VirtualBox GUI when booting the machine
-  # vb.gui = true
-
-  # Customize the amount of memory on the VM:
-  vb.memory = "2048"
+  vb.memory = "2048"  # 2 GB
+  # vb.cpus = "2"     # Opcional: assignar 2 CPUs
 end
 ```
 
-### Preparar la MV una cop creada
+### Provisionament amb shell
 
-Un cop creada la MV a partir de la imatge oficial, s'haurà de preparar d'alguna manera perquè compleixi la funció esperada per l'usuari.
+Per instal·lar programari automàticament (per exemple, Apache):
 
-Per aquesta tasca `vagrant` utilitza diferents provisioners entre els quals es troba l'intèrpret `shell` i `Ansible`. Amb ells es pot especificar qualsevol tasca automàtica que s'hagi de fer per preparar les MVs.
-
-Per exemple, si volguéssim instal·lar un servidor web `apache` a la nostra MV podrem trobar un exemple comentat al nostre `Vagrantfile`.
-
-Si descomentem les línies següents:
-
-```console
+```ruby
 config.vm.provision "shell", inline: <<-SHELL
   apt-get update
   apt-get install -y apache2
 SHELL
 ```
 
-S'instal·larà el servidor web `apache` de manera automàtica en crear l'entorn, encara que sense afegir una redirecció per a un port o una nova interfície encara no serà possible accedir al servidor web des de la nostra màquina.
+> El provisionament només s’executa la primera vegada o si s’usa `vagrant provision`.
 
 ### Redirecció de ports
 
-La manera més senzilla d'accedir a un servei, com el nostre servidor Apache, que s'executa a la MV és redirigir el trànsit d'un port de la nostra màquina física a la MV.
+Per accedir al servidor web des de l’equip host:
 
-Com ja resulta habitual trobarem un exemple preparat al nostre Vagrantfile que precisament redirigeix el trànsit del port `8080 TCP` de la nostra màquina física al port `80 TCP`de la MV.
-
-Per fer visible el servidor apache de la MV a http://localhost:8080 de la màquina física únicament haurem de descomentar la línia següent:
-
-```console
-# Create a forwarded port mapping which allows access to a specific port
-# within the machine from a port on the host machine. In the example below,
-# accessing "localhost:8080" will access port 80 on the guest machine.
-# NOTE: This will enable public access to the opened port
+```ruby
 config.vm.network "forwarded_port", guest: 80, host: 8080
 ```
 
-### Xarxa privada
+Ara pots obrir `http://localhost:8080` al navegador de la màquina física.
 
-També és possible afegir una interfície de xarxa nova a la MV en una xarxa privada diferent de la xarxa a la qual està connectat l'ordinador amfitrió.
+### Xarxa privada (host-only)
 
-Descomentant la següent línia del fitxer `Vagrantfile`:
+Per assignar una IP fixa a la MV en una xarxa privada:
 
-```console
-# Create a private network, which allows host-only access to the machine
-# using a specific IP.
+```ruby
 config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
-S'afegirà una interfície de xarxa nova a la MV amb la `IP 192.168.33.10` i a l'equip amfitrió s'afegirà automàticament una interfície de xarxa `vboxnet0` (si és la primera) amb la `IP 192.168.33.1` per permetre la comunicació.
+Això crea una interfície addicional (`enp0s8` o similar) a la MV i una xarxa virtual a l’host (`vboxnet0`). Ubuntu 24.04 gestiona aquesta configuració automàticament mitjançant **Netplan**.
 
-La xarxa privada també pot servir per comunicar diferents MVs que sexecuten a l'equip.
+També pots usar DHCP:
 
-`Vagrant` sap com configurar la xarxa en diferents sistemes operatius, per exemple al nostre `Ubuntu 20.04` s'ha afegit el fitxer `/etc/netplan/50-vagrant.yaml` amb la configuració de la nova interfície:
-
-
-```console
----
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    enp0s8:
-      addresses:
-      - 192.168.33.10/24
-```
-
-També serà possible assignar les adreces de manera automàtica utilitzant:
-
-```console
+```ruby
 config.vm.network "private_network", type: "dhcp"
 ```
+
+## Recomanacions per a Ubuntu 24.04
+
+- **Actualitzacions de seguretat**: Ubuntu 24.04 LTS rep suport estàndard fins al 2029. Amb **Ubuntu Pro** (gratuït per a ús personal en fins a 5 màquines), pots ampliar la cobertura de seguretat a **10 anys** per a més de **25.000 paquets**, incloent-hi Apache, Python, Node.js, Docker, OpenSSL, etc. ([ubuntu.com/advantage](https://ubuntu.com/advantage)).
+- **Boxes actualitzades**: Assegura’t d’usar sempre la darrera versió de la box `ubuntu/noble64`, ja que Canonical publica actualitzacions periòdiques amb els últims CVE corregits.
+
+## Plantilla completa de `Vagrantfile` per a Ubuntu 24.04
+
+A continuació, una plantilla funcional que configura una MV amb:
+- Ubuntu 24.04 LTS
+- 2 GB de RAM
+- Apache instal·lat
+- Port 80 redirigit al 8080 de l’host
+- Xarxa privada amb IP fixa (`192.168.33.10`)
+
+```ruby
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Box oficial d'Ubuntu 24.04 LTS (Noble Numbat)
+  config.vm.box = "ubuntu/noble64"
+
+  # Redirecció de ports: accés a Apache des de http://localhost:8080
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Xarxa privada amb IP fixa
+  config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Configuració específica per a VirtualBox
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "ubuntu-2404-apache"
+    vb.memory = "2048"
+    vb.cpus = "2"
+    # vb.gui = true  # Descomenta si vols veure la interfície gràfica
+  end
+
+  # Provisionament: instal·lació d'Apache
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Actualitzant el sistema..."
+    apt-get update
+
+    echo "Instal·lant Apache..."
+    apt-get install -y apache2
+
+    echo "Habilitant Apache al inici..."
+    systemctl enable apache2
+
+    echo "Configuració completada. Apache està actiu a http://192.168.33.10 o http://localhost:8080"
+  SHELL
+end
+```
+
+### Ús de la plantilla
+
+1. Guarda el codi anterior com a `Vagrantfile` en un directori nou.
+2. Executa:
+   ```bash
+   vagrant up --provider=virtualbox
+   ```
+3. Obre el navegador i visita:
+   - `http://localhost:8080` (des de la màquina física)
+   - `http://192.168.33.10` (si vols accedir per la xarxa privada)
+
+## Conclusió
+
+Vagrant, combinat amb les imatges oficials d’Ubuntu 24.04 LTS, ofereix una manera ràpida, segura i reproduïble de treballar amb entorns de desenvolupament. La seva integració amb VirtualBox, libvirt o Docker, juntament amb el suport a provisionament (shell, Ansible, etc.), el converteix en una eina essencial per a desenvolupadors, DevOps i equips d’infraestructura.
+
+> **Documentació oficial**: [https://www.vagrantup.com/docs](https://www.vagrantup.com/docs)  
+> **Boxes d’Ubuntu**: [https://app.vagrantup.com/ubuntu](https://app.vagrantup.com/ubuntu)  
+> **Ubuntu Pro (gratuït per a ús personal)**: [https://ubuntu.com/advantage](https://ubuntu.com/advantage)
