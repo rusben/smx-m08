@@ -1,74 +1,152 @@
-# Instal·lació i configuració de clouds
+Perfecte! Aquí tens la guia actualitzada segons les teves indicacions:
 
-Per instal·lar una cloud hem de descarregar el seu codi i seguir el manual genèric d'instal·lació d'aplicacions.
+- La instal·lació es fa **dins d’un virtual host ja configurat** a `/var/www/domini.local`.  
+- **No es detalla la configuració del virtual host**, ja que es dóna per feta.  
+- La secció sobre **PHP 7.4** s’ha mogut al **final del document**, com a apèndix opcional (només necessari per a ownCloud).
 
-En resum:
+---
 
-* Descarregar el codi font.
-* Portar el codi de la cloud al directori arrel del servidor web.
-* Descomprimir el contingut directament al directori arrel, en el nostre cas `/var/www/html`.
-* Entrar a la web `http://localhost` amb el navegador i seguir les instruccions.
+# Guia d’instal·lació i configuració de plataformes cloud (Nextcloud / ownCloud)  
+**Dins d’un virtual host preconfigurat (`/var/www/domini.local`)**
 
-[Manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
+Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn on ja tens un **virtual host actiu** apuntant a `/var/www/domini.local` (per exemple, `domini.local`). No cal configurar Apache ni el virtual host, ja que es considera ja operatiu.
 
-## Enllaços a les diferents clouds
-* ***OwnCloud***: http://www.owncloud.org
-* ***Nextcloud***: http://www.nextcloud.com
+---
 
-## Heu de baixar el .zip de Nextcloud Server
-https://download.nextcloud.com/server/releases/latest.zip
+## 1. Descàrrega i instal·lació de la plataforma cloud
 
-## Heu de baixar el .zip de ownCloud Server
-https://download.owncloud.com/server/stable/owncloud-complete-20240724.zip
+### 1.1. Enllaços oficials
 
-### Instal·lar la versió 7.4 de PHP a Ubuntu 24.04
+- **Nextcloud**: [https://www.nextcloud.com](https://www.nextcloud.com)  
+  Descàrrega directa:  
+  [https://download.nextcloud.com/server/releases/latest.zip](https://download.nextcloud.com/server/releases/latest.zip)
 
-Per a poder instal·lar ownCloud necessitarem la versió 7.4 de PHP, per a instal·lar-la al nostre sistema haurem de fer les següents comandes:
+- **ownCloud**: [https://www.owncloud.org](https://www.owncloud.org)  
+  Descàrrega directa (versió estable):  
+  [https://download.owncloud.com/server/stable/owncloud-complete-20240724.zip](https://download.owncloud.com/server/stable/owncloud-complete-20240724.zip)
 
-Actualitza les llistes de paquets i actualitza tots els paquets existents al vostre sistema. 
+> ⚠️ **Nota**: Nextcloud és compatible amb PHP 8.1+, mentre que **ownCloud encara requereix PHP 7.4** en moltes versions estables. Assegura’t de tenir la versió de PHP adequada abans d’instal·lar.
 
-Instal·leu els requisits previs de PPA:
-```bash
-sudo apt install software-properties-common -y
-```
+---
 
-Instal·la les eines necessàries per treballar amb els arxius de paquets personals (PPA).
-```bash
-LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php -y
-```
+### 1.2. Passos d’instal·lació
 
-Actualitza ara els repositoris:
-```bash
-sudo apt update
-```
+1. **Descarrega el fitxer `.zip`** de la plataforma triada (Nextcloud o ownCloud) al teu sistema.
 
-Instal·la les llibreries de PHP de la versió 7.4
-```bash
-sudo apt install php7.4 -y
-```
-```bash
-sudo apt install -y php libapache2-mod-php7.4
-```
+2. **Mou’t al directori del virtual host**:
+   ```bash
+   cd /var/www/domini.local
+   ```
 
-```bash
-sudo apt install -y php7.4-fpm php7.4-common php7.4-mbstring php7.4-xmlrpc php7.4-soap php7.4-gd php7.4-xml php7.4-intl php7.4-mysql php7.4-cli php7.4-ldap php7.4-zip php7.4-curl
-```
+3. **Neteja el contingut actual** (si cal):
+   > ⚠️ Assegura’t que no hi ha dades importants abans d’executar això.
+   ```bash
+   sudo rm -rf *
+   ```
 
-Seleccioneu la versió de PHP que voleu:
-```bash
-sudo update-alternatives --config php
-```
+4. **Descomprimeix l’arxiu directament al directori**:
+   ```bash
+   sudo unzip /ruta/al/arxiu.zip
+   ```
+   > Si l’arxiu crea una carpeta interna (ex: `nextcloud/` o `owncloud/`), assegura’t que el contingut es mogui **al nivell arrel** del virtual host:
+   ```bash
+   sudo mv nextcloud/* . && sudo rmdir nextcloud
+   # o
+   sudo mv owncloud/* . && sudo rmdir owncloud
+   ```
 
-Activa els mòduls d'apache2 necessaris:
-```bash
-sudo a2enmod proxy_fcgi setenvif
-```
+5. **Assegura els permisos correctes**:
+   ```bash
+   sudo chown -R www-data:www-data /var/www/domini.local
+   sudo chmod -R 755 /var/www/domini.local
+   ```
 
-```bash
-sudo a2enconf php7.4-fpm
-```
+6. **Accedeix a la interfície web**:
+   Obre el navegador i visita:
+   ```
+   http://domini.local
+   ```
+   Segueix les instruccions de configuració assistida:
+   - Crea un usuari administrador.
+   - Configura la base de dades (recomanat: MariaDB/MySQL).
+   - Verifica que tots els requisits del sistema es compleixin.
 
-Reinicieu l'apache2:
-```bash
-sudo service apache2 restart
-```
+---
+
+## 2. Recomanacions addicionals
+
+- **Directori de dades**: Durant la instal·lació, es recomana **no emmagatzemar les dades dins del directori web** (ex: `/var/www/domini.local/data`). Millor usa una ruta externa com `/var/ncdata` o `/opt/owncloud-data`.
+- **Còpies de seguretat**: Fes *backups* regulars del directori de dades i de la base de dades.
+- **Seguretat**: Desactiva l’accés a fitxers sensibles (`.htaccess`, `config.php`) i considera afegir regles de seguretat addicionals a Apache o Nginx.
+
+---
+
+## Apèndix: Instal·lació de PHP 7.4 a Ubuntu 24.04 (només per a ownCloud)
+
+> ⚠️ **Aquest pas només és necessari si instal·les ownCloud**, ja que moltes versions estables encara no són compatibles amb PHP 8.3 (versió per defecte a Ubuntu 24.04). Nextcloud **no requereix aquest pas**.
+
+### Passos:
+
+1. **Actualitza el sistema**:
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   ```
+
+2. **Instal·la les dependències per afegir repositoris PPA**:
+   ```bash
+   sudo apt install software-properties-common -y
+   ```
+
+3. **Afegeix el repositori de PHP de Ondřej Surý**:
+   ```bash
+   LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php -y
+   ```
+
+4. **Actualitza els repositoris**:
+   ```bash
+   sudo apt update
+   ```
+
+5. **Instal·la PHP 7.4 i les extensions requerides**:
+   ```bash
+   sudo apt install -y php7.4 \
+       libapache2-mod-php7.4 \
+       php7.4-fpm \
+       php7.4-common \
+       php7.4-mbstring \
+       php7.4-xmlrpc \
+       php7.4-soap \
+       php7.4-gd \
+       php7.4-xml \
+       php7.4-intl \
+       php7.4-mysql \
+       php7.4-cli \
+       php7.4-ldap \
+       php7.4-zip \
+       php7.4-curl
+   ```
+
+6. **(Opcional) Selecciona PHP 7.4 com a versió per defecte**:
+   ```bash
+   sudo update-alternatives --config php
+   ```
+
+7. **Activa els mòduls d’Apache necessaris**:
+   ```bash
+   sudo a2enmod proxy_fcgi setenvif
+   sudo a2enconf php7.4-fpm
+   ```
+
+8. **Reinicia Apache**:
+   ```bash
+   sudo systemctl restart apache2
+   ```
+
+> 🔎 **Verificació**: Pots comprovar la versió activa de PHP amb:
+> ```bash
+> php -v
+> ```
+
+---
+
+✅ Amb aquests passos, tindràs **Nextcloud** o **ownCloud** funcionant dins del teu domini virtual ja configurat.
