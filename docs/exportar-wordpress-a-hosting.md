@@ -1,203 +1,181 @@
-# Guia completa per exportar una instal·lació local de WordPress a un hosting virtual
+# Guia completa per exportar una instal·lació local de WordPress (amb domini personalitzat) a un hosting virtual
 
-Aquesta guia detalla tots els passos necessaris per migrar correctament una instal·lació local de WordPress a un entorn d'hosting compartit o virtual, assegurant que tot funcioni correctament després de la migració.
-
-
+Aquesta guia detalla tots els passos per migrar correctament una instal·lació local de WordPress que s’executa sota un domini com `http://domini.local` cap a un entorn de hosting en producció (per exemple, `https://www.exemple.com`).
 
 ## 1. Preparació prèvia
 
-### 1.1. Verifica requisits del hosting
-- Versió de PHP compatible (recomanat PHP 8.0+)
-- Versió de MySQL/MariaDB compatible (5.7+ o MariaDB 10.3+)
-- Espai de disc suficient
-- Permisos d'escriptura als directoris necessaris
+### 1.1. Identifica la URL exacta de la teva instal·lació local
+Normalment serà alguna d’aquestes:
+- `http://domini.local`
+- `http://domini.test`
+- `http://miweb.local`
+- `https://domini.local` (si tens HTTPS local)
 
-### 1.2. Crea una còpia de seguretat
-Abans de començar, fes una còpia de seguretat completa de:
-- Tots els fitxers de WordPress
+> **Important**: Assegura’t de conèixer **l’URL exacta** que apareix a `Configuració → Adreça del WordPress (WordPress Address)` i `Adreça del lloc (Site Address)` dins del panell d’administració.
+
+### 1.2. Verifica requisits del hosting
+- PHP 7.4 o superior (recomanat: 8.0+)
+- MySQL 5.7+ o MariaDB 10.3+
+- Suport per a `mod_rewrite` (per enllaços amigables)
+- Espai de disc i memòria suficients
+
+### 1.3. Còpia de seguretat
+Fes una còpia de:
+- Tots els fitxers del projecte
 - La base de dades local
-
 
 ## 2. Exportar la base de dades del servidor local
 
-### 2.1. Exportació amb mysqldump
+### 2.1. Amb `mysqldump` (recomanat)
 ```bash
 mysqldump --no-tablespaces -u [usuari] -p [nom_base_dades] > wordpress_export.sql
 ```
 
-**Paràmetres explicats:**
-- `--no-tablespaces`: Evita errors amb permisos de tablespace en alguns hostings
-- `-u [usuari]`: El teu usuari de MySQL
-- `-p`: Demanarà la contrasenya de forma segura
-- `[nom_base_dades]`: Nom de la teva base de dades local
-- `> wordpress_export.sql`: Fitxer de sortida
+> Substitueix `[usuari]` i `[nom_base_dades]` pels valors reals del teu entorn local.
 
-### 2.2. Alternativa: Exportació des de phpMyAdmin
-Si no tens accés a la línia de comandes:
+### 2.2. Alternativa: phpMyAdmin
 1. Accedeix a phpMyAdmin
 2. Selecciona la base de dades de WordPress
-3. Clica a "Exportar" → "Ràpid" → Format SQL
-4. Descarrega el fitxer
-
-
+3. Clica "Exportar" → "Ràpid" → Format SQL
+4. Guarda el fitxer
 
 ## 3. Actualitzar les URLs a la base de dades
 
-### 3.1. Mètode manual (recomanat per migracions simples)
-Obre el fitxer `wordpress_export.sql` amb un editor de text i reemplaça:
+Com que la teva URL local és `http://domini.local`, **has de reemplaçar aquesta cadena exacta** per la nova URL del teu lloc en producció.
 
-- **Cerca:** `http://localhost/[ruta]` o `http://127.0.0.1/[ruta]`
-- **Reemplaça per:** `https://[teu-domini.com]`
+### 3.1. Reemplaçament manual (per fitxers petits o mitjans)
 
-**Exemple:**
-```sql
--- Abans
-UPDATE `wp_options` SET `option_value` = 'http://localhost/miweb' WHERE `option_name` = 'siteurl';
-UPDATE `wp_options` SET `option_value` = 'http://localhost/miweb' WHERE `option_name` = 'home';
+Obre el fitxer `wordpress_export.sql` amb un editor de text compatible (com VS Code, Sublime Text o Notepad++) i fes aquestes substitucions:
 
--- Després
-UPDATE `wp_options` SET `option_value` = 'https://www.exemple.com' WHERE `option_name` = 'siteurl';
-UPDATE `wp_options` SET `option_value` = 'https://www.exemple.com' WHERE `option_name` = 'home';
-```
+| Cerca (exacte)        | Reemplaça per             |
+|-----------------------|---------------------------|
+| `http://domini.local` | `https://www.exemple.com` |
 
-### 3.2. Mètode avançat: Utilitzar WP-CLI (recomanat per instal·lacions complexes)
-Si tens accés a WP-CLI al servidor de destinació:
+> **Assegura’t de fer el reemplaçament en tot el fitxer**, ja que les URLs poden aparèixer en:
+> - `wp_options` (camp `option_value`)
+> - `wp_posts` (contingut dels articles, metaboxes, etc.)
+> - `wp_postmeta` (imatges destacades, metaboxes personalitzades)
+> - `wp_comments`, `wp_commentmeta`, etc.
+
+> **Consell**: Si el teu domini local utilitza HTTPS (`https://domini.local`), reemplaça també aquesta versió.
+
+### 3.2. Reemplaçament amb línia de comandes (Linux/macOS)
+
+Pots fer el reemplaçament directament des del terminal:
+
 ```bash
-wp search-replace 'http://localhost/miweb' 'https://www.exemple.com' --all-tables
+sed -i 's|http://domini\.local|https://www.exemple.com|g' wordpress_export.sql
 ```
 
-### 3.3. Consideracions importants
-- Reemplaça **totes** les instàncies de la URL local, no només les de `wp_options`
-- Tingues en compte subdirectoris: `http://localhost/miweb` vs `http://localhost`
-- Si utilitzes HTTPS al hosting, assegura't que totes les URLs siguin `https://`
+### 3.3. Mètode segur: WP-CLI al servidor de destinació (recomanat per llocs grans)
 
+Si pots instal·lar WP-CLI al hosting o ja hi tens accés:
 
+1. Pujar la base de dades **sense modificar** (amb `http://domini.local`)
+2. Importar-la
+3. Executar:
+   ```bash
+   wp search-replace 'http://domini.local' 'https://www.exemple.com' --all-tables --precise
+   ```
+
+Aquest mètode evita corrupció de dades serialitzades (com en metaboxes o opcions de temes/plugins).
 
 ## 4. Exportar els fitxers de WordPress
 
 ### 4.1. Comprimir tots els fitxers
+Des de la carpeta arrel del teu projecte:
+
 ```bash
-# Des de la carpeta arrel de WordPress
-zip -r wordpress_export.zip .
+zip -r wordpress_fitxers.zip .
 ```
 
-O bé, si prefereixes tar.gz:
+O bé:
+
 ```bash
-tar -czf wordpress_export.tar.gz .
+tar -czf wordpress_fitxers.tar.gz .
 ```
 
-### 4.2. Elements a incloure
-- Tots els fitxers i carpetes de WordPress
-- El directori `wp-content` (plugins, temes, pujades)
-- El fitxer `.htaccess` (si existeix)
-- El fitxer `wp-config.php` **(però no el carreguis directament al hosting)**
+> Inclou:
+> - `wp-content/` (temes, plugins, pujades)
+> - `.htaccess` (si existeix)
+> - `wp-config.php` (però **no el pugis directament** al hosting sense editar-lo)
 
+> No cal incloure:
+> - Fitxers de configuració d’entorn local (`.env`, `docker-compose.yml`, etc.)
+> - Carpetes de desenvolupament (`node_modules`, etc.)
 
 ## 5. Configuració al hosting
 
-### 5.1. Crear la base de dades al hosting
-1. Accedeix al panell de control del hosting (cPanel, Plesk, etc.)
-2. Crea una nova base de dades MySQL
-3. Crea un usuari de base de dades i assigna-li tots els permisos
-4. Anota les credencials: nom de base de dades, usuari i contrasenya
+### 5.1. Crea la base de dades al hosting
+1. Al panell de control (cPanel, Plesk...), crea una base de dades MySQL
+2. Crea un usuari i assigna-li permisos totals
+3. Anota: nom de BD, usuari i contrasenya
 
-### 5.2. Importar la base de dades
-**Via phpMyAdmin:**
-1. Selecciona la nova base de dades
-2. Clica "Importar"
-3. Selecciona el fitxer `wordpress_export.sql` actualitzat
-4. Clica "Executar"
+### 5.2. Importa la base de dades actualitzada
+Via phpMyAdmin o línia de comandes:
 
-**Via línia de comandes (si tens accés SSH):**
 ```bash
-mysql -u [usuari_hosting] -p [nom_base_dades_hosting] < wordpress_export.sql
+mysql -u [usuari_hosting] -p [nom_bd_hosting] < wordpress_export.sql
 ```
 
-### 5.3. Pujar els fitxers al hosting
-1. Utilitza un client FTP (FileZilla, Cyberduck) o el gestor d'arxius del panell de control
-2. Pujar tots els fitxers al directori arrel del teu domini (normalment `public_html` o `htdocs`)
-3. Assegura't que els permisos siguin correctes:
-   - Carpetes: 755
-   - Fitxers: 644
-   - `wp-config.php`: 600 (per seguretat)
+### 5.3. Pujar fitxers al servidor
+- Utilitza FTP/SFTP o el gestor d’arxius del hosting
+- Pujar tots els fitxers a la carpeta arrel del domini (ex: `public_html/`)
+- Assegura’t dels permisos:
+  - Carpetes: `755`
+  - Fitxers: `644`
+  - `wp-config.php`: `600` (per seguretat)
 
-### 5.4. Configurar wp-config.php
-Edita el fitxer `wp-config.php` amb les noves credencials de la base de dades:
+### 5.4. Actualitza `wp-config.php`
+Edita el fitxer amb les credencials del hosting:
 
 ```php
-// ** Configuració de la Base de Dades ** //
-define('DB_NAME', 'nom_base_dades_hosting');
-define('DB_USER', 'usuari_base_dades_hosting');
-define('DB_PASSWORD', 'contrasenya_base_dades_hosting');
-define('DB_HOST', 'localhost'); // Normalment 'localhost' en hosting compartit
+define('DB_NAME',     'nom_bd_hosting');
+define('DB_USER',     'usuari_bd_hosting');
+define('DB_PASSWORD', 'contrasenya_bd_hosting');
+define('DB_HOST',     'localhost');
 ```
 
-**Afegir constants útils per a la migració:**
+Opcionalment, força les URLs (útil si hi ha problemes):
+
 ```php
-// Forçar URLs (opcional, útil si hi ha problemes)
-define('WP_HOME', 'https://www.exemple.com');
+define('WP_HOME',    'https://www.exemple.com');
 define('WP_SITEURL', 'https://www.exemple.com');
-
-// Desactivar errors en producció
-define('WP_DEBUG', false);
 ```
 
+> 🔒 Desactiva el mode de depuració en producció:
+> ```php
+> define('WP_DEBUG', false);
+> ```
 
+## 6. Verificació final
 
-## 6. Verificació i resolució de problemes
+1. **Accedeix al lloc**: `https://www.exemple.com`
+2. **Prova l’administració**: `https://www.exemple.com/wp-admin`
+3. **Comprova continguts**:
+   - Imatges carregades
+   - Enllaços interns
+   - Formularis
+   - Funcionalitats de plugins
+4. **Regenera enllaços permanents**:
+   - Ves a `Configuració → Enllaços permanents`
+   - Clica "Desa canvis" (això regenera el `.htaccess`)
 
-### 6.1. Verificacions bàsiques
-- Accedeix al teu lloc web: `https://www.exemple.com`
-- Comprova que el panell d'administració funcioni: `https://www.exemple.com/wp-admin`
-- Verifica que totes les imatges i fitxers es carreguin correctament
-- Prova formularis de contacte i funcionalitats especials
+## 7. Consells addicionals
 
-### 6.2. Problemes comuns i solucions
+- **Si utilitzes un CDN o cache**, purga-la després de la migració.
+- **Configura redireccions HTTPS** si el hosting no ho fa automàticament.
+- **Actualitza DNS** si estàs apuntant un domini nou.
+- **Verifica Google Search Console i Analytics** per assegurar-te que segueixen funcionant.
 
-**Problema: Pàgina en blanc o errors 500**
-- Comprova els permisos dels fitxers
-- Activa temporalment `WP_DEBUG` per veure errors
-- Verifica la compatibilitat de PHP
+## Resum de substitucions clau
 
-**Problema: Imatges no es carreguen**
-- Assegura't que has actualitzat totes les URLs a la base de dades
-- Comprova que la carpeta `wp-content/uploads` s'ha pujat correctament
+| Entorn local         | Entorn producció       |
+|----------------------|------------------------|
+| `http://domini.local`| `https://www.exemple.com` |
+| Base de dades local  | Base de dades del hosting |
+| Fitxers locals       | Fitxers al `public_html` |
 
-**Problema: Enllaços no funcionen (404)**
-- Vés a `Configuració → Enllaços permanents` i desa la configuració (això regenera el `.htaccess`)
-- Assegura't que el mod_rewrite estigui activat al servidor
+---
 
-**Problema: Errors de connexió a la base de dades**
-- Verifica les credencials al `wp-config.php`
-- Comprova que la base de dades existeix i l'usuari té permisos
-
-
-
-## 7. Passos addicionals recomanats
-
-### 7.1. Seguretat post-migració
-- Canvia les contrasenyes d'administrador
-- Instal·la un plugin de seguretat (Wordfence, Sucuri)
-- Configura còpies de seguretat automàtiques
-
-### 7.2. Optimització
-- Configura la caché (WP Super Cache, W3 Total Cache)
-- Optimitza la base de dades
-- Comprimeix imatges
-
-### 7.3. Verificació SEO
-- Configura redireccions 301 si cal
-- Verifica el sitemap
-- Actualitza Google Search Console
-
-
-
-## 8. Alternatives: Plugins de migració
-
-Si prefereixes una solució automatitzada, considera aquests plugins:
-
-- **All-in-One WP Migration**: Exporta/importa tot en un sol fitxer
-- **Duplicator**: Crea paquets de migració amb assistent
-- **WP Migrate**: Sincronitza bases de dades entre entorns
-
-**Nota:** Aquests plugins poden tenir limitacions en versions gratuïtes i poden no ser adequats per a llocs molt grans.
+Amb aquesta guia adaptada al teu entorn (`domini.local`), la migració hauria de ser fluida i sense sorpreses. Recorda: **sempre fes còpies de seguretat abans de començar!**
