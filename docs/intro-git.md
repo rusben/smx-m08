@@ -1,96 +1,217 @@
-# Introducció
+# Guia completa: Treballar amb Git, GitHub i SSH a Linux
 
-## Registre a github
+Aquesta guia t’ensenyarà a:
 
-## Creació d'un repositori a github
+- Registrar-te a GitHub  
+- Configurar una clau SSH per autenticació segura  
+- Crear i clonar repositoris mitjançant SSH  
+- Editar codi amb Visual Studio Code  
+- Fer *commits*, gestionar branques i publicar canvis
 
-## Clonar el repositori a la nostra màquina
+Tot això des del teu sistema **Linux**, de forma eficient i professional.
 
-Exemple de clonació. Cliqueu al botó `CODE` i després seleccioneu la pestanya SSH i feu el següent:
-```console
-user@school:~$ git clone https://github.com/rusben/my-first-webpage.git
+## 1. Registre a GitHub
+
+1. Ves a [https://github.com](https://github.com)  
+2. Clica **Sign up** i crea un compte amb el teu correu (preferiblement institucional o personal estable).  
+3. Verifica el correu i inicia sessió.
+
+## 2. Configuració de clau SSH (recomanat)
+
+Per evitar haver d’introduir usuari i token cada vegada que interactuïs amb GitHub, configurarem **autenticació SSH**.
+
+### 2.1. Comprova si ja tens una clau SSH
+
+```bash
+ls -al ~/.ssh
 ```
 
-## Comprovar l'estat del nostre repositori
+Si veus fitxers com `id_ed25519.pub` o `id_rsa.pub`, ja tens una clau. Si no, continua.
 
-```console
-user@school:~$ git status
- En la branca master
- La vostra branca està al dia amb 'origin/master'.
- Fitxers no seguits:
-  (useu "git add <fitxer>..." per a incloure-ho en què es cometrà)
-     mypage.html
-     style.css
+### 2.2. Genera una clau SSH nova
 
- no hi ha res afegit a cometre però fitxers no seguits estan presents (useu "git add" per a seguir-los)
+```bash
+ssh-keygen -t ed25519 -C "el-teu-correu@exemple.com"
 ```
 
-## Afegir fitxers al nostre repositori
-Per incloure tots els fitxers que tenim en color vermell (no seguits o modificats) farem:
+> Si el teu sistema no suporta `ed25519`, usa:  
+> ```bash
+> ssh-keygen -t rsa -b 4096 -C "el-teu-correu@exemple.com"
+> ```
 
-```console
-user@school:~$ git add .
+Prem **Enter** per acceptar la ubicació per defecte (`~/.ssh/id_ed25519`).  
+Pots deixar buida la contrasenya (prem **Enter** dues vegades) o posar-ne una per més seguretat.
+
+### 2.3. Copia la clau pública
+
+Mostra i copia la clau:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
 ```
 
-Si volem afegir un únic fitxer fariem, git add i el nom del fitxer:
+### 2.4. Afegeix la clau a GitHub
 
-```console
-user@school:~$ git add mypage.css
+1. Ves a [https://github.com/settings/keys](https://github.com/settings/keys)  
+2. Clica **New SSH key**  
+3. Omple:
+   - **Title**: `El meu ordinador Linux`  
+   - **Key**: enganxa la clau que has copiat  
+4. Clica **Add SSH key**
+
+### 2.5. Prova la connexió
+
+```bash
+ssh -T git@github.com
 ```
 
+Respon **yes** quan et demani confirmació. Si veus:
 
-## Guardar un registre dels canvis
-Un cop hem afegit els fitxers mitjançant al comanda '''git add''' tindrem els fitxers preparats per a enregistrar el canvi.
-
-Els canvis els farem permanents a la nostra còpia local mitjançant la comanda '''git commit'''
-
-```console
-user@school:~$ git commit -m "Missatge amb la descripció dels canvis realitzats"
+```
+Hi teu-usuari! You've successfully authenticated...
 ```
 
-Un cop fet el commit, haurem guardat un registre amb els canvis realitzats, podem veure la llista de commits mitjançant la comanda '''git log'''.
+La teva clau SSH funciona correctament!
 
-```console
-user@school:~$ git log
- commit 5e83b039daaf4536f4467f19e9639b50f5cc853c
- Author: Rubén <rarroyo2@elpuig.xeill.net>
- Date:   Thu Nov 23 15:35:37 2017 +0100
 
-    Added mypage + style
 
- commit 015122609aafc31eac9e02608ffcf10b3888a803
- Author: Rubén <rarroyo2@elpuig.xeill.net>
- Date:   Thu Nov 23 15:25:18 2017 +0100
+## 3. Creació i clonació d’un repositori
 
-    Initial commit
+### 3.1. Crea un repositori a GitHub
+
+1. Clica el botó **+ → New repository**  
+2. Omple:
+   - **Name**: `my-first-webpage`  
+   - **Public**  
+   - **Add a README file** (opcional, però útil)  
+3. Clica **Create repository**
+
+### 3.2. Clona el repositori mitjançant SSH
+
+1. A la pàgina del repositori, clica **Code → SSH**  
+2. Copia l’URL (ex: `git@github.com:teu-usuari/my-first-webpage.git`)  
+3. A la terminal:
+
+```bash
+git clone git@github.com:teu-usuari/my-first-webpage.git
 ```
 
-## Publicar els canvis a GitHub (al repositori remot)
+> Ara ja pots treballar sense haver d’introduir credencials!
 
-Si volem que la nostra llista de commits es publiqui al nostre repositori remot (el que hem creat a github.com) simplement haurem de fer un '''git push''' dels nostres canvis.
+## 4. Treballa amb Visual Studio Code
 
-```console
-user@school:~$ git push
+1. Obre VS Code  
+2. **File → Open Folder** i selecciona la carpeta del repositori (`my-first-webpage`)  
+3. Crea o edita fitxers com `index.html`, `style.css`, etc.  
+4. Guarda els canvis
+
+> **Consell**: Instal·la l’extensió **Live Server** per veure els canvis en temps real al navegador.
+
+## 5. Gestió de canvis amb Git
+
+### 5.1. Comprova l’estat
+
+```bash
+cd my-first-webpage
+git status
 ```
 
-Ens demanarà usuari i contrassenya. Heu de tenir en compte que només podreu modificar repositoris en els que tingueu permisos, o bé perquè els heu creat vosaltres o perquè ús han donat permisos de modificació.
+Els fitxers nous o modificats apareixeran en vermell (no seguits).
 
-## Crear una branca al repositori
+### 5.2. Afegeix fitxers a l’àrea d’escenari
 
-Això ens crearà una branca i canviarà la branca actual a la nova branca creada.
+- Tots els fitxers:
+  ```bash
+  git add .
+  ```
+- Un sol fitxer:
+  ```bash
+  git add index.html
+  ```
 
-```console
-user@school:~$ git checkout -b nom_branca
+### 5.3. Fes un *commit*
+
+```bash
+git commit -m "Afegida pàgina inicial i estils"
 ```
 
-Per veure les branques existents:
+> Escriu missatges clars i descriptius.
 
-```console
-user@school:~$ git branch
+### 5.4. Veure historial
+
+```bash
+git log
 ```
 
-Per canviar de branca:
+Prem **Q** per sortir.
 
-```console
-user@school:~$ git checkout nom_branca
+## 6. ☁️ Publica els canvis a GitHub
+
+```bash
+git push
 ```
+
+Gràcies a SSH, **no et demanarà usuari ni contrasenya**.
+
+> Si és la primera vegada que puges una branca nova, potser hauràs de fer:  
+> ```bash
+> git push -u origin nom_branca
+> ```
+
+
+## 7. Treballar amb branques
+
+Les branques et permeten desenvolupar funcionalitats sense afectar la versió principal.
+
+### Crear i canviar a una branca nova
+
+```bash
+git checkout -b caracteristica-nova
+```
+
+### Llistar branques
+
+```bash
+git branch
+```
+
+### Canviar de branca
+
+```bash
+git checkout main
+```
+
+### Pujar una branca a GitHub
+
+```bash
+git push -u origin caracteristica-nova
+```
+
+## 8. Flux de treball recomanat
+
+1. **Clona** el repositori via SSH → `git clone git@github.com:...`  
+2. **Obre** la carpeta a VS Code  
+3. **Edita** els fitxers  
+4. **Revisa** els canvis → `git status`  
+5. **Afegeix** → `git add .`  
+6. **Guarda** → `git commit -m "..."`  
+7. **Puja** → `git push`  
+8. (Opcional) **Utilitza branques** per a noves funcionalitats
+
+
+## 9. Consells finals
+
+- **Fes *commits* petits i freqüents**  
+- **Escriu bons missatges** que expliquin *què* i *per què*  
+- **Utilitza `.gitignore`** per excloure fitxers innecessaris (`node_modules/`, `.vscode/`, etc.)  
+- **Mantén el repositori sincronitzat**: si treballes en equip, fes `git pull` abans de començar
+
+## Recursos útils
+
+- [Documentació oficial de Git](https://git-scm.com/doc)  
+- [GitHub Skills (cursos interactius)](https://skills.github.com/)  
+- [Guia de `.gitignore`](https://www.toptal.com/developers/gitignore)
+
+Amb aquesta guia ja tens tot el necessari per treballar de forma **professional, segura i eficient** amb Git i GitHub des del teu Linux! 🚀
+
+> ✨ **Recorda**: la clau SSH només s’ha de configurar **un cop per equip**. Després, tot funcionarà de forma transparent!
