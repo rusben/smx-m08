@@ -81,7 +81,7 @@ La teva clau SSH funciona correctament!
 
 1. Clica el botó **+ → New repository**  
 2. Omple:
-   - **Name**: `my-first-webpage`  
+   - **Name**: `my-first-repositori`  
    - **Public**  
    - **Add a README file**
    - **Llicència**: GNU General Public License v3.0
@@ -90,11 +90,11 @@ La teva clau SSH funciona correctament!
 ### 3.2. Clona el repositori mitjançant SSH
 
 1. A la pàgina del repositori, clica **Code → SSH**  
-2. Copia l’URL (ex: `git@github.com:teu-usuari/my-first-webpage.git`)  
+2. Copia l’URL (ex: `git@github.com:teu-usuari/my-first-repositori.git`)  
 3. A la terminal:
 
 ```bash
-git clone git@github.com:teu-usuari/my-first-webpage.git
+git clone git@github.com:teu-usuari/my-first-repositori.git
 ```
 
 > Ara ja pots treballar sense haver d’introduir credencials!
@@ -102,7 +102,7 @@ git clone git@github.com:teu-usuari/my-first-webpage.git
 ## 4. Treballa amb Visual Studio Code
 
 1. Obre VS Code  
-2. **File → Open Folder** i selecciona la carpeta del repositori (`my-first-webpage`)  
+2. **File → Open Folder** i selecciona la carpeta del repositori (`my-first-repositori`)  
 3. Crea o edita fitxers com `index.html`, `style.css`, etc.  
 4. Guarda els canvis
 
@@ -113,7 +113,7 @@ git clone git@github.com:teu-usuari/my-first-webpage.git
 ### 5.1. Comprova l’estat
 
 ```bash
-cd my-first-webpage
+cd my-first-repositori
 git status
 ```
 
