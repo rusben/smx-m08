@@ -5,8 +5,6 @@
 2. Desenvolupar habilitats en la creació de presentacions visuals i enquestes interactives.
 3. Practicar la col·laboració en grup mitjançant eines digitals.
 
----
-
 ## **Desenvolupament de la pràctica**
 
 ### **Requisits generals**
@@ -14,8 +12,6 @@
 - Entregueu un document PDF que contingui:
   - La presentació completa.
   - Un enllaç actiu al formulari de preguntes (Google Forms).
-
----
 
 ## **Part pràctica**
 
@@ -40,8 +36,6 @@ Escolliu un dels temes següents o proposeu-ne un propi (cal que el professor l'
 
 > **Nota:** Assegureu-vos que el contingut sigui clar, ben estructurat i adequat per a un públic tècnic però no especialitzat.
 
----
-
 ### **2. Enquestes (Google Forms)**
 
 #### **Instruccions**
@@ -50,8 +44,6 @@ Escolliu un dels temes següents o proposeu-ne un propi (cal que el professor l'
   - **Almenys 5 preguntes** relacionades amb el contingut de la vostra presentació.
   - **3 tipus d'ítems diferents** (per exemple: resposta múltiple, resposta curta, escala de valoració, etc.).
 - Ajusteu el disseny de l'enquesta per fer-la visualment atractiva i fàcil d'utilitzar.
-
----
 
 ## **Avaluació de la pràctica**
 
@@ -65,8 +57,6 @@ La nota de la pràctica es calcularà segons els següents criteris:
 | Compliment de requisits generals         | 10%            |
 
 > **Nota final = 100% Pràctica (PP)**
-
----
 
 ## **Entrega**
 - **Format:** Creeu un repositori a GitHub (cada integrant del grup ha de crear un repositori). Pujeu al repositori el document PDF amb la presentació i l'enllaç a l'enquesta.
