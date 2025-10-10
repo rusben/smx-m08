@@ -1,22 +1,44 @@
-# El paradigma client-servidor en aplicacions web.
+# El paradigma client-servidor en aplicacions web
 
-Les aplicacions web utilitzen l'esquema client/servidor, fent ús de l'protocol HTTP per a la gestió de la comunicació. Quan executem una aplicació web, hi ha dues parts ben diferenciades: el client, que és el procés que envia les peticions; i el servidor, que el procés responsable de respondre. Aquestes aplicacions solen estar en diferents màquines, equipades amb diferent maquinari i sistema operatiu.
+Les aplicacions web modernes es basen fonamentalment en el **paradigma client-servidor**, un model d’arquitectura distribuïda en què la comunicació entre els participants es realitza mitjançant protocols estàndard, principalment **HTTP (Hypertext Transfer Protocol)**. Aquest model divideix clarament les responsabilitats entre dues entitats principals: el **client** i el **servidor**.
 
-El client es pot estar executant en un equip portàtil, i el servidor és el procés que s'executa en una màquina remota.
+## Components principals
 
-Els dos components d'una aplicació web solen denominar-se frontend i backend. El frontend és executat en un navegador web al costat del client; i el backend s'executa en el costat de servidor.
+### El client
+El client és el component que **inicia les peticions** cap al servidor. En el context de les aplicacions web, el client sol ser un **navegador web** (com Chrome, Firefox o Safari) que s’executa en un dispositiu de l’usuari —un ordinador, una tauleta o un telèfon mòbil— i que interpreta i presenta el contingut rebut del servidor. Aquesta part de l’aplicació rep el nom de **frontend**.
+
+### El servidor
+El servidor, per la seva banda, és el component que **respon a les peticions** del client. S’executa en una màquina remota —sovint un servidor dedicat o un entorn en núvol— i pot estar basat en qualsevol sistema operatiu i maquinari, independent del client. Aquesta part de l’aplicació es coneix com a **backend**.
+
+Tot i que client i servidor solen executar-se en màquines diferents, el protocol HTTP assegura que la comunicació sigui **transparent, estàndard i independent de la plataforma**.
 
 ![Paradigma client/servidor](img/client-servidor.jpg)
 
-## Aplicacions en el costat del servidor
+## Aplicacions del costat del servidor (backend)
 
-A la banda de servidor, hem d'aconseguir que el nostre servidor HTTP sigui capaç d'executar programes d'aplicació que recullin els paràmetres de peticions de client, els processin i tornin a el servidor un document que aquest passarà al seu torn a client.
+El servidor HTTP no només pot servir **pàgines estàtiques** (fitxers HTML predefinits), sinó que també pot **executar programes d’aplicació** per generar contingut dinàmic. Aquests programes reben les peticions del client, processen les dades rebudes (com paràmetres de formularis, cookies o capçaleres HTTP), interactuen amb bases de dades o altres serveis, i generen una resposta que el servidor envia de tornada al client.
 
-Així, per al client el servidor no haurà fet res diferent al que estipula el protocol HTTP, però el servidor es pot valer d'eines externes per processar i servir la petició sol·licitada, podent així no limitar-se a servir pàgines estàtiques, sinó utilitzar altres aplicacions (servlets, JSP, PHP, etc.) per servir documents amb contingut dinàmic.
+Per fer això, els servidors web poden integrar tecnologies com:
+- **Servlets i JSP** (Java),
+- **PHP**,
+- **Node.js**,
+- **Python (amb frameworks com Django o Flask)**,
+- **Ruby on Rails**, entre d’altres.
 
-Els programes d'aplicació són típicament programes que realitzen consultes a bases de dades, processen la informació resultant i tornen la sortida a servidor, entre altres tasques.
+Aquests programes permeten que el contingut servit sigui **personalitzat, contextual i dinàmic**, adaptant-se a les necessitats de cada usuari o situació, tot respectant les regles del protocol HTTP des del punt de vista del client.
 
-## Aplicacions en el costat del client
-Es tenen moltes tecnologies relacionades amb extensions de la banda de el client (entenent client com un navegador que interpreta codi HTML). El codi HTML és un codi estàtic que només permet formatar l'aparença d'una pàgina i definir enllaços a altres pàgines o URL. Això no és suficient si volem que el navegador realitzi funcions més complicades: validar entrades de formularis, mostrar l'evolució de l'preu d'unes accions, etc.
+## Aplicacions del costat del client (frontend)
 
-Per ampliar les funcionalitats de el navegador (respectant el protocol HTTP), s'utilitzen tecnologies com JavaScript, Applets etc. Aquestes es basen en fer que el navegador executi codi que li passa al servidor, bé embegut en documents HTML (com és el cas de JavaScript), o bé mitjançant fitxers compilats multiplataforma (com és el cas dels Applets Java).
+Tot i que el HTML permet definir l’estructura i l’estil bàsic d’una pàgina web, és un llenguatge **estàtic** i no permet implementar lògica interactiva. Per superar aquesta limitació, s’han desenvolupat tecnologies que permeten **executar codi directament al navegador**, millorant l’experiència d’usuari i reduint la necessitat de comunicacions constants amb el servidor.
+
+Les tecnologies més destacades inclouen:
+
+- **JavaScript**: el llenguatge estàndard del web per a la programació del costat del client. Permet validar formularis, manipular el DOM, gestionar esdeveniments, fer peticions asíncrones (AJAX), i molt més.
+- **Frameworks i llibreries frontend**: com React, Angular o Vue.js, que faciliten la construcció d’interfícies d’usuari riques i dinàmiques.
+- **Applets Java** (ja en desús): eren petits programes compilats que s’executaven dins del navegador mitjançant la màquina virtual de Java. Avui en dia han estat substituïts per tecnologies més lleugeres i segures com JavaScript i WebAssembly.
+
+Aquest codi del costat del client pot estar **emmagatzemat dins del mateix document HTML** (com en el cas del JavaScript emprat) o carregar-se des de fitxers externs. La seva execució és totalment **independent del servidor un cop carregat**, tot i que sovint es comunica amb ell per actualitzar dades o enviar informació.
+
+## Conclusió
+
+El model client-servidor és la base sobre la qual es construeixen totes les aplicacions web modernes. La separació clara entre **frontend** (interacció amb l’usuari) i **backend** (processament de dades i lògica de negoci) permet desenvolupar sistemes escalables, mantenibles i eficients. Gràcies a la combinació de tecnologies del costat del client i del servidor, les aplicacions web poden oferir experiències riques, dinàmiques i altament interactives, tot respectant els estàndards oberts que fan possible la interoperabilitat a Internet.
