@@ -164,7 +164,6 @@ Resalta paraules en *cursiva* o **negreta** segons calgui. També pots combinar-
 def saluda():
     print("Hola des de Python!")
 ```
-```
 
 
 > **Avantatges de Markdown**:  
