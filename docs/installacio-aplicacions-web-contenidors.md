@@ -1,149 +1,165 @@
-# Instal·lació d'aplicacions web en contenidors
-## Creació del contenidor
-```console
-lxc launch ubuntu:20.04 elmeucontenidor
+# **Instal·lació d’aplicacions web en contenidors LXD (Ubuntu 24.04)**
+
+## 1. Creació del contenidor
+
+```bash
+lxc launch ubuntu:24.04 elmeucontenidor
 ```
 
-## Engegar el contenidor (si està aturat)
-```console
-lxc start elmeucontenidor
+> **Consell:** Utilitza un nom descriptiu (ex: `grup-usuari-servei`) per facilitar la identificació.
+
+## 2. Gestió bàsica del contenidor
+
+- **Engegar (si està aturat):**
+  ```bash
+  lxc start elmeucontenidor
+  ```
+
+- **Accedir al contenidor:**
+  ```bash
+  lxc exec elmeucontenidor -- bash
+  ```
+
+- **Veure l’estat i la IP del contenidor:**
+  ```bash
+  lxc list
+  ```
+
+## 3. Instal·lació del *stack* LAMP (Linux, Apache, MySQL, PHP)
+
+Dins del contenidor (`lxc exec elmeucontenidor -- bash`):
+
+```bash
+apt update && apt upgrade -y
+apt install -y apache2 mysql-server php php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 
-## Executar el contenidor
-```console
-lxc exec elmeucontenidor bash
-```
+> **Nota:** Ubuntu 24.04 utilitza **PHP 8.3** per defecte.
 
-## Exportar i importar un contenidor
-Com exportar i importar un contenidor
+## 4. Configuració d’Apache per a PHP-FPM
 
-https://serverfault.com/questions/759170/copy-lxd-containers-between-hosts
-
-## Instal·lar apache2, mysql i algunes llibreries al contenidor
-
-```console
- apt update
- apt upgrade
- apt install apache2
- apt install mysql-server
- apt install php libapache2-mod-php
- apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
-```
-
-## Configurem apache2
-
-Activem el mòdul `proxy_fcgi`:
-```console
+```bash
 a2enmod proxy_fcgi
-```
-
-Activem la configuració de `php-fpm`:
-```console
-a2enconf php-fpm
-```
-Reiniciem el servidor:
-```console
+a2enconf php8.3-fpm  # Ajusta la versió si cal (normalment és 8.3 a Ubuntu 24.04)
 systemctl restart apache2
 ```
 
-## Creem una base de dades i un usuari al MySQL
+## 5. Configuració de MySQL
 
- https://elpuig.xeill.net/Members/vcarceler/articulos/mysql-en-un-contedor-lxd/index_html
-
- https://elpuig.xeill.net/Members/vcarceler/articulos/instalacion-basica-de-wordpress-en-ubuntu-20.04/index_html
-
-Accedim al `MySQL` amb l'usuari `root`
-```console
+### Accedeix a MySQL com a root:
+```bash
 mysql -u root
 ```
 
-Creem la base de dades amb el nom que volgueu, en el meu cas `lamevabasededades`
-```console
+### Crea una base de dades i un usuari (ex: per WordPress):
+```sql
 CREATE DATABASE lamevabasededades;
+CREATE USER 'elmeuusuari'@'localhost' IDENTIFIED BY 'elmeupassword';
+GRANT ALL PRIVILEGES ON lamevabasededades.* TO 'elmeuusuari'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
 ```
 
-Creem un usuari anomenat `elmeuusuari`, li posem el password `elmeupassword` i li donem privilegis sobre la nostra base de dades `lamevabasededades`
+> **Nota:** A Ubuntu 24.04, MySQL 8.0 utilitza autenticació `caching_sha2_password` per defecte. Si cal compatibilitat amb aplicacions antigues, pots usar:
+> ```sql
+> CREATE USER 'elmeuusuari'@'localhost' IDENTIFIED WITH mysql_native_password BY 'elmeupassword';
+> ```
 
-```console
-CREATE USER 'elmeuusuari'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-```
-```console
-GRANT ALL ON lamevabasededades.* to 'elmeuusuari'@'localhost';
-```
-```console
-exit
-```
+## 6. Sincronització de la carpeta web amb l’equip host
 
-Comprovem que tot ha funcionat bé
-```console
-mysql -u elmeuusuari -p
-```
-
-Un cop ja tenim la base de dades i el nou usuari que utilitzarem ja podem continuar la nostra instal·lació.
-
-## Sincronitzar una carpeta del contenidor amb una carpeta de la màquina host
-Primer sincronitzem la carpeta on estarà la web al contenidor `/var/www/html` amb una carpeta a la màquina host, per comoditat.
-
-### Crea un parell de claus al host
-
-```console
+### Pas 1: Genera una clau SSH a l’host
+```bash
 ssh-keygen -f ~/.ssh/elmeucontenidor -N ""
 ```
 
-### Mostra la clau-pública generada al host
-```console
- cat ~/.ssh/elmeucontenidor.pub
+### Pas 2: Copia la clau pública al contenidor
+Mostra la clau:
+```bash
+cat ~/.ssh/elmeucontenidor.pub
 ```
 
-### Selecciona la clau pública i copía-la al contenidor
-Enganxa-la al fitxer `/root/.ssh/authorized_keys` del contenidor el contingut de la clau pública.
-
-```console
-vim /root/.ssh/authorized_keys
+Dins del contenidor, crea el fitxer d’autorització:
+```bash
+mkdir -p /root/.ssh
+echo "LA_TEVA_CLAU_PÚBLICA_AQUÍ" >> /root/.ssh/authorized_keys
+chmod 700 /root/.ssh
+chmod 600 /root/.ssh/authorized_keys
 ```
 
-### Crea una carpeta anomenada `elmeucontenidor` al host
-```console
-mkdir ~/elmeucontenidor
-```
-
-### Esbrina l'adreça IP del contenidor
-
-```console
-ip a
-```
-
-També pots veure la IP del contenidor fent `lxc list`
-
-### Sincronitza la carpeta `elmeucontenidor` del host amb la carpeta `/var/www/html` del contenidor
-Substitueix la IP de la comanda per la IP que tingui el teu contenidor:
-
-```console
+### Pas 3: Munta la carpeta remota amb `sshfs`
+A l’host:
+```bash
+mkdir -p ~/elmeucontenidor
+# Substitueix la IP pel valor que et mostri `lxc list`
 sshfs root@10.161.122.237:/var/www/html ~/elmeucontenidor
 ```
 
-Dins de la carpeta `elmeucontenidor` hauria d'apareixer l'`index.html` que ha creat `apache2` en la instal·lació.
+> Ara pots treballar amb els fitxers web des de la teva màquina host!
 
-### Copiem l'aplicació web que volem instal·lar a la nostra carpeta `elmeucontenidor` del host i actualitzem els permisos
 
-Baixem l'arxiu comprimit de l'aplicació que hem baixat d'Internet:
+## 7. Desplegament de l’aplicació web (ex: WordPress)
 
-```console
-cp ~/Baixades/aplicacio.zip ~/elmeucontenidor
+### Des de l’host:
+```bash
+cp ~/Baixades/wordpress.tar.gz ~/elmeucontenidor/
 cd ~/elmeucontenidor
-unzip aplicacio.zip
+tar -xzf wordpress.tar.gz --strip-components=1
 ```
 
-Un cop copiat i descomprimit l'arxiu canviem els permisos de tota la carpeta `/var/www/html`
-
-```console
-chown -R root:www-data /var/www/html
-chmod -R 775 /var/www/html
+### Assegura els permisos dins del contenidor:
+```bash
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
 ```
 
-### Accedim a l'instal·lador de l'aplicació mitjançant el navegador web
-Poseu la IP del vostre contenidor al navegador web i comproveu el seu funcionament:
+> **Nota:** És recomanable que el propietari sigui `www-data`, no `root`.
 
-```console
-http://10.161.122.237
-```
+### Accedeix des del navegador:
+Obre `http://<IP_DEL_CONTENIDOR>` i segueix l’assistent d’instal·lació de WordPress.
+
+## 8. Exportar i importar un contenidor
+
+### Exportar el contenidor
+
+1. **Atura el contenidor:**
+   ```bash
+   lxc stop elmeucontenidor
+   ```
+
+2. **Publica’l com a imatge:**
+   ```bash
+   lxc publish elmeucontenidor --alias elmeucontenidor-backup
+   ```
+
+3. **Exporta la imatge a fitxers:**
+   ```bash
+   lxc image export elmeucontenidor-backup .
+   ```
+   > Això genera dos fitxers:  
+   > - `meta-*.tar.xz` (metadades)  
+   > - `rootfs-*.tar.xz` (sistema de fitxers)
+
+### Importar el contenidor en un altre host
+
+1. **Importa la imatge:**
+   ```bash
+   lxc image import meta-*.tar.xz rootfs-*.tar.xz --alias elmeucontenidor-importat
+   ```
+
+2. **Crea un nou contenidor a partir de la imatge:**
+   ```bash
+   lxc launch elmeucontenidor-importat elmeucontenidor
+   ```
+
+> **Important:** Assegura’t que LXD estigui instal·lat i inicialitzat (`lxd init`) al sistema de destinació.
+
+## 9. Recomanacions finals
+
+- **Atura els contenidors quan no els facis servir:**
+  ```bash
+  lxc stop elmeucontenidor
+  ```
+
+- **Fes còpies de seguretat periòdiques** mitjançant `lxc publish` + `lxc image export`.
+
+- **Evita executar serveis com a root** dins del contenidor sempre que sigui possible.
