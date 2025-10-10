@@ -146,7 +146,7 @@ git log
 
 Prem **Q** per sortir.
 
-## 6. ☁️ Publica els canvis a GitHub
+## 6. Publica els canvis a GitHub
 
 ```bash
 git push
@@ -215,4 +215,4 @@ git push -u origin caracteristica-nova
 
 Amb aquesta guia ja tens tot el necessari per treballar de forma **professional, segura i eficient** amb Git i GitHub des del teu Linux! 🚀
 
-> ✨ **Recorda**: la clau SSH només s’ha de configurar **un cop per equip**. Després, tot funcionarà de forma transparent!
+> **Recorda**: la clau SSH només s’ha de configurar **un cop per equip**. Després, tot funcionarà de forma transparent!
