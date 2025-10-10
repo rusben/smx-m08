@@ -83,7 +83,8 @@ La teva clau SSH funciona correctament!
 2. Omple:
    - **Name**: `my-first-webpage`  
    - **Public**  
-   - **Add a README file** (opcional, però útil)  
+   - **Add a README file**
+   - **Llicència**: GNU General Public License v3.0
 3. Clica **Create repository**
 
 ### 3.2. Clona el repositori mitjançant SSH
