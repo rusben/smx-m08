@@ -5,8 +5,8 @@ El mòdul d’**Aplicacions Web** té com a objectiu oferir als alumnes una form
 ## Tema 1 – Ofimàtica i eines web col·laboratives  
 Aquest tema introdueix les principals aplicacions d’ofimàtica en entorns digitals, amb especial èmfasi en les plataformes en línia que permeten la col·laboració en temps real. Els alumnes aprendran a utilitzar eines com **Google Docs**, **Sheets** i **Slides** per crear, editar i compartir documents, fulls de càlcul i presentacions de manera eficient i segura, fomentant el treball col·laboratiu i la productivitat digital.
 
-## Tema 2 – Gestors d’arxius web  
-Aquest mòdul explora les plataformes i protocols que permeten emmagatzemar, organitzar i compartir arxius a Internet. S’analitzen serveis com **Google Drive**, **Dropbox**, **OneDrive** i el protocol **FTP** (File Transfer Protocol). L’alumne adquirirà competències en la gestió de nomenclatures, categories, permisos d’accés i bones pràctiques de seguretat per protegir dades personals i professionals.
+### Tema 2 – Gestors d’arxius web  
+Aquest tema explora les plataformes i protocols que permeten emmagatzemar, organitzar i compartir arxius a Internet de forma segura i eficient. S’analitzen serveis populars com **Google Drive**, **Dropbox** i **OneDrive**, així com solucions de codi obert com **ownCloud** i **Nextcloud**, que ofereixen un alt grau de control sobre les dades i la possibilitat d’autohospedatge. També s’introdueix el protocol **FTP** (*File Transfer Protocol*) com a eina clàssica per a la transferència de fitxers en entorns web.  
 
 ## Tema 3 – Gestors de contingut (CMS)  
 Es presenten els **Sistemes de Gestió de Continguts** (CMS), com **WordPress**, **Joomla** o **Drupal**, com a solucions clau per crear i mantenir llocs web sense requerir coneixements avançats de programació. Els alumnes aprendran a instal·lar, configurar i personalitzar pàgines web mitjançant temes, extensions i eines integrades, així com a publicar i gestionar continguts de forma àgil i professional.
