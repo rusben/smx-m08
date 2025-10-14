@@ -3,7 +3,7 @@
 
 Per defecte, el servidor PHP limita la mida dels fitxers que es poden pujar a través de formularis web, com el gestor de mitjans de WordPress. Si necessites pujar fitxers més grans (imatges, vídeos, documents, etc.), cal modificar la configuració de PHP. Aquesta guia explica com fer-ho directament al fitxer de configuració del servidor web.
 
-> ⚠️ **Nota important**: La ruta exacta del fitxer de configuració depèn de la versió de PHP instal·lada i del tipus de servidor web (Apache, Nginx amb PHP-FPM, etc.). Aquesta guia s’adapta a qualsevol versió.
+> **Nota important**: La ruta exacta del fitxer de configuració depèn de la versió de PHP instal·lada i del tipus de servidor web (Apache, Nginx amb PHP-FPM, etc.). Aquesta guia s’adapta a qualsevol versió.
 
 ## Passos a seguir
 
@@ -32,7 +32,7 @@ Exemple de sortida:
 /usr/lib/php/8.2/php.ini-production
 ```
 
-> 🔍 **Quin fitxer has d’editar?**  
+> **Quin fitxer has d’editar?**  
 > - Si utilitzes **Apache**, edita el fitxer dins de `/etc/php/[versió]/apache2/php.ini`.  
 > - Si utilitzes **Nginx amb PHP-FPM**, edita el de `/etc/php/[versió]/fpm/php.ini`.  
 > - El fitxer `cli/php.ini` només afecta els scripts executats des de la línia d’ordres i **no** el teu lloc web.
@@ -57,7 +57,7 @@ Obre el fitxer `php.ini` corresponent al teu servidor web. Per exemple, si la te
 sudo nano /etc/php/8.2/apache2/php.ini
 ```
 
-> ⚠️ Substitueix `8.2` per la teva versió real (pot ser `7.4`, `8.0`, `8.1`, etc.).
+> Substitueix `8.2` per la teva versió real (pot ser `7.4`, `8.0`, `8.1`, etc.).
 
 Cerca i modifica les següents directives:
 
@@ -72,7 +72,7 @@ Explicació dels paràmetres:
 - **`post_max_size`**: mida màxima total de dades enviades en una sol·licitud POST. Ha de ser igual o superior a `upload_max_filesize`.
 - **`max_execution_time`**: temps màxim (en segons) que un script pot executar-se. Útil per pujades lentes o grans.
 
-> 💡 **Exemple**: Per permetre pujar fitxers fins a 128 MB:
+> **Exemple**: Per permetre pujar fitxers fins a 128 MB:
 > ```ini
 > upload_max_filesize = 128M
 > post_max_size = 128M
