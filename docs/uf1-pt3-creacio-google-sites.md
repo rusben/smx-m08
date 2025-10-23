@@ -84,3 +84,8 @@ Crear un lloc web utilitzant **Google Sites** sobre un tema relacionat amb el m�
 
 20. **Diagnòstic i reparació de maquinari informàtic**  
     Identificació de fallades en components (RAM, disc dur, placa base) i ús d'eines de diagnòstic.
+
+## **Entrega**
+- **Format:** Creeu un repositori a GitHub.
+- **Nom del repositori:** `Practica_GoogleSites_NomCognomsAlumne`
+- **Contingut del repositori:** Un README.md amb un títol, una petita descripció i un enllaç al vostre Google Sites que s'haurà de veure en clicar-lo.
