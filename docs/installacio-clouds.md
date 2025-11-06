@@ -44,6 +44,11 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
    sudo mv owncloud/* . && sudo rmdir owncloud
    ```
 
+   > Podeu fer això directament si ho teniu descomprimit a `Descargas`:
+   ```bash
+   cp -R ~/Descargas/nextcloud/. /var/www/domini.local/.
+   ```
+
 5. **Assegura els permisos correctes**:
    ```bash
    sudo chown -R www-data:www-data /var/www/domini.local
