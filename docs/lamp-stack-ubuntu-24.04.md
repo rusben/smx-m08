@@ -38,28 +38,27 @@ sudo apt install mysql-server mysql-client -y
 sudo systemctl enable mysql
 sudo systemctl start mysql
 ```
+**Configura de MySQL:**
 
-**Executa la configuració de seguretat:**
+#### Accés a la consola de MySQL
 ```bash
-sudo mysql_secure_installation
+sudo mysql
 ```
 
-Durant aquest procés:
-1. Et preguntarà si vols activar el **plugin de validació de contrasenya**. Pots dir **Sí** o **No** segons les teves necessitats.
-2. **Estableix una contrasenya segura per a l’usuari root de MySQL**.
-3. Respon **Sí** a la resta de preguntes per:
-   - Eliminar usuaris anònims
-   - Deshabilitar l’accés remot com a root
-   - Eliminar la base de dades de prova
-   - Recarregar les taules de privilegis
-
-> 💡 **Nota important**: A diferència de MariaDB a Ubuntu, **MySQL requereix una contrasenya per a l’usuari root** després d’aquesta configuració. Assegura’t de recordar-la!
-
-**Prova l’accés a MySQL:**
-```bash
-mysql -u root -p
+#### Creació de la base de dades
+```sql
+CREATE DATABASE bbdd;
 ```
-Introdueix la contrasenya que has establert i hauries d’entrar a la consola de MySQL. Escriu `exit;` per sortir.
+
+#### Creació de l’usuari local
+```sql
+CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL PRIVILEGES ON bbdd.* TO 'usuario'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+> **Nota:** Aquest usuari només pot connectar-se des del servidor local (`localhost`), cosa que és suficient si l’aplicació web i la base de dades estan al mateix servidor.
 
 ### 4. **Instal·la PHP i extensions comunes**
 
