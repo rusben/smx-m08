@@ -90,7 +90,7 @@ http://www.domini.local
 Si el directori `/var/www/domini.local` està buit, Apache pot mostrar un error 403 o una llista de directoris (segons la configuració). Per provar que funciona, creeu un fitxer de prova:
 
 ```bash
-echo "<h1>Hola, aquest és domini.local!</h1>" | sudo tee /var/www/domini.local/index.html
+echo "<h1>Hola, benvingut domini.local</h1>" | sudo tee /var/www/domini.local/index.html
 ```
 
 Torneu a carregar la pàgina i hauríeu de veure el missatge.
