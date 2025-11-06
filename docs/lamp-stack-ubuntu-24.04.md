@@ -23,11 +23,6 @@ sudo systemctl start apache2
 sudo systemctl status apache2
 ```
 
-**Obre el port 80 al tallafocs (si està actiu):**
-```bash
-sudo ufw allow in "Apache Full"
-```
-
 Visita `http://localhost` per veure la pàgina per defecte d’Apache.
 
 ### 3. **Instal·la MySQL**
