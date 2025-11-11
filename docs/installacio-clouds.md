@@ -20,20 +20,22 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
 
 ### 1.2. Passos d’instal·lació
 
-1. **Descarrega el fitxer `.zip`** de la plataforma triada (Nextcloud o ownCloud) al teu sistema.
-
-2. **Mou’t al directori del virtual host**:
+1. **Mou’t al directori del virtual host**:
    ```bash
    cd /var/www/domini.local
    ```
-
-3. **Neteja el contingut actual** (si cal):
+2. **Neteja el contingut actual** (si cal):
    > Assegura’t que no hi ha dades importants abans d’executar això.
    ```bash
    sudo rm -rf *
    ```
+   
+3. **Descarrega el fitxer `.zip`** de la plataforma triada (Nextcloud o ownCloud) al teu sistema.
+    ```bash
+    wget https://download.nextcloud.com/server/releases/latest.zip
+   ```
 
-4. **Descomprimeix l’arxiu directament al directori**:
+5. **Descomprimeix l’arxiu directament al directori**:
    ```bash
    sudo unzip /ruta/al/arxiu.zip
    ```
@@ -49,13 +51,13 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
    cp -R ~/Descargas/nextcloud/. /var/www/domini.local/.
    ```
 
-5. **Assegura els permisos correctes**:
+6. **Assegura els permisos correctes**:
    ```bash
    sudo chown -R www-data:www-data /var/www/domini.local
    sudo chmod -R 755 /var/www/domini.local
    ```
 
-6. **Accedeix a la interfície web**:
+7. **Accedeix a la interfície web**:
    Obre el navegador i visita:
    ```
    http://domini.local
