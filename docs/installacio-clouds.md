@@ -54,8 +54,12 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
       > Podeu fer això directament si ho teniu descomprimit a `/var/www/domini.local`:
    ```bash
    cp -R /var/www/domini.local/nextcloud/. /var/www/domini.local/.
+  
    ```
-
+   Elimineu la carpeta `nextcloud`
+    ```bash
+    sudo rm -rf nextcloud
+    ```
 6. **Assegura els permisos correctes**:
    ```bash
    sudo chown -R www-data:www-data /var/www/domini.local
