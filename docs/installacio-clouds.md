@@ -37,7 +37,7 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
 
 4. **Descomprimeix l’arxiu directament al directori**:
 
-   1. > Heu descarregat l'arxiu a una ruta qualsevol
+   - **Heu descarregat l'arxiu a una ruta qualsevol**
    ```bash
    sudo unzip /ruta/al/arxiu.zip
    ```
@@ -48,7 +48,7 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
    sudo mv owncloud/* . && sudo rmdir owncloud
    ```
 
-   2. > Podeu fer això directament si ho teniu descomprimit a `Descargas`:
+   - **Podeu fer això directament si ho teniu descomprimit a `Descargas`:**
    ```bash
    cp -R ~/Descargas/nextcloud/. /var/www/domini.local/.
    ```
@@ -57,7 +57,7 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
     sudo rm -rf ~/Descargas/nextcloud && sudo rm -rf ~/Descargas/latest.zip
     ```
 
-   3. > Podeu fer això directament si ho teniu descomprimit a `/var/www/domini.local`:
+   - **Podeu fer això directament si ho teniu descomprimit a `/var/www/domini.local`:**
    ```bash
    cp -R /var/www/domini.local/nextcloud/. /var/www/domini.local/.
    ```
