@@ -50,15 +50,18 @@ Aquesta guia explica com instal·lar **Nextcloud** o **ownCloud** en un entorn o
    ```bash
    cp -R ~/Descargas/nextcloud/. /var/www/domini.local/.
    ```
+   Elimineu la carpeta `nextcloud` i l'arxiu `latest.zip`
+    ```bash
+    sudo rm -rf ~/Descargas/nextcloud && sudo rm -rf ~/Descargas/latest.zip
+    ```
 
-      > Podeu fer això directament si ho teniu descomprimit a `/var/www/domini.local`:
+   > Podeu fer això directament si ho teniu descomprimit a `/var/www/domini.local`:
    ```bash
    cp -R /var/www/domini.local/nextcloud/. /var/www/domini.local/.
-  
    ```
-   Elimineu la carpeta `nextcloud`
+   Elimineu la carpeta `nextcloud` i l'arxiu `latest.zip`
     ```bash
-    sudo rm -rf nextcloud
+    sudo rm -rf /var/www/domini.local/nextcloud && sudo rm -rf /var/www/domini.local/latest.zip
     ```
 6. **Assegura els permisos correctes**:
    ```bash
