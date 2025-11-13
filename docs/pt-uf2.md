@@ -83,9 +83,6 @@ L'entrega es realitza mitjançant un repositori a GitHub, que ha de seguir estri
      - Enllaços als altres fitxers `.md`.
      - Observacions o problemes trobats durant la pràctica.
 
-- **Format de lliurament**:
-  - Mitjançant un formulari `GoogleForms` que el professor us enviarà.
-
 ---
 
 ## **Aspectes addicionals**
