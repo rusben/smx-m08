@@ -37,11 +37,12 @@ Les següents tasques han de ser documentades en dos fitxers `.md` separats (veg
    - Verificar que Nextcloud estigui accessible des del navegador.
 
 3. **Manual d’instal·lació**:
-   - Proporcionar una guia pas a pas del procés d’instal·lació.
-   - Incloure captures de pantalla significatives per il·lustrar cada pas.
+   - Seguir la guia pas a pas del procés d’instal·lació.
+  
+**A PARTIR D'AQUEST PUNT ES OBLIGATORI QUE TINGUEU CAPTURES DE PANTALLA**
 
 4. **Demostració del funcionament**:
-   - Realitzar proves bàsiques per verificar el correcte funcionament d’ownCloud:
+   - Realitzar proves bàsiques per verificar el correcte funcionament de Nextcloud:
      - Pujar arxius.
      - Crear carpetes.
      - Compartir continguts.
