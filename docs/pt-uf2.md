@@ -36,16 +36,14 @@ Les tasques es divideixen en tres fitxers de documentació diferents:
 1. **Configuració del sistema de virtualització (IsardVDI)**:  
    - Explicar el procés de configuració d'IsardVDI (creació de la màquina virtual).  
    - Configurar una màquina virtual per allotjar Nextcloud.  
-   *(Aquesta part és purament introductòria i descriptiva; no es requereixen captures de pantalla.)*
 
 2. **Instal·lació del gestor d’arxius Nextcloud**:  
    - Descarregar i instal·lar Nextcloud en la màquina virtual.  
    - Configurar el servidor web (Apache) i la base de dades (MySQL/MariaDB).  
    - Verificar que Nextcloud sigui accessible des del navegador.  
-   *(Les captures de pantalla són obligatòries a partir d’aquí.)*
 
 3. **Manual d’instal·lació**:  
-   - Presentar una guia pas a pas del procés complet d’instal·lació, amb captures de pantalla rellevants.
+   - Presentar una guia pas a pas del procés complet d’instal·lació.
 
 #### **A documentar a `CONFIGURATION.md`**  
 *(Totes les tasques d’aquest apartat requereixen captures de pantalla)*
