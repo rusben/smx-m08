@@ -60,7 +60,7 @@ Les següents tasques han de ser documentades en dos fitxers `.md` separats (veg
    - Configurar polítiques de seguretat (com ara la caducitat dels enllaços compartits).
 
 8. **Accés des d’una màquina qualsevol de la xarxa**:
-   - Configurar l’accés remot a ownCloud des d’un altre dispositiu.
+   - Configurar l’accés remot a Nextcloud des d’un altre dispositiu.
    - **(Extra)** Configurar l’accés a les clouds dels teus dos companys i documentar-ho.
 
 ---
@@ -98,8 +98,8 @@ L'entrega es realitza mitjançant un repositori a GitHub, que ha de seguir estri
    - [File Manager - Wikipedia](https://en.wikipedia.org/wiki/File_manager#Web-based_file_managers)
 2. **Cloud Computing**:
    - [Cloud Computing - Wikipedia](https://en.wikipedia.org/wiki/Cloud_computing)
-3. **Documentació oficial d’ownCloud**:
-   - [OwnCloud Documentation](https://doc.owncloud.com/)
+3. **Documentació oficial de Nextcloud**:
+   - [Nextcloud Documentation](https://docs.nextcloud.com/server/latest/user_manual/es/)
 
 ### **Criteris d’avaluació**
 1. **Correctesa tècnica**:
