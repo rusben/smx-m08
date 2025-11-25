@@ -66,7 +66,7 @@ Les tasques es divideixen en tres fitxers de documentació diferents:
    - **Polítiques de seguretat**: Activar opcions com la caducitat dels enllaços compartits o l’obligació de contrasenya per accedir-hi.
 
 8. **Accés des d’una màquina qualsevol de la xarxa**:  
-   - **Configuració d’accés remot**: Explicar com es permet l’accés a Nextcloud des d’un dispositiu diferent a la màquina virtual (per exemple, des d’un portàtil connectat a la mateixa xarxa).  
+   - **Configuració d’accés remot**: Explicar com es permet l’accés a Nextcloud des d’un dispositiu diferent a la màquina virtual (per exemple, des d’una màquina connectada a la mateixa xarxa).  
    - **(Extra) Accés a clouds de companys**: Documentar el procés d’afegir comptes externs de Nextcloud (els de dos companys) i navegar-hi des del propi client web o d’escriptori.
 
 ## **Entrega**
