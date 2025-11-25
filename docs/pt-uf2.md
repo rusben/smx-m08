@@ -79,7 +79,6 @@ L'entrega es realitza mitjançant un repositori a GitHub, que ha de seguir estri
 - **Contingut del repositori**:  
   1. **`INSTALLATION.md`**:  
      - Manual d’instal·lació de Nextcloud amb virtualització mitjançant IsardVDI.  
-     - Inclou **captures de pantalla obligatòries** a partir del punt 2.  
   2. **`CONFIGURATION.md`**:  
      - Manual de configuració de Nextcloud: usuaris, rols, permisos, gestió d’arxius i accés remot.  
      - Totes les seccions han d’anar acompanyades de captures de pantalla.  
