@@ -1,4 +1,4 @@
-# UF2 - Gestors d’arxius web
+# Tema 2 - Gestors d’arxius web
 
 1. [Introducció als contenidors lxc/lxd](intro-contenidors-lxc-lxd.md)
 2. [Instal·lació de LAMP stack a Ubuntu 24.04](lamp-stack-ubuntu-24.04.md)
