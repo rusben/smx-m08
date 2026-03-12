@@ -1,4 +1,4 @@
-# UF4 - Portals web d’aprenentatge
+# Tema 4 - Portals web d’aprenentatge
 
 1. [Manual d'instal·lació d'aplicacions web](installacio-aplicacions-web.md)
 2. [Configuració de VirtualHost amb apache2](configuracio-virtual-host-apache2.md)
