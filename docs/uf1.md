@@ -1,4 +1,4 @@
-# UF1 - Ofimàtica i eines web
+# Tema 1 - Ofimàtica i eines web
 
 ## Introducció a les aplicacions web
 Una aplicació web és una aplicació a la qual accedim mitjançant protocol HTTP utilitzant un navegador web. Hem vist el protocol HTTP, però no com utilitzar-lo per implementar una aplicació.
