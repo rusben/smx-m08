@@ -18,6 +18,17 @@ Durante la configuración selecciona `MySQL Server & Cluster` y asegúrate de el
 sudo apt-get update
 sudo apt install mysql-server -y
 ```
+Si ja havieu creat l'usuari de la base de dades executeu el següent:
+
+```bash
+sudo mysql
+```
+
+```bash
+ALTER USER 'usuario'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password';
+EXIT;
+```
+
 
 ## Pràctica
 * [Enunciat de la pràctica de moodle](pt-uf4.md)
