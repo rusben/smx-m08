@@ -12,7 +12,7 @@ wget https://repo.mysql.com//mysql-apt-config_0.8.36-1_all.deb
 sudo dpkg -i mysql-apt-config_0.8.36-1_all.deb 
 ```
 
-Durante la configuración selecciona MySQL Server & Cluster y asegúrate de elegir la serie mysql-8.4-lts. Después selecciona Ok y aceptar.
+Durante la configuración selecciona `MySQL Server & Cluster` y asegúrate de elegir la serie `mysql-8.4-lts`. Después selecciona `Ok` y aceptar.
 
 ```bash
 sudo apt-get update
