@@ -12,7 +12,7 @@ wget https://repo.mysql.com//mysql-apt-config_0.8.36-1_all.deb
 sudo dpkg -i mysql-apt-config_0.8.36-1_all.deb 
 ```
 
-Durante la configuración selecciona `MySQL Server & Cluster` y asegúrate de elegir la serie `mysql-8.4-lts`. Después selecciona `Ok` y aceptar.
+Durant la configuració selecciona `MySQL Server & Cluster` y tria la serie `mysql-8.4-lts`. Després selecciona `Ok` y acceptar.
 
 ```bash
 sudo apt-get update
@@ -28,6 +28,21 @@ sudo mysql
 ALTER USER 'usuario'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password';
 EXIT;
 ```
+
+## Canviar el valor de `max_input_vars`
+```
+
+```bash
+sudo vim /etc/php/8.3/apache2/php.ini 
+```
+
+Buscar la variable i canviar el valor a 5000:
+```bash
+max_input_vars = 5000
+```
+
+
+
 
 
 ## Pràctica
