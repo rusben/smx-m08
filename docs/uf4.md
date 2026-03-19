@@ -6,6 +6,21 @@
 ## Descarregar Moodle
 https://download.moodle.org/download.php/stable501/moodle-latest-501.zip
 
+## Configuració de VirtualHost per a moodle
+
+El `DocumentRoot` ha d'apuntar a la carpeta `public`
+
+```bash
+<VirtualHost *:80>
+    ServerAdmin admin@domini.local
+    ServerName www.domini.local
+    ServerAlias domini.local
+    DocumentRoot /var/www/domini.local/public
+    ErrorLog ${APACHE_LOG_DIR}/domini.local_error.log
+    CustomLog ${APACHE_LOG_DIR}/domini.local_access.log combined
+</VirtualHost>
+```
+
 ## Mysql a la versió 8.4
 ```bash
 wget https://repo.mysql.com//mysql-apt-config_0.8.36-1_all.deb
