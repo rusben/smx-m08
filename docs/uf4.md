@@ -21,6 +21,10 @@ El `DocumentRoot` ha d'apuntar a la carpeta `public`
 </VirtualHost>
 ```
 
+```bash
+sudo service apache2 restart
+```
+
 ## Mysql a la versió 8.4
 ```bash
 wget https://repo.mysql.com//mysql-apt-config_0.8.36-1_all.deb
