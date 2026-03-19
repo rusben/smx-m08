@@ -45,7 +45,7 @@ EXIT;
 ```
 
 ## Canviar el valor de `max_input_vars`
-```
+
 
 ```bash
 sudo vim /etc/php/8.3/apache2/php.ini 
