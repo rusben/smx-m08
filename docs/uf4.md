@@ -20,6 +20,7 @@ El `DocumentRoot` ha d'apuntar a la carpeta `public`
     CustomLog ${APACHE_LOG_DIR}/domini.local_access.log combined
 </VirtualHost>
 ```
+Reiniciem l'apache:
 
 ```bash
 sudo service apache2 restart
