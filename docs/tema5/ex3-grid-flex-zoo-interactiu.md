@@ -171,3 +171,22 @@ toggleButton.addEventListener('click', () => {
 2. **Imatges atractives**: Utilitza imatges d'animals divertits o poc habituals per captar l'atenció.
 3. **Botó interactiu**: El botó de canvi de layout permetrà als usuaris experimentar directament amb les diferències entre `grid` i `flex`.
 4. **Ampliació opcional**: Pots afegir més interactivitat, com ara mostrar una finestra emergent amb més informació sobre l'animal seleccionat.
+
+Publicació dels canvis a GitHub
+
+Un cop acabat l'exercici publiqueu els vostres canvis a GitHub:
+
+    Entreu al terminal i aneu fins a la carpeta que conté el repositori.
+    Feu git add . per afegir els canvis.
+    Feu git commit -m "Missatge descriptiu dels canvis" per a guardar els canvis en el registre local.
+    Finalment feu git push per a publicar els canvis.
+
+Activeu GitHub Pages
+
+En el vostre perfil de GitHub aneu fins al repositori del pokemon.
+
+    Ves al menú superior per gestionar les Settings del repositori.
+    Un cop a Settings aneu a Pages al menú de l'esquerra.
+    Un cop a Pages seleccioneu en la secció Branch la branca main.
+    En uns minuts us apareixerà un enllaç on s'ha publicat la vostra web, recarregueu la pàgina Pages fins que aparegui l'enllaç, copieu l'enllaç i aneu altre cop a la pàgina principal del repositori, cliqueu a l'engranatge de la dreta a la secció About i escriviu aquest enllaç on diu Website.
+
